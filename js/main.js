@@ -3,16 +3,6 @@
  * Author   : AirClean Premium
  * Version  : 2.0.0
  * Encoding : UTF-8
- *
- * TABLE OF CONTENTS
- * 01. Scroll Reveal  (IntersectionObserver)
- * 02. Sticky Bar + Back-to-Top  (single merged scroll listener)
- * 03. Countdown Timer  (persisted in sessionStorage)
- * 04. Interactive Calculator
- * 05. FAQ Accordion
- * 06. Booking Form Validation
- * 07. Slot Count  (persisted in localStorage)
- * 08. Social Proof Notifications
  */
 
 'use strict';
@@ -29,7 +19,7 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
-          observer.unobserve(entry.target); // fire once — save CPU
+          observer.unobserve(entry.target);
         }
       });
     },
@@ -39,9 +29,8 @@
   elements.forEach((el) => observer.observe(el));
 })();
 
-
 /* ============================================================
-   02. STICKY BAR + BACK-TO-TOP  (single passive scroll listener)
+   02. STICKY BAR + BACK-TO-TOP
    ============================================================ */
 (function initScrollUI() {
   const sticky  = document.getElementById('sticky');
@@ -62,7 +51,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
-
 
 /* ============================================================
    03. COUNTDOWN TIMER
@@ -95,7 +83,6 @@
   }, 1000);
 })();
 
-
 /* ============================================================
    04. INTERACTIVE CALCULATOR
    ============================================================ */
@@ -123,16 +110,14 @@
     acVal.textContent    = ac + ' เครื่อง';
     hrVal.textContent    = hr + ' ชั่วโมง';
 
-    /* Update CSS custom property for slider fill */
     acSlider.style.setProperty('--pct', ((ac - 1)  / 5  * 100).toFixed(1) + '%');
     hrSlider.style.setProperty('--pct', ((hr - 4)  / 14 * 100).toFixed(1) + '%');
   }
 
   acSlider.addEventListener('input', calcWaste);
   hrSlider.addEventListener('input', calcWaste);
-  calcWaste(); // run once on load
+  calcWaste(); 
 })();
-
 
 /* ============================================================
    05. FAQ ACCORDION
@@ -141,17 +126,14 @@ function toggleF(btn) {
   const answer = btn.nextElementSibling;
   const isOpen = answer.classList.contains('open');
 
-  /* Close all */
   document.querySelectorAll('.fans').forEach((a) => a.classList.remove('open'));
   document.querySelectorAll('.fbtn').forEach((b) => b.classList.remove('open'));
 
-  /* Open clicked (unless it was already open) */
   if (!isOpen) {
     answer.classList.add('open');
     btn.classList.add('open');
   }
 }
-
 
 /* ============================================================
    06. BOOKING FORM VALIDATION
@@ -201,9 +183,8 @@ function submitForm(btn) {
   btn.disabled             = true;
 }
 
-
 /* ============================================================
-   07. SLOT COUNT  (persisted in localStorage)
+   07. SLOT COUNT
    ============================================================ */
 (function initSlots() {
   const KEY = 'ac_slots';
@@ -213,17 +194,16 @@ function submitForm(btn) {
   if (isNaN(slots) || slots > 7 || slots < MIN) slots = 7;
 
   function renderSlots(n) {
-    /* Slots row */
     const row = document.querySelector('.slots-row');
     if (row) {
       const taken = 15 - n;
       let html = '';
-      for (let i = 0; i < taken; i++) html += '<div class="slot taken" title="จองแล้ว"></div>';
-      for (let i = 0; i < n; i++)     html += '<div class="slot open"  title="ว่าง — จองได้เลย">📅</div>';
+      // แก้ไข Lighthouse ARIA Role ที่ตรงนี้: เพิ่ม role="listitem"
+      for (let i = 0; i < taken; i++) html += '<div class="slot taken" title="จองแล้ว" role="listitem"></div>';
+      for (let i = 0; i < n; i++)     html += '<div class="slot open"  title="ว่าง — จองได้เลย" role="listitem">📅</div>';
       row.innerHTML = html;
     }
 
-    /* Caption */
     const cap = document.querySelector('.slots-caption');
     if (cap) {
       cap.innerHTML =
@@ -231,20 +211,17 @@ function submitForm(btn) {
         '<strong style="color:var(--gold)">' + n + ' คิวสุดท้าย</strong>';
     }
 
-    /* Sticky bar message */
     const sMsg = document.querySelector('.sticky-msg');
     if (sMsg) {
       sMsg.innerHTML = '&#128293; เหลือ <strong>' + n + ' คิวสุดท้าย</strong> &mdash; โปรสัปดาห์นี้';
     }
 
-    /* Urgency heading span */
     const urgSpan = document.querySelector('#urgency h2 span');
     if (urgSpan) urgSpan.textContent = n + ' คิวสุดท้าย';
   }
 
   renderSlots(slots);
 
-  /* Decrease slots randomly every 8–18 minutes */
   function scheduleDecrease() {
     const delay = (8 + Math.random() * 10) * 60 * 1000;
     setTimeout(() => {
@@ -259,7 +236,6 @@ function submitForm(btn) {
 
   scheduleDecrease();
 })();
-
 
 /* ============================================================
    08. SOCIAL PROOF NOTIFICATIONS
@@ -281,29 +257,10 @@ function submitForm(btn) {
     { name: 'ธีรวัฒน์',  loc: 'ดินแดง',       action: 'เพิ่งกดจองแพ็คเกจ Premium ไป' },
     { name: 'นภาพร',      loc: 'สาทร',         action: 'กำลังดูแพ็คเกจ Premium อยู่' },
     { name: 'ประภาส',     loc: 'รามคำแหง',     action: 'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้' },
-    { name: 'มณีรัตน์',  loc: 'ห้วยขวาง',     action: 'กำลังดูหน้านี้อยู่ด้วยตอนนี้' },
-    { name: 'รัชนี',      loc: 'ลาดกระบัง',    action: 'เพิ่งจองแพ็คเกจ Standard ไป' },
-    { name: 'วีระ',       loc: 'บางรัก',       action: 'กำลังดูแพ็คเกจ Basic อยู่' },
-    { name: 'ศิริพร',     loc: 'สะพานสูง',     action: 'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้' },
-    { name: 'สมชาย',      loc: 'คลองสาน',      action: 'กำลังดูหน้านี้อยู่ด้วยตอนนี้' },
-    { name: 'หทัยทิพย์', loc: 'ประเวศ',        action: 'เพิ่งกดจองแพ็คเกจ Standard ไป' },
-    { name: 'อภิชาติ',   loc: 'ลาดพร้าว',     action: 'กำลังดูแพ็คเกจ Premium อยู่' },
-    { name: 'กิตติพงษ์', loc: 'บึงกุ่ม',      action: 'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้' },
-    { name: 'ชนิดา',      loc: 'ธนบุรี',       action: 'กำลังดูหน้านี้อยู่ด้วยตอนนี้' },
-    { name: 'ณัฐวุฒิ',   loc: 'ราษฎร์บูรณะ',  action: 'เพิ่งจองแพ็คเกจ Basic ไป' },
-    { name: 'ทิพย์วรรณ', loc: 'ดอนเมือง',     action: 'กำลังดูแพ็คเกจ Standard อยู่' },
-    { name: 'บุญมี',      loc: 'หลักสี่',      action: 'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้' },
-    { name: 'ปาริชาต',   loc: 'บางเขน',       action: 'กำลังดูหน้านี้อยู่ด้วยตอนนี้' },
-    { name: 'ไพโรจน์',   loc: 'ตลิ่งชัน',     action: 'เพิ่งกดจองแพ็คเกจ Premium ไป' },
-    { name: 'ยุพา',       loc: 'บางพลัด',      action: 'กำลังดูแพ็คเกจ Basic อยู่' },
   ];
 
-  const timeLabels = [
-    'เมื่อกี้', '1 นาทีที่แล้ว', '2 นาทีที่แล้ว',
-    '3 นาทีที่แล้ว', '5 นาทีที่แล้ว', '7 นาทีที่แล้ว', '10 นาทีที่แล้ว',
-  ];
+  const timeLabels = ['เมื่อกี้', '1 นาทีที่แล้ว', '2 นาทีที่แล้ว', '3 นาทีที่แล้ว', '5 นาทีที่แล้ว'];
 
-  /* Fisher-Yates shuffle */
   function shuffle(arr) {
     const a = [...arr];
     for (let i = a.length - 1; i > 0; i--) {
@@ -329,7 +286,7 @@ function submitForm(btn) {
   }
 
   function scheduleNotif() {
-    const delay = (15 + Math.random() * 7) * 1000; /* 15–22 s */
+    const delay = (15 + Math.random() * 7) * 1000; 
     setTimeout(() => { showNotification(); scheduleNotif(); }, delay);
   }
 
