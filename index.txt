@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirClean Premium — บริการล้างแอร์มาตรฐานระดับโรงแรม</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@300;400;600;700;900&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════
+   TOKENS
+════════════════════════════════════════ */
+:root {
+  --gold:       #f4c43c;
+  --gold-light: #ffe22e;
+  --gold-pale:  #fff9df;
+  --gold-dim:   rgba(244,196,60,0.12);
+  --gold-mid:   rgba(244,196,60,0.35);
+  --ink:        #1a1008;
+  --ink2:       #2a200a;
+  --warm:       #f7f2e8;
+  --warm2:      #ede8dc;
+  --muted:      #8a7d60;
+  --muted2:     #b8a87c;
+  --red:        #c0392b;
+  --red-soft:   rgba(192,57,43,0.1);
+  --green:      #1a6b3a;
+  --white:      #ffffff;
+  --serif:      'Noto Serif Thai', serif;
+  --sans:       'Noto Sans Thai', sans-serif;
+  --radius:     4px;
+  --radius-lg:  12px;
+  --ease:       cubic-bezier(0.16,1,0.3,1);
+}
+
+/* ════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--sans);
+  background:var(--warm);
+  color:var(--ink);
+  overflow-x:hidden;
+  padding-bottom:70px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ════════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════════ */
+@keyframes fadeUp   {from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn   {from{opacity:0}to{opacity:1}}
+@keyframes lineGrow {from{width:0}to{width:100%}}
+@keyframes float    {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes pulseRing{0%{box-shadow:0 0 0 0 var(--gold-mid)}70%{box-shadow:0 0 0 14px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp  {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes countUp  {from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+@keyframes shimmer  {0%{background-position:-400px 0}100%{background-position:400px 0}}
+@keyframes spin     {to{transform:rotate(360deg)}}
+@keyframes blink    {0%,100%{opacity:1}50%{opacity:0.4}}
+
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .75s var(--ease),transform .75s var(--ease);
+}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-l{opacity:0;transform:translateX(-24px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.reveal-l.in{opacity:1;transform:translateX(0)}
+.reveal-r{opacity:0;transform:translateX(24px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.reveal-r.in{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
+
+/* ════════════════════════════════════════
+   LAYOUT HELPERS
+════════════════════════════════════════ */
+.wrap    {max-width:1080px;margin:0 auto;padding:0 28px}
+.wrap-sm {max-width:720px;margin:0 auto;padding:0 28px}
+.wrap-xs {max-width:560px;margin:0 auto;padding:0 28px}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-size:11px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;
+}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+
+h1,h2,h3{font-family:var(--serif);line-height:1.25}
+
+.gold-rule{
+  width:40px;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  margin:18px auto;border-radius:2px;
+}
+
+.section{padding:88px 0}
+.section-dark{background:var(--ink);color:var(--warm)}
+.section-ink2{background:var(--ink2)}
+.section-warm{background:var(--warm)}
+.section-warm2{background:var(--warm2)}
+.section-gold{background:var(--gold-pale)}
+
+/* ════════════════════════════════════════
+   GLOBAL BUTTONS
+════════════════════════════════════════ */
+.btn-gold{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--gold);color:var(--ink);
+  font-family:var(--sans);font-size:16px;font-weight:700;
+  padding:16px 38px;border-radius:var(--radius);
+  text-decoration:none;border:none;cursor:pointer;
+  box-shadow:0 4px 20px rgba(244,196,60,0.35);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s;
+  animation:pulseRing 2.5s ease-in-out infinite;
+  letter-spacing:.3px;
+}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(244,196,60,0.45);background:var(--gold-light)}
+
+.btn-outline{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;
+  border:1.5px solid var(--gold);
+  color:var(--gold);
+  font-family:var(--sans);font-size:15px;font-weight:600;
+  padding:15px 34px;border-radius:var(--radius);
+  text-decoration:none;cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.btn-outline:hover{background:var(--gold);color:var(--ink)}
+
+.btn-ghost-dark{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.75);
+  font-family:var(--sans);font-size:14px;font-weight:500;
+  padding:13px 26px;border-radius:var(--radius);
+  text-decoration:none;cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.btn-ghost-dark:hover{background:rgba(255,255,255,0.12);color:#fff}
+
+/* ════════════════════════════════════════
+   TOP NOTICE BAR
+════════════════════════════════════════ */
+#notice{
+  background:var(--gold);
+  padding:10px 20px;text-align:center;
+  font-family:var(--sans);font-size:13px;font-weight:700;
+  color:var(--ink);letter-spacing:.3px;
+  position:sticky;top:0;z-index:100;
+}
+#notice span{opacity:.7;margin:0 8px}
+
+/* ════════════════════════════════════════
+   HERO
+════════════════════════════════════════ */
+#hero{
+  background:var(--ink);
+  padding:100px 28px 90px;
+  position:relative;overflow:hidden;
+}
+#hero::before{
+  content:'';
+  position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:900px;height:600px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(244,196,60,0.07) 0%,transparent 65%);
+  pointer-events:none;
+}
+#hero::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-mid),transparent);
+}
+
+.hero-inner{
+  max-width:820px;margin:0 auto;text-align:center;
+  position:relative;z-index:1;
+}
+
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-bottom:28px;
+  animation:fadeIn .8s ease both;
+}
+.kicker-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 0 0 rgba(26,107,58,0.6);
+  animation:pulseRing 2s ease-in-out infinite;
+}
+.kicker-text{
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--muted2);
+}
+
+.hero-h1{
+  font-family:var(--serif);
+  font-size:clamp(32px,6vw,64px);
+  font-weight:900;color:var(--warm);
+  line-height:1.18;
+  margin-bottom:22px;
+  animation:fadeUp .9s var(--ease) both .1s;
+}
+.hero-h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,#f4c43c 0%,#ffe22e 50%,#e8a800 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.hero-sub{
+  font-family:var(--sans);font-size:clamp(15px,2vw,18px);
+  color:rgba(247,242,232,0.6);line-height:1.9;
+  max-width:580px;margin:0 auto 36px;
+  animation:fadeUp .9s var(--ease) both .2s;
+}
+.hero-sub strong{color:var(--gold);font-weight:600}
+
+.hero-stats{
+  display:flex;justify-content:center;gap:0;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-lg);overflow:hidden;
+  margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto;
+  animation:fadeUp .9s var(--ease) both .3s;
+}
+.hstat{
+  flex:1;padding:18px 12px;text-align:center;
+  border-right:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  transition:background .25s;
+}
+.hstat:last-child{border-right:none}
+.hstat:hover{background:rgba(244,196,60,0.06)}
+.hstat-n{
+  font-family:var(--serif);font-size:24px;font-weight:900;
+  color:var(--gold);display:block;line-height:1;
+}
+.hstat-l{font-size:11px;color:rgba(247,242,232,0.4);margin-top:5px;letter-spacing:.5px}
+
+.hero-cta{
+  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+  animation:fadeUp .9s var(--ease) both .4s;
+}
+.hero-trust{
+  display:flex;justify-content:center;gap:20px;flex-wrap:wrap;
+  margin-top:28px;
+  animation:fadeIn 1s ease both .6s;
+}
+.htrust-item{
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;color:rgba(247,242,232,0.35);letter-spacing:.3px;
+}
+.htrust-item::before{content:'✓';color:var(--gold);font-weight:700}
+
+/* ════════════════════════════════════════
+   REALITY CHECK (PAIN)
+════════════════════════════════════════ */
+#reality{background:var(--warm2);padding:80px 0}
+
+.reality-intro{text-align:center;margin-bottom:56px}
+.reality-intro h2{
+  font-family:var(--serif);
+  font-size:clamp(26px,4vw,42px);
+  font-weight:900;color:var(--ink);
+  line-height:1.25;margin-bottom:12px;
+}
+.reality-intro p{font-size:16px;color:var(--muted);line-height:1.8;max-width:520px;margin:0 auto}
+
+.reality-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:20px;
+}
+/* Card base */
+.reality-card{
+  background:var(--warm);
+  border:1px solid rgba(26,16,8,0.08);
+  border-radius:var(--radius-lg);
+  padding:36px 32px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease);
+  display:flex;flex-direction:column;
+}
+/* Gold top accent line on hover */
+.reality-card::after{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.reality-card:hover{
+  background:var(--gold-pale);
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(26,16,8,0.10);
+}
+.reality-card:hover::after{transform:scaleX(1)}
+
+/* Large number accent behind icon */
+.rc-num{
+  position:absolute;top:16px;right:20px;
+  font-family:var(--serif);font-size:72px;font-weight:900;
+  color:rgba(26,16,8,0.04);line-height:1;
+  pointer-events:none;user-select:none;
+}
+.rc-icon{
+  font-size:40px;margin-bottom:18px;display:block;
+  position:relative;z-index:1;
+}
+.rc-title{
+  font-family:var(--serif);font-size:20px;font-weight:700;
+  color:var(--ink);margin-bottom:12px;line-height:1.3;
+  position:relative;z-index:1;
+}
+.rc-desc{
+  font-size:14px;color:var(--muted);line-height:1.85;
+  flex:1;position:relative;z-index:1;
+}
+.rc-sting{
+  margin-top:18px;padding:12px 16px;
+  border-radius:var(--radius);
+  background:rgba(192,57,43,0.06);
+  border-left:3px solid var(--red);
+  font-size:13px;font-weight:700;color:var(--red);
+  position:relative;z-index:1;
+}
+@media(max-width:640px){
+  .reality-grid{grid-template-columns:1fr;gap:14px}
+  .reality-card{padding:28px 24px}
+}
+
+/* ════════════════════════════════════════
+   COST TRUTH  (Interactive Calc)
+════════════════════════════════════════ */
+#cost{padding:80px 0;background:var(--ink)}
+
+.cost-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+}
+@media(max-width:768px){.cost-inner{grid-template-columns:1fr}}
+
+.cost-text{color:var(--warm)}
+.cost-text h2{font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.25;margin-bottom:16px}
+.cost-text p{font-size:15px;color:rgba(247,242,232,0.6);line-height:1.85;margin-bottom:14px}
+.cost-text p strong{color:var(--gold);font-weight:600}
+
+.calc-widget{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-lg);padding:32px;
+}
+.calc-label-row{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:8px;
+}
+.calc-label-row label{font-size:13px;color:rgba(247,242,232,0.55);font-weight:500}
+.calc-label-row span{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gold)}
+
+.calc-slider{
+  width:100%;-webkit-appearance:none;appearance:none;
+  height:4px;border-radius:2px;
+  background:linear-gradient(90deg,var(--gold) var(--pct,50%),rgba(255,255,255,0.12) var(--pct,50%));
+  outline:none;cursor:pointer;margin-bottom:24px;
+}
+.calc-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--gold);border:3px solid var(--ink);cursor:pointer;
+  box-shadow:0 0 0 4px rgba(244,196,60,0.2);
+  transition:box-shadow .2s;
+}
+.calc-slider::-webkit-slider-thumb:hover{box-shadow:0 0 0 8px rgba(244,196,60,0.25)}
+
+.calc-result{
+  background:rgba(244,196,60,0.06);
+  border:1px solid rgba(244,196,60,0.2);
+  border-radius:8px;padding:20px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  margin-bottom:16px;
+}
+.cr-label{font-size:13px;color:rgba(247,242,232,0.5)}
+.cr-num{font-family:var(--serif);font-size:28px;font-weight:900;color:var(--gold)}
+
+.calc-vs{
+  display:flex;gap:10px;
+}
+.cv-item{
+  flex:1;padding:14px;border-radius:8px;text-align:center;
+}
+.cv-item.bad {background:rgba(192,57,43,0.12);border:1px solid rgba(192,57,43,0.2)}
+.cv-item.good{background:rgba(26,107,58,0.12);border:1px solid rgba(26,107,58,0.2)}
+.cv-label{font-size:11px;margin-bottom:6px;opacity:.55}
+.cv-num{font-family:var(--serif);font-size:20px;font-weight:900}
+.cv-item.bad  .cv-num{color:#e07070}
+.cv-item.good .cv-num{color:#6ecb8a}
+.cv-sub{font-size:11px;margin-top:4px;opacity:.4}
+
+/* ════════════════════════════════════════
+   SOLUTION / CREDENTIAL
+════════════════════════════════════════ */
+#solution{padding:88px 0;background:var(--warm)}
+
+
+.sol-text h2{font-family:var(--serif);font-size:clamp(26px,3.5vw,42px);font-weight:900;color:var(--ink);line-height:1.25;margin-bottom:16px}
+.sol-text p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:14px}
+.sol-text p strong{color:var(--ink);font-weight:700}
+
+.cred-list{display:flex;flex-direction:column;gap:2px}
+.cred-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px;
+  background:var(--warm2);
+  border-left:3px solid transparent;
+  transition:all .3s var(--ease);
+  cursor:default;
+}
+.cred-item:hover{background:var(--gold-pale);border-left-color:var(--gold)}
+.cred-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.cred-body h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.cred-body p{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* ════════════════════════════════════════
+   BEFORE / AFTER
+════════════════════════════════════════ */
+#ba{padding:80px 0;background:var(--warm2)}
+
+.ba-wrap{max-width:820px;margin:48px auto 0}
+.ba-table{
+  display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid rgba(26,16,8,0.1);border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:0 16px 56px rgba(26,16,8,0.1);
+}
+.ba-col{padding:28px 28px 32px}
+.ba-col.before{background:#fff8f7;border-right:1px solid rgba(26,16,8,0.08)}
+.ba-col.after {background:#f7fff9}
+.ba-col-head{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-size:15px;font-weight:700;
+  padding-bottom:14px;margin-bottom:14px;
+  border-bottom:1px solid rgba(26,16,8,0.08);
+}
+.ba-col.before .ba-col-head{color:var(--red)}
+.ba-col.after  .ba-col-head{color:var(--green)}
+.ba-row{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:9px 0;border-bottom:1px solid rgba(26,16,8,0.05);
+  font-size:14px;line-height:1.6;
+}
+.ba-row:last-child{border-bottom:none}
+.ba-dot{
+  width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px;
+}
+.before .ba-dot{background:var(--red)}
+.after  .ba-dot{background:var(--green)}
+.ba-col.before .ba-row{color:rgba(26,16,8,0.55)}
+.ba-col.after  .ba-row{color:var(--ink);font-weight:500}
+
+.ba-footer{
+  background:var(--gold-pale);
+  border:1px solid rgba(244,196,60,0.3);
+  border-radius:var(--radius-lg);
+  padding:20px 28px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  margin-top:16px;
+}
+.baf-text{font-size:15px;color:var(--ink)}
+.baf-text strong{color:var(--red)}
+.baf-num{font-family:var(--serif);font-size:26px;font-weight:900;color:var(--green)}
+
+/* ════════════════════════════════════════
+   HIGHLIGHTS
+════════════════════════════════════════ */
+#hl{padding:88px 0;background:var(--ink)}
+
+.hl-intro{text-align:center;margin-bottom:56px}
+.hl-intro h2{font-family:var(--serif);font-size:clamp(26px,3.5vw,42px);font-weight:900;color:var(--warm);line-height:1.25}
+
+.hl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(255,255,255,0.06)}
+.hl-card{
+  background:var(--ink);padding:36px 30px;
+  border-top:1px solid rgba(255,255,255,0.05);
+  transition:background .3s var(--ease);position:relative;overflow:hidden;
+}
+.hl-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.hl-card:hover{background:rgba(244,196,60,0.04)}
+.hl-card:hover::before{transform:scaleX(1)}
+.hl-icon{font-size:40px;margin-bottom:20px;display:block;animation:float 4s ease-in-out infinite}
+.hl-card:nth-child(2) .hl-icon{animation-delay:1.2s}
+.hl-card:nth-child(3) .hl-icon{animation-delay:2.4s}
+.hl-title{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--warm);margin-bottom:10px}
+.hl-desc{font-size:14px;color:rgba(247,242,232,0.5);line-height:1.85}
+.hl-badge{
+  display:inline-block;margin-top:16px;
+  font-size:11px;font-weight:700;letter-spacing:1.5px;
+  color:var(--gold);border-bottom:1px solid rgba(244,196,60,0.3);
+  padding-bottom:2px;
+}
+
+/* ════════════════════════════════════════
+   TRUST / REVIEWS
+════════════════════════════════════════ */
+#trust{padding:88px 0;background:var(--warm)}
+
+.trust-intro{text-align:center;margin-bottom:52px}
+.trust-intro h2{font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--ink);line-height:1.25}
+
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.rcard{
+  background:var(--warm2);border:1px solid rgba(26,16,8,0.08);
+  border-radius:var(--radius-lg);padding:26px;
+  transition:all .3s var(--ease);position:relative;overflow:hidden;
+}
+.rcard::before{
+  content:'\201C';
+  position:absolute;top:10px;right:18px;
+  font-family:Georgia,serif;font-size:72px;color:rgba(244,196,60,0.1);
+  line-height:1;pointer-events:none;
+}
+.rcard:hover{border-color:rgba(244,196,60,0.3);box-shadow:0 8px 32px rgba(26,16,8,0.08);transform:translateY(-4px)}
+.stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rtext{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:18px;font-style:italic}
+.reviewer{display:flex;align-items:center;gap:12px}
+.avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),#e8a800);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:900;font-size:16px;color:var(--ink);flex-shrink:0;
+}
+.avatar.dark{background:linear-gradient(135deg,#333,#111);color:#fff}
+.rname{font-size:14px;font-weight:700;color:var(--ink)}
+.rloc{font-size:12px;color:var(--muted)}
+
+.trust-seals{
+  display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+  margin-top:44px;padding-top:44px;
+  border-top:1px solid rgba(26,16,8,0.08);
+}
+.seal{
+  display:flex;align-items:center;gap:8px;
+  background:var(--warm2);border:1px solid rgba(26,16,8,0.1);
+  border-radius:var(--radius);padding:10px 18px;
+  font-size:13px;font-weight:600;color:var(--muted);
+  transition:all .25s;
+}
+.seal:hover{border-color:var(--gold);color:var(--ink)}
+.seal span{font-size:16px}
+
+/* ════════════════════════════════════════
+   PROCESS
+════════════════════════════════════════ */
+#process{ padding:80px 0; background:var(--warm2); }
+
+.process-inner{
+  max-width:960px;
+  margin:48px auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+/* step card */
+.pstep{
+  background:var(--warm);
+  border:1px solid rgba(26,16,8,0.08);
+  border-radius:var(--radius-lg);
+  padding:24px 22px 22px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+  transition:box-shadow .3s var(--ease),transform .3s var(--ease);
+}
+.pstep:hover{ box-shadow:0 10px 30px rgba(26,16,8,0.10); transform:translateY(-3px); }
+.pstep:last-child{ padding-bottom:22px; }
+
+/* gold top accent on hover */
+.pstep::after{
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .3s var(--ease);
+}
+.pstep:hover::after{ transform:scaleX(1); }
+
+/* header row: badge-number + emoji icon — INLINE, not floating */
+.pstep-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:16px;
+}
+.pnum{
+  width:34px; height:34px; border-radius:8px;
+  background:var(--gold); color:var(--ink);
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-size:15px; font-weight:900;
+  flex-shrink:0;
+  box-shadow:0 2px 8px rgba(244,196,60,0.30);
+  /* static inside flex — never floats */
+  position:static; z-index:auto;
+}
+.pstep-icon{ font-size:28px; line-height:1; flex-shrink:0; }
+
+/* content */
+.pbody{ flex:1; }
+.pbody h3{
+  font-family:var(--serif); font-size:16px; font-weight:700;
+  color:var(--ink); margin-bottom:7px; line-height:1.35;
+}
+.pbody p{ font-size:13px; color:var(--muted); line-height:1.8; }
+
+/* chips row */
+.pstep-detail-row{ display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
+.pstep-detail-chip{
+  font-size:11px; font-weight:600;
+  background:var(--warm2); border:1px solid rgba(26,16,8,0.08);
+  border-radius:20px; padding:3px 9px;
+  color:var(--muted); white-space:nowrap;
+}
+
+/* tag badge */
+.ptag{
+  display:inline-flex; align-items:center; gap:4px; margin-top:12px;
+  font-size:11px; font-weight:700; color:var(--gold);
+  background:rgba(244,196,60,0.10); border-radius:20px; padding:4px 12px;
+  letter-spacing:.3px;
+}
+
+/* Tablet */
+@media(max-width:760px){
+  .process-inner{ grid-template-columns:1fr 1fr; gap:14px; }
+}
+/* Mobile */
+@media(max-width:520px){
+  .process-inner{ grid-template-columns:1fr; max-width:100%; }
+  .pstep{ padding:20px 18px; }
+  .pstep:hover{ transform:none; }
+}
+
+/* ════════════════════════════════════════
+   PRICING
+════════════════════════════════════════ */
+#pricing{padding:88px 0;background:var(--ink)}
+
+.pricing-intro{text-align:center;margin-bottom:52px;color:var(--warm)}
+.pricing-intro h2{font-family:var(--serif);font-size:clamp(26px,3.5vw,42px);font-weight:900;line-height:1.25;margin-bottom:8px}
+.pricing-intro p{font-size:15px;color:rgba(247,242,232,0.5)}
+
+.plans{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  max-width:980px;
+  margin:0 auto;
+}
+.plan{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-lg);
+  padding:32px;
+  position:relative;
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+}
+.plan:hover{
+  background:rgba(255,255,255,0.06);
+  border-color:rgba(255,255,255,0.15);
+}
+.plan.best{
+  background:rgba(244,196,60,0.07);
+  border:2px solid rgba(244,196,60,0.40);
+  border-radius:var(--radius-lg);
+  margin:0;
+  z-index:1;
+}
+.plan.best:hover{
+  background:rgba(244,196,60,0.10);
+  border-color:rgba(244,196,60,0.55);
+}
+/* Pricing responsive */
+@media(max-width:820px){
+  .plans{ grid-template-columns:1fr; gap:14px; max-width:480px; }
+}
+@media(max-width:480px){
+  .plans{ max-width:100%; }
+  .plan{ padding:22px 18px; }
+}
+.plan-badge{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:var(--ink);
+  font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 18px;border-radius:0 0 10px 10px;white-space:nowrap;
+}
+.plan-name{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--warm);margin-bottom:4px}
+.plan.best .plan-name{color:var(--gold)}
+.plan-sub{font-size:13px;color:rgba(247,242,232,0.35);margin-bottom:20px}
+.plan-orig{font-size:13px;color:rgba(247,242,232,0.2);text-decoration:line-through;margin-bottom:4px}
+.plan-price{font-family:var(--serif);font-size:44px;font-weight:900;color:var(--warm);line-height:1;margin-bottom:2px}
+.plan.best .plan-price{color:var(--gold)}
+.plan-unit{font-size:14px;color:rgba(247,242,232,0.35);font-weight:400}
+.plan-save{
+  display:inline-block;margin:10px 0 18px;
+  background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.2);
+  color:#e07070;font-size:12px;font-weight:700;
+  padding:3px 10px;border-radius:var(--radius);
+}
+.plan-feats{list-style:none;margin-bottom:26px;border-top:1px solid rgba(255,255,255,0.06);padding-top:16px}
+.plan-feats li{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+  font-size:13px;color:rgba(247,242,232,0.65);
+}
+.plan-feats li:last-child{border-bottom:none}
+.pcheck{color:var(--gold);flex-shrink:0;margin-top:1px}
+.btn-plan{
+  display:block;width:100%;padding:13px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  color:rgba(247,242,232,0.65);
+  font-family:var(--sans);font-size:14px;font-weight:600;
+  border-radius:var(--radius);text-align:center;text-decoration:none;cursor:pointer;
+  transition:all .25s var(--ease);
+}
+.btn-plan:hover{background:rgba(255,255,255,0.12);color:#fff;border-color:rgba(255,255,255,0.25)}
+.btn-plan.best{
+  background:var(--gold);color:var(--ink);border-color:transparent;
+  font-weight:800;font-size:15px;
+  box-shadow:0 4px 20px rgba(244,196,60,0.3);
+}
+.btn-plan.best:hover{background:var(--gold-light);box-shadow:0 8px 28px rgba(244,196,60,0.4);transform:translateY(-2px)}
+.pricing-note{text-align:center;font-size:12px;color:rgba(247,242,232,0.2);margin-top:20px;max-width:980px;margin-left:auto;margin-right:auto}
+
+/* ════════════════════════════════════════
+   URGENCY
+════════════════════════════════════════ */
+#urgency{
+  padding:80px 0;
+  background:linear-gradient(135deg,#1a0805,#110308,#05050f);
+  position:relative;overflow:hidden;
+}
+#urgency::before{
+  content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(192,57,43,0.1) 0%,transparent 70%);
+}
+.urgency-wrap{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.urgency-wrap h2{
+  font-family:var(--serif);font-size:clamp(26px,4vw,44px);font-weight:900;
+  color:var(--warm);line-height:1.25;margin-bottom:12px;
+}
+.urgency-wrap h2 span{color:var(--red);background:rgba(192,57,43,0.12);padding:0 10px;border-radius:4px}
+.urgency-sub{font-size:15px;color:rgba(247,242,232,0.55);line-height:1.8;margin-bottom:32px}
+
+.slot{
+  width:40px; height:40px; border-radius:var(--radius);
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; font-weight:700; transition:all .3s;
+  flex-shrink:0;
+}
+.slot.taken{
+  background:rgba(255,255,255,0.12);
+  border:2px solid rgba(255,255,255,0.15);
+  /* dot via pseudo-element */
+  position:relative;
+  font-size:0; /* hide any text */
+}
+.slot.taken::after{
+  content:'';
+  width:10px; height:10px; border-radius:50%;
+  background:rgba(255,255,255,0.30);
+  display:block;
+}
+.slot.open{
+  background:rgba(192,57,43,0.18);
+  border:2px solid rgba(192,57,43,0.45);
+  font-size:18px;
+  animation:blink 2s ease-in-out infinite;
+  box-shadow:0 0 14px rgba(192,57,43,0.18);
+}
+.slot.open:nth-child(odd){ animation-delay:.6s; }
+.slots-caption{
+  font-size:13px; color:rgba(247,242,232,0.60);
+  margin-bottom:32px; letter-spacing:.3px;
+}
+
+/* Countdown — tighter, more refined */
+.cd-row{
+  display:flex; justify-content:center; align-items:flex-end;
+  gap:8px; margin-bottom:40px;
+}
+.cd-box{ text-align:center; }
+.cd-num{
+  display:block; font-family:var(--serif);
+  font-size:52px; font-weight:900;
+  color:var(--warm); line-height:1;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:var(--radius-lg);
+  padding:14px 22px; min-width:88px;
+  letter-spacing:-1px;
+}
+.cd-lbl{
+  font-size:11px; color:rgba(247,242,232,0.50);
+  margin-top:8px; letter-spacing:2px; text-transform:uppercase;
+}
+.cd-sep{
+  font-family:var(--serif); font-size:40px; font-weight:900;
+  color:rgba(192,57,43,0.45); padding-bottom:28px; line-height:1;
+}
+
+/* slots row — fixed-width so it never breaks weirdly */
+.slots-row{
+  display:flex; justify-content:center;
+  gap:6px; margin-bottom:12px; flex-wrap:wrap;
+  max-width:520px; margin-left:auto; margin-right:auto;
+}
+
+@media(max-width:480px){
+  .cd-num{ font-size:38px !important; padding:10px 14px !important; min-width:66px !important; }
+  .cd-sep{ font-size:28px !important; padding-bottom:22px !important; }
+  .slot{ width:36px; height:36px; font-size:16px; }
+}
+
+/* ════════════════════════════════════════
+   RISK REVERSAL
+════════════════════════════════════════ */
+#risk{padding:72px 0;background:var(--warm)}
+.risk-inner{
+  max-width:800px;margin:40px auto 0;
+  background:var(--warm2);
+  border:1px solid rgba(244,196,60,0.25);
+  border-radius:var(--radius-lg);padding:44px;
+  text-align:center;
+  box-shadow:0 8px 40px rgba(26,16,8,0.06);
+}
+.risk-inner h2{font-family:var(--serif);font-size:28px;font-weight:900;color:var(--ink);margin-bottom:14px}
+.risk-inner p{font-size:15px;color:var(--muted);line-height:1.9;max-width:540px;margin:0 auto 28px}
+.risk-inner p strong{color:var(--red);font-weight:700}
+.risk-pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.rpill{
+  background:var(--warm);border:1px solid rgba(26,16,8,0.1);
+  border-radius:var(--radius);padding:11px 18px;
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:var(--muted);
+  transition:all .25s;
+}
+.rpill:hover{border-color:var(--gold);color:var(--ink)}
+.rpill-icon{font-size:16px}
+
+/* ════════════════════════════════════════
+   FAQ
+════════════════════════════════════════ */
+#faq{padding:88px 0;background:var(--warm2)}
+.faq-inner{max-width:760px;margin:48px auto 0}
+.fitem{border-bottom:1px solid rgba(26,16,8,0.08)}
+.fbtn{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:20px 0;
+  font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);
+  text-align:left;transition:color .25s;
+}
+.fbtn:hover{color:var(--gold)}
+.fbtn.open{color:var(--gold)}
+.farrow{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  border:1px solid rgba(26,16,8,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:var(--gold);
+  transition:transform .35s var(--ease),background .25s;
+}
+.fbtn.open .farrow{transform:rotate(180deg);background:rgba(244,196,60,0.1);border-color:rgba(244,196,60,0.3)}
+.fans{max-height:0;overflow:hidden;transition:max-height .45s var(--ease),padding .3s;font-size:14px;color:var(--muted);line-height:1.85}
+.fans.open{max-height:200px;padding-bottom:20px}
+
+/* ════════════════════════════════════════
+   FINAL CTA
+════════════════════════════════════════ */
+#cta{
+  padding:88px 0 110px;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+#cta::before{
+  content:'';position:absolute;bottom:-100px;right:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(244,196,60,0.06) 0%,transparent 65%);
+}
+.cta-intro{text-align:center;margin-bottom:40px;position:relative;z-index:1}
+.cta-intro h2{font-family:var(--serif);font-size:clamp(26px,4vw,44px);font-weight:900;color:var(--warm);line-height:1.25;margin-bottom:8px}
+.cta-intro p{font-size:15px;color:rgba(247,242,232,0.4)}
+
+.fcard{
+  background:var(--warm);border-radius:var(--radius-lg);
+  padding:44px;max-width:560px;margin:0 auto;
+  box-shadow:0 24px 80px rgba(0,0,0,0.3);
+  position:relative;z-index:1;
+  border-top:3px solid var(--gold);
+}
+.fcard-title{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);text-align:center;margin-bottom:28px}
+.fgroup{margin-bottom:14px}
+.fgroup label{display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.fgroup input,.fgroup select{
+  width:100%;padding:13px 16px;
+  background:var(--warm2);border:1px solid rgba(26,16,8,0.12);
+  border-radius:var(--radius);color:var(--ink);
+  font-size:15px;font-family:var(--sans);
+  transition:border-color .25s,background .25s;
+}
+.fgroup input::placeholder{color:var(--muted2)}
+.fgroup input:focus,.fgroup select:focus{
+  outline:none;border-color:var(--gold);background:#fff;
+}
+.btn-submit-gold{
+  width:100%;margin-top:8px;padding:17px;
+  background:var(--gold);color:var(--ink);
+  font-family:var(--sans);font-size:17px;font-weight:800;
+  border-radius:var(--radius);border:none;cursor:pointer;
+  box-shadow:0 6px 24px rgba(244,196,60,0.35);
+  transition:all .25s var(--ease);letter-spacing:.3px;
+  position:relative;overflow:hidden;
+}
+.btn-submit-gold::after{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+  transition:left .5s;
+}
+.btn-submit-gold:hover::after{left:100%}
+.btn-submit-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 32px rgba(244,196,60,0.45)}
+.fnote{text-align:center;font-size:11px;color:var(--muted2);margin-top:12px}
+
+.alt-contact{text-align:center;margin-top:28px;position:relative;z-index:1}
+.alt-contact p{color:rgba(247,242,232,0.3);font-size:14px;margin-bottom:14px}
+.alt-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+#footer{
+  background:var(--ink2);
+  border-top:1px solid rgba(255,255,255,0.05);
+  padding:36px 24px;text-align:center;
+}
+.fbrand{font-family:var(--serif);font-size:22px;font-weight:900;color:var(--gold);margin-bottom:8px}
+.finfo{font-size:13px;color:rgba(247,242,232,0.25);line-height:1.9;margin-bottom:16px}
+.flegs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.fleg{font-size:11px;color:rgba(247,242,232,0.15)}
+.fcopy{font-size:11px;color:rgba(247,242,232,0.1)}
+
+/* ════════════════════════════════════════
+   STICKY BAR — defined in V6 fixes block below
+════════════════════════════════════════ */
+.sticky-msg strong{color:var(--gold)}
+
+/* ════════════════════════════════════════
+   SOCIAL PROOF POP-UP
+════════════════════════════════════════ */
+#sp-popup{
+  position:fixed;bottom:90px;left:24px;z-index:9998;
+  max-width:300px;width:calc(100% - 48px);
+  background:var(--warm);border:1px solid rgba(26,16,8,0.1);
+  border-left:3px solid var(--gold);
+  border-radius:var(--radius-lg);
+  padding:14px 16px;
+  box-shadow:0 8px 32px rgba(26,16,8,0.12);
+  transform:translateX(-120%);opacity:0;
+  transition:transform .5s var(--ease),opacity .5s var(--ease);
+  pointer-events:none;
+}
+#sp-popup.show{transform:translateX(0);opacity:1}
+.sp-inner{display:flex;align-items:flex-start;gap:12px}
+.sp-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.sp-text{font-size:13px;color:var(--ink);line-height:1.6}
+.sp-text strong{font-weight:700}
+.sp-time{font-size:11px;color:var(--muted);margin-top:3px}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media(max-width:640px){
+  .ba-table{grid-template-columns:1fr}
+  .ba-col.before{border-right:none;border-bottom:1px solid rgba(26,16,8,0.08)}
+  .fcard{padding:28px 22px}
+  .risk-inner{padding:30px 20px}
+  
+  .calc-vs{flex-direction:column}
+  .cd-sep{display:none}
+}
+
+/* ════ V4 ADDITIONS ════ */
+
+/* ── prefers-reduced-motion ── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* V4 sticky overrides — superseded by V6 block */
+
+/* ── Social Proof Popup — above sticky ── */
+#sp-popup{
+  bottom:calc(56px + 16px)!important;
+}
+@media(min-width:1024px){
+  #sp-popup{bottom:24px!important;left:32px!important}
+}
+
+/* ── Popup slide-in animation ── */
+#sp-popup{
+  transform:translateX(calc(-100% - 32px));
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .35s ease!important;
+}
+#sp-popup.show{transform:translateX(0)!important}
+
+/* ── Reviews grid 6-up ── */
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+@media(max-width:900px){
+  .reviews{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:580px){
+  .reviews{grid-template-columns:1fr}
+}
+
+/* ── Verified badge ── */
+.verified-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:600;letter-spacing:.4px;
+  color:#1a6b3a;background:rgba(26,107,58,0.08);
+  border:1px solid rgba(26,107,58,0.2);
+  border-radius:20px;padding:3px 10px;
+  margin-bottom:10px;
+}
+
+/* ── Reviews more link ── */
+.reviews-more{
+  text-align:center;margin-top:28px;
+  font-size:13px;color:var(--muted);
+  font-weight:600;letter-spacing:.5px;
+  cursor:pointer;text-decoration:underline;
+  text-underline-offset:3px;
+  transition:color .2s ease;
+}
+.reviews-more:hover{color:var(--gold)}
+
+/* ── Back to top ── */
+#back-top{
+  position:fixed;right:20px;bottom:80px;z-index:9997;
+  width:42px;height:42px;
+  background:var(--ink2);border:1px solid rgba(244,196,60,0.3);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  opacity:0;pointer-events:none;
+  transform:translateY(12px);
+  transition:opacity .35s ease,transform .35s ease,background .2s ease,border-color .2s ease;
+  box-shadow:0 4px 16px rgba(0,0,0,0.25);
+}
+#back-top.show{opacity:1;pointer-events:all;transform:translateY(0)}
+#back-top:hover{background:var(--gold);border-color:var(--gold)}
+#back-top svg{width:16px;height:16px;fill:none;stroke:var(--warm);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s ease}
+#back-top:hover svg{stroke:var(--ink)}
+@media(min-width:1024px){
+  #back-top{right:32px;bottom:32px}
+}
+
+/* ── Touch targets 48px min ── */
+.btn-gold,.btn-outline,.btn-ghost-dark,.btn-submit-gold{
+  min-height:48px;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+
+/* ── Active tap feedback ── */
+.btn-gold:active,.btn-submit-gold:active{transform:scale(.97);filter:brightness(.92)}
+.btn-outline:active,.btn-ghost-dark:active{transform:scale(.97);opacity:.8}
+
+/* ── Form UX ── */
+.field-error{
+  font-size:11px;color:#c0392b;margin-top:4px;
+  display:none;padding-left:2px;
+}
+.field-error.show{display:block}
+.f-input.error{border-color:rgba(192,57,43,0.5)!important}
+.f-input.ok{border-color:rgba(26,107,58,0.4)!important}
+
+/* ── SSL badge ── */
+.ssl-badge{
+  display:flex;align-items:center;gap:6px;justify-content:center;
+  font-size:11px;color:var(--muted);margin-top:10px;
+}
+.ssl-badge svg{width:14px;height:14px;flex-shrink:0}
+
+/* ── Desktop layout fixes ── */
+@media(min-width:1280px){
+  .wrap{max-width:1080px}
+  .hero-inner{max-width:720px;margin:0 auto}
+  .cost-inner{max-width:1000px;margin:0 auto}
+}
+
+/* ── Scroll reveal easing ── */
+.reveal,.reveal-l,.reveal-r{transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+
+/* ── Font smoothing ── */
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+/* END V4 ADDITIONS */
+
+/* ════ V5 IMAGE ADDITIONS ════ */
+
+/* ── Hero background image ── */
+#hero{
+  background-image: url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1400&q=80&fit=crop') !important;
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+#hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background: linear-gradient(
+    135deg,
+    rgba(26,16,8,0.88) 0%,
+    rgba(26,16,8,0.75) 50%,
+    rgba(26,16,8,0.65) 100%
+  );
+  z-index:0;
+}
+.hero-inner{position:relative;z-index:1}
+
+/* ── Technician image in Solution ── */
+.tech-img-wrap{
+  position:relative;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:0 24px 64px rgba(26,16,8,0.18);
+  flex-shrink:0;
+}
+.tech-img-wrap img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  display:block;
+  border-radius:var(--radius-lg);
+  min-height:420px;
+  max-height:520px;
+}
+.tech-img-badge{
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:var(--ink);
+  font-size:12px;font-weight:700;letter-spacing:.5px;
+  padding:8px 18px;border-radius:20px;white-space:nowrap;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+@media(max-width:900px){
+  .tech-img-wrap{max-width:460px;margin:0 auto}
+  .tech-img-wrap img{min-height:300px;max-height:360px}
+}
+
+/* ── Before/After images ── */
+.ba-img{
+  width:100%;height:200px;
+  object-fit:cover;object-position:center;
+  display:block;border-radius:8px 8px 0 0;
+  margin-bottom:16px;
+}
+@media(max-width:640px){
+  .ba-img{height:160px}
+}
+
+/* sol-grid: left=text+creds, right=image */
+.sol-grid{
+  display:grid;
+  grid-template-columns:1fr 380px;
+  grid-template-rows:auto auto;
+  gap:0 48px;
+  align-items:start;
+}
+.sol-grid .sol-text     { grid-column:1; grid-row:1; padding-bottom:28px; }
+.sol-grid .cred-list    { grid-column:1; grid-row:2; }
+.sol-grid .tech-img-wrap{
+  grid-column:2; grid-row:1 / span 2;
+  position:sticky; top:80px;
+  border-radius:var(--radius-lg); overflow:hidden;
+}
+.sol-grid .tech-img-wrap img{
+  width:100%; height:100%; min-height:480px;
+  object-fit:cover; object-position:center top;
+  display:block;
+}
+
+@media(max-width:1024px){
+  .sol-grid{ grid-template-columns:1fr 300px; gap:0 32px; }
+}
+@media(max-width:768px){
+  .sol-grid{
+    display:flex; flex-direction:column; gap:0;
+  }
+  .sol-grid .tech-img-wrap{
+    order:1; position:static; margin:0 0 28px;
+  }
+  .sol-grid .tech-img-wrap img{
+    min-height:220px; max-height:260px;
+    border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .sol-grid .sol-text  { order:2; padding-bottom:0; }
+  .sol-grid .cred-list { order:3; margin-top:20px; }
+}
+
+/* ════════════════════════════════════════
+   V6 UX/UI FIXES
+   1. Responsive
+   2. Sticky bar layout stability
+   3. Z-index / event overlap
+   4. CTA button polish
+   5. Text contrast on dark backgrounds
+   6. Scroll performance hints
+════════════════════════════════════════ */
+
+/* ── FIX 1: RESPONSIVE ──────────────────
+   Hero padding, stats, CTA, pstep layout
+─────────────────────────────────────── */
+@media(max-width:640px){
+  #hero{padding:72px 20px 64px}
+
+  /* hero stats: 2x2 grid instead of 4 cols */
+  .hero-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    max-width:100%;
+  }
+  .hstat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .hstat:nth-child(odd){border-right:1px solid rgba(255,255,255,0.08)}
+  .hstat:nth-last-child(-n+2){border-bottom:none}
+
+  /* hero CTA: full-width buttons */
+  .hero-cta{flex-direction:column;align-items:stretch;padding:0 8px}
+  .hero-cta .btn-gold,
+  .hero-cta .btn-outline{width:100%;justify-content:center}
+
+  /* hero trust badges: 2 per row */
+  .hero-trust{gap:10px 16px}
+
+  /* urgency CTA button */
+  #urgency .btn-gold{
+    font-size:15px!important;
+    padding:16px 28px!important;
+    width:100%;
+    box-sizing:border-box;
+  }
+
+
+
+  /* fcard full bleed on small screens */
+  .fcard{border-radius:var(--radius)}
+}
+
+
+/* hero radial gradient: contain on mobile */
+#hero::before{
+  width:min(900px,200vw);
+  height:min(600px,150vw);
+}
+
+/* highlights grid: single col on small */
+@media(max-width:480px){
+  .hl-grid{grid-template-columns:1fr}
+}
+
+/* ── FIX 2: STICKY BAR — single source of truth ─
+   Remove all !important overrides, clean layout
+─────────────────────────────────────────────── */
+/* Reset the conflicting V4 block with a clean definition */
+#sticky{
+  position:fixed!important;
+  bottom:0!important;left:0!important;width:100%!important;
+  z-index:900!important;
+  background:var(--ink2)!important;
+  border-top:1px solid rgba(244,196,60,0.25)!important;
+  box-shadow:0 -6px 24px rgba(0,0,0,0.28)!important;
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:10px!important;
+  padding:10px 16px!important;
+  transform:translateY(100%)!important;
+  transition:transform .45s var(--ease)!important;
+  /* stable height prevents layout shift */
+  min-height:56px!important;
+  max-height:56px!important;
+  overflow:hidden!important;
+}
+#sticky.show{transform:translateY(0)!important}
+
+#sticky .btn-gold{
+  padding:9px 20px!important;
+  font-size:13px!important;
+  white-space:nowrap!important;
+  flex-shrink:0!important;
+  min-height:38px!important;
+  animation:none!important;
+}
+#sticky .btn-ghost-dark{
+  padding:9px 16px!important;
+  font-size:13px!important;
+  white-space:nowrap!important;
+  flex-shrink:0!important;
+  min-height:38px!important;
+}
+.sticky-msg{
+  font-size:12px!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  min-width:0!important;
+  flex:1!important;
+}
+
+/* body padding matches fixed sticky height */
+body{padding-bottom:56px!important}
+
+@media(max-width:400px){
+  .sticky-msg{display:none!important}
+  #sticky{justify-content:center!important;gap:8px!important}
+}
+
+/* ── FIX 3: Z-INDEX LAYER SYSTEM ───────
+   Establish clear stacking order:
+   notice(100) < sticky(900) < back-top(910) < popup(920)
+─────────────────────────────────────── */
+#notice{z-index:100!important}
+
+/* sticky: 900 (defined above) */
+
+/* back-top: above sticky, right side only */
+#back-top{
+  z-index:910!important;
+  /* desktop: clear of sticky bar */
+  bottom:70px!important;
+  right:20px!important;
+}
+@media(min-width:1024px){
+  #back-top{
+    bottom:72px!important;
+    right:32px!important;
+  }
+}
+
+/* social proof popup: highest, left side, never touches right buttons */
+#sp-popup{
+  z-index:920!important;
+  bottom:68px!important;
+  left:16px!important;
+  right:auto!important;
+  /* slide from left */
+  transform:translateX(calc(-100% - 20px))!important;
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .35s ease!important;
+}
+#sp-popup.show{
+  transform:translateX(0)!important;
+  opacity:1!important;
+}
+/* desktop: popup stays bottom-left, well above sticky */
+@media(min-width:1024px){
+  #sp-popup{
+    bottom:72px!important;
+    left:24px!important;
+  }
+}
+
+/* ── FIX 4: CTA BUTTON POLISH ──────────
+   Limit pulseRing to primary CTA only
+   Improve contrast, add clear hierarchy
+─────────────────────────────────────── */
+/* Remove pulse from ALL btn-gold by default */
+.btn-gold{animation:none!important}
+
+/* Re-apply pulse ONLY to designated primary CTAs */
+.hero-cta .btn-gold,
+#urgency .btn-gold,
+#finalcta .btn-gold,
+.btn-submit-gold{
+  animation:pulseRing 2.8s ease-in-out infinite!important;
+}
+
+/* Submit button gets stronger pulse */
+.btn-submit-gold{
+  animation:pulseRingStrong 2.5s ease-in-out infinite!important;
+}
+@keyframes pulseRingStrong{
+  0%  {box-shadow:0 0 0 0 rgba(244,196,60,0.5)}
+  70% {box-shadow:0 0 0 16px transparent}
+  100%{box-shadow:0 0 0 0  transparent}
+}
+
+/* btn-outline on dark bg — boost contrast */
+.btn-outline{
+  border-color:var(--gold);
+  color:var(--gold);
+}
+/* btn-ghost-dark — meet WCAG AA (4.5:1) */
+.btn-ghost-dark{
+  color:rgba(255,255,255,0.88)!important;
+  border-color:rgba(255,255,255,0.25)!important;
+}
+.btn-ghost-dark:hover{
+  color:#fff!important;
+  background:rgba(255,255,255,0.14)!important;
+}
+
+/* ── TEXT CONTRAST — all dark-bg sections ── */
+.hero-sub{color:rgba(247,242,232,0.82)}
+.htrust-item{color:rgba(247,242,232,0.65)}
+.hstat-l{color:rgba(247,242,232,0.60)}
+.kicker-text{color:var(--muted2)}
+.cost-text p{color:rgba(247,242,232,0.78)}
+.cost-text h2 em{color:var(--gold)}
+.calc-label-row label{color:rgba(247,242,232,0.72)}
+.cr-label{color:rgba(247,242,232,0.68)}
+.cv-label{color:rgba(247,242,232,0.68);font-size:12px}
+.cv-sub{color:rgba(247,242,232,0.55)}
+.cv-item.bad  .cv-num{color:#dd6060}
+.cv-item.good .cv-num{color:#58c278}
+.plan-sub{color:rgba(247,242,232,0.55)}
+.plan-unit{color:rgba(247,242,232,0.55)}
+.plan-orig{color:rgba(247,242,232,0.45)}
+.plan-feats li{color:rgba(247,242,232,0.82)}
+.pricing-intro p{color:rgba(247,242,232,0.70)}
+.pricing-note{color:rgba(247,242,232,0.40)}
+.plan.best .plan-sub{color:rgba(244,196,60,0.70)}
+.plan.best .plan-orig{color:rgba(244,196,60,0.50)}
+.plan.best .plan-unit{color:rgba(244,196,60,0.65)}
+.urgency-sub{color:rgba(247,242,232,0.75)}
+.urgency-sub strong{color:var(--warm)}
+.cd-lbl{color:rgba(247,242,232,0.55)}
+.slots-caption{color:rgba(247,242,232,0.60)}
+.hl-title{color:rgba(247,242,232,0.96)}
+.hl-desc{color:rgba(247,242,232,0.72)}
+.cta-intro p{color:rgba(247,242,232,0.65)}
+.alt-contact p{color:rgba(247,242,232,0.55)}
+.rtext{color:rgba(26,16,8,0.65)}
+.cred-body p{color:rgba(26,16,8,0.58)}
+.finfo{color:rgba(247,242,232,0.55)}
+.fleg{color:rgba(247,242,232,0.45)}
+.fcopy{color:rgba(247,242,232,0.35)}
+
+/* ── SCROLL PERFORMANCE ── */
+.hl-icon{will-change:transform}
+.reveal,.reveal-l,.reveal-r{will-change:opacity,transform}
+.reveal.in,.reveal-l.in,.reveal-r.in{will-change:auto}
+html{-webkit-overflow-scrolling:touch}
+
+/* sticky layout handled above */
+</style>
+</head>
+<body>
+
+<!-- NOTICE BAR -->
+<div id="notice">
+  🔥 โปรพิเศษสัปดาห์นี้ — ลด 30% ทุกแพ็คเกจ
+  <span>|</span>
+  เหลือ 7 คิวสุดท้าย
+  <span>|</span>
+  ตอบกลับภายใน 5 นาที
+</div>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-inner">
+
+    <div class="hero-kicker">
+      <div class="kicker-dot"></div>
+      <span class="kicker-text">Premium Air Cleaning Service · กรุงเทพฯ</span>
+    </div>
+
+    <h1 class="hero-h1">
+      แอร์ของคุณทำงานหนักมาก<br>
+      <em>มันสมควรได้รับการดูแล</em>
+    </h1>
+
+    <p class="hero-sub">
+      เหมือนที่คุณดูแลตัวเอง — แอร์ก็ต้องการด้วย<br>
+      ล้างแอร์ปีละครั้ง <strong>ประหยัดค่าไฟ ฿800–1,200</strong> และยืดอายุเครื่องได้อีก 3–5 ปี<br>
+      บริการโดยช่างที่ <strong>คุณไว้ใจได้จริง</strong>
+    </p>
+
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">4,200+</span><span class="hstat-l">ลูกค้าพึงพอใจ</span></div>
+      <div class="hstat"><span class="hstat-n">4.9★</span><span class="hstat-l">Google Review</span></div>
+      <div class="hstat"><span class="hstat-n">30 วัน</span><span class="hstat-l">รับประกันงาน</span></div>
+      <div class="hstat"><span class="hstat-n">ฟรี</span><span class="hstat-l">ค่าประเมิน</span></div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#booking-form" class="btn-gold">📅 จองคิวฟรี — ไม่มีค่าจอง</a>
+      <a href="#finalcta" class="btn-outline">💬 แอดไลน์ก่อน</a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="htrust-item">ฟรีค่าประเมิน</div>
+      <div class="htrust-item">จ่ายเมื่องานเสร็จ</div>
+      <div class="htrust-item">ยกเลิกได้ฟรีก่อน 24 ชม.</div>
+      <div class="htrust-item">ช่างตรวจประวัติแล้ว</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     REALITY CHECK
+════════════════════════════════════════ -->
+<section id="reality" class="section">
+  <div class="wrap">
+    <div class="reality-intro reveal">
+      <div class="eyebrow">เรื่องที่อยากบอก</div>
+      <h2>คุณรู้ไหมว่า<br>แอร์ที่ไม่ล้างทำอะไรกับบ้านคุณบ้าง</h2>
+      <div class="gold-rule"></div>
+      <p>ไม่ใช่เรื่องน่ากลัว แต่มันเป็นเรื่องที่รู้แล้วจะรู้สึกว่า "ควรทำตั้งนานแล้ว"</p>
+    </div>
+
+    <div class="reality-grid">
+      <div class="reality-card reveal d1">
+        <div class="rc-num">01</div>
+        <span class="rc-icon">🌡️</span>
+        <h3 class="rc-title">ค่าไฟแพงโดยไม่รู้ตัว</h3>
+        <p class="rc-desc">แอร์ที่ฝุ่นอุดตันคอยล์ต้องทำงานหนักกว่าปกติ 25–35% ทุกเดือนคุณจ่ายค่าไฟเพิ่มโดยไม่ได้ความเย็นเพิ่มขึ้นเลย</p>
+        <div class="rc-sting">เฉลี่ย ฿100–120 บาท/เครื่อง/เดือน ที่สูญไปเงียบๆ</div>
+      </div>
+      <div class="reality-card reveal d2">
+        <div class="rc-num">02</div>
+        <span class="rc-icon">🌫️</span>
+        <h3 class="rc-title">อากาศในบ้านไม่สะอาดอย่างที่คิด</h3>
+        <p class="rc-desc">เชื้อราและแบคทีเรียสะสมในคอยล์เย็นและถาดน้ำ ทุกครั้งที่เปิดแอร์มันฟุ้งกระจายทั่วห้อง เด็กเล็กและผู้สูงอายุรับเข้าปอดทุกวัน</p>
+        <div class="rc-sting">พื้นที่สะสมเชื้อราในแอร์มากกว่าห้องน้ำถึง 3 เท่า</div>
+      </div>
+      <div class="reality-card reveal d3">
+        <div class="rc-num">03</div>
+        <span class="rc-icon">🔧</span>
+        <h3 class="rc-title">เครื่องอายุสั้นลงทุกวัน</h3>
+        <p class="rc-desc">คอมเพรสเซอร์ที่ทำงานหนักเกินจะสึกหรอเร็วขึ้น แอร์ที่ไม่ล้างเลย 2 ปีมีโอกาสเสียหายรุนแรงสูงกว่าแอร์ที่ดูแลสม่ำเสมอถึง 4 เท่า</p>
+        <div class="rc-sting">ค่าซ่อมใหญ่ ฿3,000–15,000 เทียบกับล้างปีละ ฿649</div>
+      </div>
+      <div class="reality-card reveal d4">
+        <div class="rc-num">04</div>
+        <span class="rc-icon">😤</span>
+        <h3 class="rc-title">ช่างที่เจอมาไม่ตรงปก</h3>
+        <p class="rc-desc">มาสาย ทำงานรวบรัด น้ำหกเลอะบ้าน แล้วก็หายไป คุณก็แค่หาช่างใหม่วนไป แต่ผลลัพธ์ก็ยังเหมือนเดิม ถึงเวลาที่ควรเจอช่างที่ไว้ใจได้จริงๆ</p>
+        <div class="rc-sting">นั่นคือสาเหตุที่เราตรวจประวัติช่างทุกคนก่อนรับเข้าทีม</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     COST CALCULATOR
+════════════════════════════════════════ -->
+<section id="cost" class="section section-dark">
+  <div class="wrap">
+    <div class="cost-inner">
+      <div class="cost-text reveal-l">
+        <div class="eyebrow" style="color:var(--gold-light)">คำนวณให้ดูตรงๆ</div>
+        <h2>คุณกำลัง<br>เสียเงินไปเท่าไหร่<br><em style="color:var(--gold)">ทุกเดือน?</em></h2>
+        <div class="gold-rule" style="margin:18px 0"></div>
+        <p>ปรับตัวเลขแล้วดูว่าแอร์ที่ไม่ล้างของคุณดูดเงินออกไปเท่าไหรต่อปี</p>
+        <p><strong>เพราะเราเชื่อว่าถ้าคุณเห็นตัวเลขจริงๆ คุณจะตัดสินใจเองได้</strong></p>
+      </div>
+
+      <div class="calc-widget reveal-r">
+        <div class="calc-label-row">
+          <label>จำนวนเครื่องแอร์</label>
+          <span id="ac-val">2 เครื่อง</span>
+        </div>
+        <input type="range" class="calc-slider" id="ac-slider" min="1" max="6" value="2" style="--pct:16.67%">
+
+        <div class="calc-label-row">
+          <label>ชั่วโมงใช้งานต่อวัน</label>
+          <span id="hr-val">8 ชั่วโมง</span>
+        </div>
+        <input type="range" class="calc-slider" id="hr-slider" min="4" max="18" value="8" style="--pct:28.57%">
+
+        <div class="calc-result">
+          <div>
+            <div class="cr-label">ค่าไฟที่สูญเปล่าต่อปี</div>
+            <div style="font-size:12px;color:rgba(247,242,232,0.3);margin-top:2px">(เพราะแอร์สกปรก)</div>
+          </div>
+          <div class="cr-num" id="waste-result">฿2,928</div>
+        </div>
+
+        <div class="calc-vs">
+          <div class="cv-item bad">
+            <div class="cv-label">ไม่ล้าง เสียค่าไฟ</div>
+            <div class="cv-num" id="cv-bad">฿2,928</div>
+            <div class="cv-sub">ต่อปี</div>
+          </div>
+          <div class="cv-item good">
+            <div class="cv-label">ล้างแอร์ ประหยัดได้</div>
+            <div class="cv-num" id="cv-save">฿2,928</div>
+            <div class="cv-sub">ราคาล้างแค่ ฿649/เครื่อง</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SOLUTION / CREDENTIAL
+════════════════════════════════════════ -->
+<section id="solution" class="section section-warm">
+  <div class="wrap">
+    <div class="sol-grid">
+
+      <div class="sol-text reveal-l">
+        <div class="eyebrow">สิ่งที่คุณจะได้รับ</div>
+        <h2>เราไม่แค่<br>"ล้างแอร์"<br>เราดูแลบ้านคุณ</h2>
+        <div class="gold-rule" style="margin:18px 0"></div>
+        <p>ช่างทั่วไปมาฉีดน้ำ เช็ดผ้า แล้วก็ไป<br>
+        เราใช้ <strong>ระบบ Deep Clean แรงดันสูง</strong> ล้างเจาะลึกถึงคอยล์เย็นและถาดน้ำ — จุดที่ช่างอื่นไม่แตะ</p>
+        <p>เพราะเราเชื่อว่าลูกค้าที่พอใจจริงๆ ไม่ต้องการโฆษณา — <strong>ลูกค้ากว่า 60% ของเราคือลูกค้าเก่าที่กลับมาเอง</strong></p>
+        <a href="#booking-form" class="btn-gold" style="margin-top:24px;display:inline-flex">📅 จองคิวฟรีเลย</a>
+      </div>
+
+      <div class="cred-list reveal-r">
+        <div class="cred-item">
+          <div class="cred-icon">🧪</div>
+          <div class="cred-body">
+            <h4>น้ำยาฆ่าเชื้อ Medical Grade</h4>
+            <p>มาตรฐานเดียวกับโรงพยาบาล ฆ่าเชื้อรา แบคทีเรีย 99.9% ปลอดภัยต่อเด็กและสัตว์เลี้ยง</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">🛡️</div>
+          <div class="cred-body">
+            <h4>ช่างผ่านตรวจประวัติอาชญากรรม</h4>
+            <p>แจ้งชื่อ รูป และหมายเลขบัตรประชาชนก่อนเข้าบ้านเสมอ ทีมงานมีประกันภัยความรับผิดต่อบุคคลที่สาม</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">⏱️</div>
+          <div class="cred-body">
+            <h4>ตรงเวลา ±15 นาที รับประกัน</h4>
+            <p>มาช้ากว่านี้รับส่วนลด ฿100 อัตโนมัติ ไม่ต้องร้องเรียน ไม่ต้องต่อรอง</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">📸</div>
+          <div class="cred-body">
+            <h4>ถ่ายรูป Before/After ทุกครั้ง</h4>
+            <p>โปร่งใส 100% คุณเห็นผลงานก่อนจ่ายเงิน มีหลักฐานทุกขั้นตอน</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">🔒</div>
+          <div class="cred-body">
+            <h4>รับประกันงาน 30 วันเต็ม</h4>
+            <p>ไม่พอใจ แก้ฟรี หรือคืนเงิน 100% ไม่มีข้อแม้ ไม่มีคำถาม</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-img-wrap reveal-r">
+        <img
+          src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&q=80&fit=crop&crop=top"
+          alt="ช่าง AirClean Premium แต่งตัวสุภาพ พร้อมให้บริการ"
+          loading="lazy"
+          width="800" height="600"
+        />
+        <div class="tech-img-badge">&#10003; ช่างผ่านตรวจประวัติแล้ว</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     BEFORE / AFTER
+════════════════════════════════════════ -->
+<section id="ba" class="section section-warm2">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:0">
+      <div class="eyebrow">ผลลัพธ์ที่เห็นได้ชัด</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(26px,3.5vw,42px);font-weight:900;color:var(--ink);line-height:1.25">
+        ก่อน <span style="color:var(--muted2)">—</span> หลัง<br>ความต่างที่คุณสัมผัสได้ทันที
+      </h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="ba-wrap">
+      <div class="ba-table reveal d1">
+        <div class="ba-col before">
+          <img
+            src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80&fit=crop"
+            alt="คอยล์แอร์สกปรก มีฝุ่นและคราบดำสะสม"
+            class="ba-img" loading="lazy" width="600" height="200"
+          />
+          <div class="ba-col-head">
+            <span>✕</span> ก่อนล้าง Premium
+          </div>
+          <div class="ba-row"><div class="ba-dot"></div>คราบดำ เชื้อรา สะสมในคอยล์เย็น</div>
+          <div class="ba-row"><div class="ba-dot"></div>ความเย็นลดลง 30–40% จากเดิม</div>
+          <div class="ba-row"><div class="ba-dot"></div>ค่าไฟแพงขึ้น 25–35% ทุกเดือน</div>
+          <div class="ba-row"><div class="ba-dot"></div>กลิ่นอับ ฟุ้งทุกครั้งที่เปิด</div>
+          <div class="ba-row"><div class="ba-dot"></div>อายุเครื่องสั้นลง เสี่ยงซ่อมใหญ่</div>
+        </div>
+        <div class="ba-col after">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop"
+            alt="แอร์สะอาด หลังล้างด้วย AirClean Premium"
+            class="ba-img" loading="lazy" width="600" height="200"
+          />
+          <div class="ba-col-head">
+            <span>✓</span> หลังล้าง Premium
+          </div>
+          <div class="ba-row"><div class="ba-dot"></div>สะอาดสดใส เหมือนเครื่องใหม่</div>
+          <div class="ba-row"><div class="ba-dot"></div>เย็นเต็ม 100% ทันที</div>
+          <div class="ba-row"><div class="ba-dot"></div>ค่าไฟลดทันทีเดือนถัดไป</div>
+          <div class="ba-row"><div class="ba-dot"></div>อากาศสดชื่น ฆ่าเชื้อ 99.9%</div>
+          <div class="ba-row"><div class="ba-dot"></div>ยืดอายุแอร์ได้อีก 3–5 ปี</div>
+        </div>
+      </div>
+      <div class="ba-footer reveal d2">
+        <div class="baf-text">
+          ล้างแอร์ 1 ครั้ง <strong>คุ้มค่ากว่าไม่ล้างมาก</strong><br>
+          <span style="font-size:13px;color:var(--muted)">เพราะค่าล้าง ฿649 < ค่าไฟที่เสียเพิ่มทั้งปี</span>
+        </div>
+        <div class="baf-num">ROI 200%+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     HIGHLIGHTS
+════════════════════════════════════════ -->
+<section id="hl" class="section section-dark">
+  <div class="wrap">
+    <div class="hl-intro reveal">
+      <div class="eyebrow" style="color:var(--gold-light)">ทำไมต้องเลือกเรา</div>
+      <h2 style="color:var(--warm)">3 สิ่งที่ทำให้ลูกค้า<br>กลับมาซ้ำทุกปี</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="hl-grid">
+      <div class="hl-card reveal d1">
+        <span class="hl-icon">🧪</span>
+        <h3 class="hl-title">น้ำยาฆ่าเชื้อมาตรฐานโรงพยาบาล</h3>
+        <p class="hl-desc">ไม่ใช่น้ำยาถูกๆ จากตลาด — ใช้ Disinfectant ระดับ Medical Grade รับรองโดย WHO ฆ่าเชื้อรา แบคทีเรีย และไวรัส 99.9% ปลอดภัยต่อทุกคนในบ้าน</p>
+        <div class="hl-badge">WHO Approved Formula</div>
+      </div>
+      <div class="hl-card reveal d2">
+        <span class="hl-icon">🛡️</span>
+        <h3 class="hl-title">ช่างผ่านตรวจประวัติ มีประกันภัย</h3>
+        <p class="hl-desc">ช่างทุกคนผ่านการตรวจสอบประวัติอาชญากรรมจาก กรมการปกครอง มีบัตรพนักงาน และทีมงานทุกคนอยู่ภายใต้ประกันภัยความรับผิดต่อบุคคลที่สาม วางใจได้ 100%</p>
+        <div class="hl-badge">ตรวจประวัติโดย กรมการปกครอง</div>
+      </div>
+      <div class="hl-card reveal d3">
+        <span class="hl-icon">⏰</span>
+        <h3 class="hl-title">ตรงต่อเวลา ไม่มีข้อแม้</h3>
+        <p class="hl-desc">ถ้าช่างมาช้าเกิน 15 นาที คุณรับส่วนลด ฿100 อัตโนมัติ ไม่ต้องร้องเรียน ไม่ต้องต่อรอง เราทำแบบนี้เพราะรู้ว่าเวลาของคุณมีค่า On-time Rate ของเรา 97.3%</p>
+        <div class="hl-badge">On-time Rate 97.3%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     TRUST / REVIEWS
+════════════════════════════════════════ -->
+<section id="trust" class="section section-warm">
+  <div class="wrap">
+    <div class="trust-intro reveal">
+      <div class="eyebrow">เสียงจากลูกค้า</div>
+      <h2>4,200+ ครอบครัว<br>เลือกเราซ้ำทุกปี</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="reviews">
+      <div class="rcard reveal d1">
+        <div class="stars">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext">"ก่อนหน้านี้ค่าไฟบ้านเดือนละ 4,800 บาท หลังล้างแอร์ครบทุกตัว เดือนถัดมาเหลือแค่ 3,700 บาท ลดไปเกือบพันเลย คุ้มมากๆ ครับ ไม่น่าเชื่อว่าแค่ล้างแอร์จะต่างได้ขนาดนี้"</p>
+        <div class="reviewer">
+          <div class="avatar">ว</div>
+          <div><div class="rname">วิชัย ร.</div><div class="rloc">พระโขนง · แอร์ 4 เครื่อง</div></div>
+        </div>
+      </div>
+      <div class="rcard reveal d2">
+        <div class="stars">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext">"ลูกสาวแพ้อากาศมาตลอด พอล้างแอร์แล้วอาการดีขึ้นชัดเจนมากค่ะ ช่างมาตรงเวลา แต่งตัวดีมาก ถ่ายรูปให้ดูทุกขั้นตอนก่อนจ่ายเงิน ประทับใจจริงๆ"</p>
+        <div class="reviewer">
+          <div class="avatar">ส</div>
+          <div><div class="rname">สุนิสา ว.</div><div class="rloc">ลาดพร้าว · แอร์ 2 เครื่อง</div></div>
+        </div>
+      </div>
+      <div class="rcard reveal d3">
+        <div class="stars">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext">"เคยใช้ช่างถูกๆ มาก่อน แล้วน้ำหกเลอะทั่วบ้าน ครั้งนี้ปูผ้าก่อนทุกอย่าง สะอาดมาก จ่ายแพงกว่า แต่สบายใจกว่า และคุ้มกว่ามากเลยครับ"</p>
+        <div class="reviewer">
+          <div class="avatar dark">ป</div>
+          <div><div class="rname">ปริยา ม.</div><div class="rloc">จตุจักร · แอร์ 3 เครื่อง</div></div>
+        </div>
+      </div>
+      <div class="rcard reveal d1">
+        <div class="stars">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext">"ห่วงมากก่อนโทรจอง กลัวช่างจะเข้าบ้านแล้วทำของหาย พอเห็นช่างแสดงบัตรก่อนเข้าบ้าน มีประกันภัยจริง ใจเย็นลงทันที ผลงานก็ดีมาก แอร์เย็นกว่าเดิมชัดเจนค่ะ"</p>
+        <div class="reviewer">
+          <div class="avatar">ก</div>
+          <div><div class="rname">กานดา ป.</div><div class="rloc">บางแค · แอร์ 2 เครื่อง</div></div>
+        </div>
+      </div>
+      <div class="rcard reveal d2">
+        <div class="stars">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext">"จองออนไลน์ง่ายมาก ไม่ถึง 2 นาที ช่างโทรยืนยันภายใน 10 นาที มาตรงเวลาเปะ ทำงานเรียบร้อย เก็บของเองก่อนกลับ ไม่ต้องพูดซ้ำเลยครับ ประทับใจตั้งแต่ต้นจนจบ"</p>
+        <div class="reviewer">
+          <div class="avatar">ธ</div>
+          <div><div class="rname">ธีรวัฒน์ จ.</div><div class="rloc">ดินแดง · แอร์ 3 เครื่อง</div></div>
+        </div>
+      </div>
+      <div class="rcard reveal d3">
+        <div class="stars">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext">"ทำคอนโดชั้น 28 ช่างไม่บ่นเลยสักคำ อุปกรณ์ครบ น้ำยาหอมมากค่ะ ไม่ฉุนจมูกเหมือนที่อื่น ตอนนี้จองคิวปีละ 2 ครั้งประจำ บอกเพื่อนในตึกไปหลายคนแล้ว"</p>
+        <div class="reviewer">
+          <div class="avatar">น</div>
+          <div><div class="rname">นภาพร ส.</div><div class="rloc">สาทร · แอร์ 1 เครื่อง</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-more reveal">ดูรีวิวจากลูกค้าจริงทั้งหมด 4,200+ รีวิว &rarr;</div>
+    <div class="trust-seals reveal d2">
+      <div class="seal"><span>🏢</span> จดทะเบียนบริษัทถูกต้อง</div>
+      <div class="seal"><span>📜</span> ใบอนุญาตประกอบธุรกิจ</div>
+      <div class="seal"><span>🛡️</span> ประกันภัยช่างทุกคน</div>
+      <div class="seal"><span>⭐</span> Google Review 4.9/5</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PROCESS
+════════════════════════════════════════ -->
+<section id="process" class="section section-warm2">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <div class="eyebrow">ง่ายมาก</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--ink);line-height:1.25">
+        จองใน 2 นาที<br>ช่างมาถึงบ้าน
+      </h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="process-inner">
+      <div class="pstep reveal d1">
+        <div class="pstep-head">
+          <div class="pnum">1</div>
+          <span class="pstep-icon">📱</span>
+        </div>
+        <div class="pbody">
+          <h3>จองออนไลน์หรือโทรหาเรา</h3>
+          <p>บอกจำนวนเครื่อง ที่อยู่ และวันเวลาที่สะดวก เราตอบยืนยันภายใน 5 นาที ไม่มีค่าจองล่วงหน้า ยกเลิกได้ฟรีก่อน 24 ชั่วโมง ไม่มีข้อแม้</p>
+          <div class="pstep-detail-row" style="margin-top:12px">
+            <span class="pstep-detail-chip">ชื่อ + เบอร์</span>
+            <span class="pstep-detail-chip">วันที่สะดวก</span>
+            <span class="pstep-detail-chip">จำนวนเครื่อง</span>
+          </div>
+          <span class="ptag">⚡ ยืนยันภายใน 5 นาที</span>
+        </div>
+      </div>
+      <div class="pstep reveal d2">
+        <div class="pstep-head">
+          <div class="pnum">2</div>
+          <span class="pstep-icon">🧑‍🔧</span>
+        </div>
+        <div class="pbody">
+          <h3>ช่างมาตรงเวลา ทำงานมืออาชีพ</h3>
+          <p>ช่างแสดงบัตรประจำตัวก่อนเข้าบ้าน ปูผ้าคลุมพื้นและเฟอร์นิเจอร์ ล้างด้วยระบบแรงดันสูง + น้ำยาฆ่าเชื้อ ถ่ายรูป Before/After ให้ดูทุกครั้ง</p>
+          <div class="pstep-detail-row" style="margin-top:12px">
+            <span class="pstep-detail-chip">🪪 แสดงบัตร</span>
+            <span class="pstep-detail-chip">🧴 น้ำยา Medical</span>
+            <span class="pstep-detail-chip">📸 Before/After</span>
+          </div>
+          <span class="ptag">🛡️ แสดงบัตรก่อนเข้าบ้านเสมอ</span>
+        </div>
+      </div>
+      <div class="pstep reveal d3">
+        <div class="pstep-head">
+          <div class="pnum">3</div>
+          <span class="pstep-icon">✅</span>
+        </div>
+        <div class="pbody">
+          <h3>ตรวจสอบ รับประกัน แล้วค่อยจ่าย</h3>
+          <p>ทดสอบให้แอร์เย็นก่อนเสมอ มอบใบรับประกัน 30 วัน ชำระเงินสด/โอน หลังงานเสร็จ ไม่มีค่าใช้จ่ายซ่อนเร้นแม้แต่บาทเดียว</p>
+          <div class="pstep-detail-row" style="margin-top:12px">
+            <span class="pstep-detail-chip">❄️ ทดสอบความเย็น</span>
+            <span class="pstep-detail-chip">📄 ใบรับประกัน 30 วัน</span>
+            <span class="pstep-detail-chip">💳 จ่ายหลังงานเสร็จ</span>
+          </div>
+          <span class="ptag">💰 จ่ายเมื่องานเสร็จเท่านั้น</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PRICING
+════════════════════════════════════════ -->
+<section id="pricing" class="section section-dark">
+  <div class="wrap">
+    <div class="pricing-intro reveal">
+      <div class="eyebrow" style="color:var(--gold-light)">ราคาตรงไปตรงมา</div>
+      <h2>เลือกแพ็คเกจที่เหมาะกับคุณ</h2>
+      <p>ราคาที่เห็นคือราคาที่จ่าย — ไม่มีบวกเพิ่มหน้างาน ไม่มีค่าใช้จ่ายซ่อนเร้น</p>
+    </div>
+    <div class="plans reveal d1">
+      <div class="plan">
+        <h3 class="plan-name">Basic</h3>
+        <p class="plan-sub">ล้างแอร์ทั่วไป เหมาะสำหรับดูแลประจำ</p>
+        <div class="plan-orig">ราคาปกติ ฿599</div>
+        <div class="plan-price">฿399<span class="plan-unit">/เครื่อง</span></div>
+        <div class="plan-save">ประหยัด 33%</div>
+        <ul class="plan-feats">
+          <li><span class="pcheck">✓</span> ล้างแรงดันสูง</li>
+          <li><span class="pcheck">✓</span> ทำความสะอาดฟิลเตอร์</li>
+          <li><span class="pcheck">✓</span> เช็ดตัวเครื่องในนอก</li>
+          <li><span class="pcheck">✓</span> รับประกัน 30 วัน</li>
+        </ul>
+        <a href="#booking-form" class="btn-plan">เลือกแพ็คนี้</a>
+      </div>
+
+      <div class="plan best">
+        <div class="plan-badge">⭐ แนะนำ</div>
+        <h3 class="plan-name">Standard</h3>
+        <p class="plan-sub" style="color:rgba(244,196,60,0.5)">ครบทุกอย่าง เหมาะสำหรับบ้านทั่วไป</p>
+        <div class="plan-orig" style="color:rgba(244,196,60,0.3)">ราคาปกติ ฿899</div>
+        <div class="plan-price">฿649<span class="plan-unit" style="color:rgba(244,196,60,0.4)">/เครื่อง</span></div>
+        <div class="plan-save">ประหยัด 28% · ขายดีสุด</div>
+        <ul class="plan-feats">
+          <li><span class="pcheck">✓</span> ทุกอย่างใน Basic</li>
+          <li><span class="pcheck">✓</span> น้ำยาฆ่าเชื้อ Medical Grade</li>
+          <li><span class="pcheck">✓</span> ล้างคอยล์เย็นเจาะลึก</li>
+          <li><span class="pcheck">✓</span> ถ่ายรูป Before/After</li>
+          <li><span class="pcheck">✓</span> รายงานส่ง Line</li>
+        </ul>
+        <a href="#booking-form" class="btn-plan best">จองแพ็คนี้เลย</a>
+      </div>
+
+      <div class="plan">
+        <h3 class="plan-name">Premium</h3>
+        <p class="plan-sub">สำหรับคอนโดหรูและบ้านระดับ Hi-end</p>
+        <div class="plan-orig">ราคาปกติ ฿1,499</div>
+        <div class="plan-price">฿1,099<span class="plan-unit">/เครื่อง</span></div>
+        <div class="plan-save">ประหยัด 27%</div>
+        <ul class="plan-feats">
+          <li><span class="pcheck">✓</span> ทุกอย่างใน Standard</li>
+          <li><span class="pcheck">✓</span> ล้างยูนิตนอก (Outdoor)</li>
+          <li><span class="pcheck">✓</span> ตรวจวัดค่าความเย็น</li>
+          <li><span class="pcheck">✓</span> เติมน้ำยา (กรณีต่ำ)</li>
+          <li><span class="pcheck">✓</span> รายงาน PDF ส่ง Line</li>
+        </ul>
+        <a href="#booking-form" class="btn-plan">เลือกแพ็คนี้</a>
+      </div>
+    </div>
+    <p class="pricing-note reveal">* ราคาสำหรับแอร์ไม่เกิน 24,000 BTU • นอกเขตกรุงเทพฯ มีค่าเดินทางเพิ่มเติม • ราคาโปรสิ้นสุดเมื่อคิวเต็ม</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     URGENCY
+════════════════════════════════════════ -->
+<section id="urgency">
+  <div class="urgency-wrap wrap reveal">
+    <div class="eyebrow" style="color:rgba(244,196,60,0.7);justify-content:center">อย่าปล่อยให้ผ่านไป</div>
+    <h2>คิวว่าง <span>7 คิวสุดท้าย</span><br>สัปดาห์นี้</h2>
+    <p class="urgency-sub">
+      หน้าร้อน คือช่วงที่ทุกคนนึกถึงแอร์พร้อมกัน<br>
+      ถ้าคุณอ่านข้อนี้อยู่ แปลว่ายังมีโอกาส<br>
+      <strong style="color:var(--warm)">ลงทะเบียนตอนนี้ = ล็อคราคาโปรไว้ก่อน</strong>
+    </p>
+
+    <div class="slots-row">
+      <div class="slot taken" title="จองแล้ว"></div><div class="slot taken" title="จองแล้ว"></div>
+      <div class="slot taken" title="จองแล้ว"></div><div class="slot taken" title="จองแล้ว"></div>
+      <div class="slot taken" title="จองแล้ว"></div><div class="slot taken" title="จองแล้ว"></div>
+      <div class="slot taken" title="จองแล้ว"></div><div class="slot taken" title="จองแล้ว"></div>
+      <div class="slot open" title="ว่าง — จองได้เลย">📅</div><div class="slot open" title="ว่าง — จองได้เลย">📅</div>
+      <div class="slot open" title="ว่าง — จองได้เลย">📅</div><div class="slot open" title="ว่าง — จองได้เลย">📅</div>
+      <div class="slot open" title="ว่าง — จองได้เลย">📅</div><div class="slot open" title="ว่าง — จองได้เลย">📅</div>
+      <div class="slot open" title="ว่าง — จองได้เลย">📅</div>
+    </div>
+    <div class="slots-caption">จองแล้ว 8 คิว &nbsp;·&nbsp; ว่างอยู่ <strong style="color:var(--gold)">7 คิวสุดท้าย</strong></div>
+
+    <div class="cd-row">
+      <div class="cd-box">
+        <span class="cd-num" id="cdH">04</span>
+        <div class="cd-lbl">ชั่วโมง</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box">
+        <span class="cd-num" id="cdM">23</span>
+        <div class="cd-lbl">นาที</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box">
+        <span class="cd-num" id="cdS">59</span>
+        <div class="cd-lbl">วินาที</div>
+      </div>
+    </div>
+
+    <a href="#booking-form" class="btn-gold" style="font-size:18px;padding:18px 52px">
+      ⚡ จองคิวก่อนเต็ม
+    </a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     RISK REVERSAL
+════════════════════════════════════════ -->
+<section id="risk" class="section section-warm">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <div class="eyebrow">ความมั่นใจของเรา</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(24px,3vw,38px);font-weight:900;color:var(--ink);line-height:1.25;margin-bottom:8px">ไม่พอใจ คืนเงินทันที<br>ไม่มีคำถาม</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="risk-inner">
+      <p style="font-size:17px;font-weight:600;color:var(--ink);margin-bottom:12px">🛡️ รับประกันงาน 30 วันเต็ม</p>
+      <p>ถ้าล้างแล้วแอร์ยังไม่เย็นขึ้น กลิ่นยังไม่หาย หรืองานไม่ได้มาตรฐาน — เราจะกลับมาแก้ให้ฟรี หรือ<strong>คืนเงิน 100%</strong> โดยไม่มีเงื่อนไข ไม่ต้องต่อรอง ไม่ต้องส่งหลักฐาน แค่โทรบอกเรา</p>
+      <div class="risk-pills" style="margin-top:24px">
+        <div class="rpill"><span class="rpill-icon">✅</span> คืนเงิน 100% หากไม่พอใจ</div>
+        <div class="rpill"><span class="rpill-icon">🔄</span> แก้งานฟรีภายใน 30 วัน</div>
+        <div class="rpill"><span class="rpill-icon">📞</span> ซัพพอร์ตทุกวัน 8:00–20:00</div>
+        <div class="rpill"><span class="rpill-icon">📸</span> หลักฐาน Before/After ทุกครั้ง</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section id="faq" class="section section-warm2">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <div class="eyebrow">ข้อสงสัย</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--ink);line-height:1.25">ตอบตรงๆ ไม่อ้อม</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="faq-inner">
+      <div class="fitem reveal d1">
+        <button class="fbtn" onclick="toggleF(this)">ช่างถูกกว่า ล้างแบบเดียวกันไหม? <span class="farrow">▼</span></button>
+        <div class="fans">ไม่เหมือนกันครับ ช่างราคาถูกมักล้างแค่ฟิลเตอร์และพ่นน้ำ ไม่ได้แตะคอยล์เย็นและถาดน้ำซึ่งเป็นจุดสะสมราที่แท้จริง ราคาถูกกว่า ฿100–200 แต่คุณยังเสียค่าไฟเพิ่ม ฿120/เดือนต่อไปอีก ไม่คุ้มเลยครับ</div>
+      </div>
+      <div class="fitem reveal d2">
+        <button class="fbtn" onclick="toggleF(this)">น้ำจะหกเลอะบ้านไหม? <span class="farrow">▼</span></button>
+        <div class="fans">ไม่ครับ ช่างปูผ้าคลุมพื้นและเฟอร์นิเจอร์ก่อนทุกครั้ง และใช้ถุงรองน้ำที่ต่อตรงกับเครื่อง น้ำไหลลงถังโดยตรง ไม่กระเด็นแม้แต่หยดเดียว</div>
+      </div>
+      <div class="fitem reveal d3">
+        <button class="fbtn" onclick="toggleF(this)">ต้องอยู่บ้านตอนช่างทำงานไหม? <span class="farrow">▼</span></button>
+        <div class="fans">แนะนำให้มีผู้ใหญ่อยู่เพื่อตรวจรับงานครับ แต่ถ้าไม่สะดวก แจ้งล่วงหน้าได้ เราส่งรูป Before/After และรายงานผ่าน Line ให้ทุกครั้ง</div>
+      </div>
+      <div class="fitem reveal d4">
+        <button class="fbtn" onclick="toggleF(this)">ควรล้างทุกกี่เดือน? <span class="farrow">▼</span></button>
+        <div class="fans">ใช้งานปกติวันละ 6–8 ชั่วโมง แนะนำทุก 6 เดือนครับ มีสัตว์เลี้ยงหรือใช้งานหนักควรทุก 3–4 เดือน สำหรับลูกค้าที่จองล่วงหน้าเราให้ส่วนลดพิเศษ</div>
+      </div>
+      <div class="fitem reveal d5">
+        <button class="fbtn" onclick="toggleF(this)">ถ้าแอร์ยังไม่เย็นหลังล้าง ทำอย่างไร? <span class="farrow">▼</span></button>
+        <div class="fans">โทรแจ้งเราทันทีครับ ถ้าอยู่ในระยะรับประกัน 30 วัน ช่างจะกลับมาตรวจฟรี ถ้าเกิดจากงานของเรา แก้ฟรี ถ้าเกิดจากสาเหตุอื่น เราแจ้งก่อนทุกครั้ง ไม่เริ่มงานโดยไม่บอกราคา</div>
+      </div>
+      <div class="fitem reveal d6">
+        <button class="fbtn" onclick="toggleF(this)">ชำระเงินได้ช่องทางไหน? <span class="farrow">▼</span></button>
+        <div class="fans">รับเงินสด โอนผ่านธนาคาร PromptPay และบัตรเครดิต/เดบิต ชำระหลังงานเสร็จเท่านั้น ไม่มีเก็บเงินล่วงหน้าครับ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FINAL CTA
+════════════════════════════════════════ -->
+<section id="finalcta" class="section section-dark">
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="cta-intro reveal">
+      <div class="eyebrow" style="color:var(--gold-light);justify-content:center">จองเลยตอนนี้</div>
+      <h2>หยุดเสียค่าไฟทิ้ง<br>กรอกข้อมูลนี้ใช้เวลา <em style="color:var(--gold)">30 วินาที</em></h2>
+      <div class="gold-rule"></div>
+      <p>ไม่มีค่าจอง · ยกเลิกได้ฟรี · ทีมงานตอบใน 5 นาที</p>
+    </div>
+
+    <div class="fcard reveal d1" id="booking-form">
+      <div class="fcard-title">🗓️ จองคิวล้างแอร์ฟรี — ไม่มีค่าจองล่วงหน้า</div>
+      <div class="fgroup">
+        <label>ชื่อ</label>
+        <input type="text" id="f-name" autocomplete="name" class="f-input" placeholder="เช่น สมชาย ใจดี" />
+      </div>
+      <div class="fgroup">
+        <label>เบอร์โทรศัพท์</label>
+        <input type="tel" id="f-tel" autocomplete="tel" class="f-input" placeholder="0XX-XXX-XXXX" />
+      </div>
+      <div class="fgroup">
+        <label>จำนวนเครื่องแอร์</label>
+        <select id="f-qty">
+          <option value="">เลือกจำนวน</option>
+          <option>1 เครื่อง</option>
+          <option>2 เครื่อง</option>
+          <option>3 เครื่อง</option>
+          <option>4+ เครื่อง</option>
+        </select>
+      </div>
+      <div class="fgroup">
+        <label>วันที่สะดวก</label>
+        <input type="date" id="f-date" />
+      </div>
+      <div id="form-err" class="field-error" style="text-align:center;font-size:12px;margin-bottom:8px"></div>
+      <button class="btn-submit-gold" onclick="submitForm(this)">
+        ⚡ ยืนยันจองคิวฟรี — ราคาโปรสัปดาห์นี้
+      </button>
+      <div class="fnote">ข้อมูลของคุณปลอดภัย 100% · ไม่มีค่าใช้จ่ายจนกว่างานจะเสร็จ</div>
+      <div class="ssl-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8a7d60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        SSL Encrypted · ปลอดภัยระดับธนาคาร
+      </div>
+    </div>
+
+    <div class="alt-contact reveal d2">
+      <p>หรือติดต่อเราโดยตรง</p>
+      <div class="alt-btns">
+        <a href="#" class="btn-outline">💬 Line: @aircleaner</a>
+        <a href="tel:020000000" class="btn-ghost-dark">📞 02-000-0000</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="fbrand">❄️ AirClean Premium</div>
+  <p class="finfo">
+    บริษัท แอร์คลีน พรีเมียม จำกัด · เลขทะเบียน 010XXXXXXXXX<br>
+    กรุงเทพมหานคร · โทร 02-000-0000 · Line @aircleaner
+  </p>
+  <div class="flegs">
+    <span class="fleg">🏢 จดทะเบียนถูกต้อง</span>
+    <span class="fleg">·</span>
+    <span class="fleg">🛡️ ประกันภัยช่าง</span>
+    <span class="fleg">·</span>
+    <span class="fleg">📜 ใบอนุญาตประกอบธุรกิจ</span>
+  </div>
+  <p class="fcopy">© 2025 AirClean Premium. All rights reserved.</p>
+</footer>
+
+<!-- STICKY -->
+<div id="sticky">
+  <span class="sticky-msg">🔥 เหลือ <strong>7 คิวสุดท้าย</strong> — โปรสัปดาห์นี้</span>
+  <a href="#booking-form" class="btn-gold" style="padding:10px 24px;font-size:14px;animation:none">📅 จองเลย</a>
+  <a href="tel:020000000" class="btn-ghost-dark" style="padding:10px 20px;font-size:13px">📞 โทร</a>
+</div>
+
+
+<!-- BACK TO TOP -->
+<button id="back-top" aria-label="กลับขึ้นด้านบน" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<!-- SOCIAL PROOF POPUP -->
+<div id="sp-popup">
+  <div class="sp-inner">
+    <div class="sp-icon">👀</div>
+    <div>
+      <div class="sp-text" id="sp-msg"><strong>สมหญิง จาก ลาดพร้าว</strong><br>กำลังดูหน้านี้อยู่ด้วยตอนนี้</div>
+      <div class="sp-time" id="sp-time">เมื่อกี้</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+/* ── SCROLL REVEAL ── */
+const revEls = document.querySelectorAll('.reveal,.reveal-l,.reveal-r');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, {threshold:0.08});
+revEls.forEach(el => revObs.observe(el));
+
+/* ── HERO IMAGE PRELOAD (performance) ── */
+(function(){
+  const heroUrl = 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1400&q=80&fit=crop';
+  const link = document.createElement('link');
+  link.rel = 'preload'; link.as = 'image'; link.href = heroUrl;
+  document.head.appendChild(link);
+})();
+
+/* ── STICKY BAR + BACK TO TOP — single merged scroll listener ── */
+const sticky  = document.getElementById('sticky');
+const backTop = document.getElementById('back-top');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  sticky.classList.toggle('show',  y > 500);
+  backTop.classList.toggle('show', y > 800);
+}, {passive:true});
+
+/* ── COUNTDOWN — persists in sessionStorage ── */
+const _cdKey = 'ac_cd';
+let _cdSaved = sessionStorage.getItem(_cdKey);
+let ch, cm, cs;
+if(_cdSaved){
+  const p = _cdSaved.split(',');
+  ch=+p[0]; cm=+p[1]; cs=+p[2];
+} else {
+  ch=4; cm=23; cs=59;
+}
+const dH=document.getElementById('cdH'), dM=document.getElementById('cdM'), dS=document.getElementById('cdS');
+setInterval(()=>{
+  if(--cs<0){cs=59;if(--cm<0){cm=59;if(--ch<0){ch=cm=cs=0}}}
+  dH.textContent=String(ch).padStart(2,'0');
+  dM.textContent=String(cm).padStart(2,'0');
+  dS.textContent=String(cs).padStart(2,'0');
+  sessionStorage.setItem(_cdKey,[ch,cm,cs].join(','));
+},1000);
+
+/* ── INTERACTIVE CALCULATOR ── */
+const acSlider = document.getElementById('ac-slider');
+const hrSlider = document.getElementById('hr-slider');
+const acVal    = document.getElementById('ac-val');
+const hrVal    = document.getElementById('hr-val');
+const wResult  = document.getElementById('waste-result');
+const cvBad    = document.getElementById('cv-bad');
+const cvSave   = document.getElementById('cv-save');
+
+function calcWaste(){
+  const ac = parseInt(acSlider.value);
+  const hr = parseInt(hrSlider.value);
+  const wastePerMo = 120 * (hr/8) * ac;
+  const wastePerYr = Math.round(wastePerMo * 12 / 100) * 100;
+  const fmt = n => '฿' + n.toLocaleString();
+  wResult.textContent = fmt(wastePerYr);
+  cvBad.textContent   = fmt(wastePerYr);
+  cvSave.textContent  = fmt(wastePerYr);
+  acVal.textContent = ac + ' เครื่อง';
+  hrVal.textContent = hr + ' ชั่วโมง';
+  const acPct = ((ac-1)/5*100).toFixed(1)+'%';
+  const hrPct = ((hr-4)/14*100).toFixed(1)+'%';
+  acSlider.style.setProperty('--pct', acPct);
+  hrSlider.style.setProperty('--pct', hrPct);
+}
+acSlider.addEventListener('input', calcWaste);
+hrSlider.addEventListener('input', calcWaste);
+calcWaste();
+
+/* ── FAQ TOGGLE ── */
+function toggleF(btn){
+  const ans = btn.nextElementSibling;
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.fans').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('open'));
+  if(!isOpen){ ans.classList.add('open'); btn.classList.add('open'); }
+}
+
+/* ── FORM SUBMIT — with clear error messages ── */
+function submitForm(btn){
+  const fieldMap = [
+    {id:'f-name', label:'กรุณากรอกชื่อของคุณ'},
+    {id:'f-tel',  label:'กรุณากรอกเบอร์โทรศัพท์'},
+    {id:'f-qty',  label:'กรุณาเลือกจำนวนแอร์'},
+  ];
+  let ok = true;
+  let firstErr = null;
+  fieldMap.forEach(({id,label})=>{
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(!el.value.trim()){
+      el.classList.add('error'); el.classList.remove('ok');
+      el.setAttribute('placeholder', label);
+      ok = false;
+      if(!firstErr) firstErr = el;
+    } else {
+      el.classList.remove('error'); el.classList.add('ok');
+    }
+  });
+  const errDiv = document.getElementById('form-err');
+  if(!ok){
+    if(errDiv){ errDiv.textContent='กรุณากรอกข้อมูลที่จำเป็นให้ครบก่อนนะคะ'; errDiv.classList.add('show'); }
+    if(firstErr) firstErr.focus();
+    return;
+  }
+  if(errDiv) errDiv.classList.remove('show');
+  btn.textContent = '✅ รับจองเรียบร้อย! ทีมงานจะโทรยืนยันภายใน 5 นาที';
+  btn.style.background = 'linear-gradient(135deg,#1a6b3a,#2e7d32)';
+  btn.style.color = '#fff';
+  btn.disabled = true;
+}
+
+/* ── SLOT COUNT — localStorage persists across reloads ── */
+(function(){
+  const KEY = 'ac_slots';
+  const MIN = 1;
+  let slots = parseInt(localStorage.getItem(KEY));
+  if(isNaN(slots) || slots > 7 || slots < MIN) slots = 7;
+
+  function renderSlots(n){
+    // Update urgency section
+    const row = document.querySelector('.slots-row');
+    if(row){
+      const taken = 15 - n;
+      row.innerHTML = '';
+      for(let i=0;i<taken;i++) row.innerHTML += '<div class="slot taken" title="จองแล้ว"></div>';
+      for(let i=0;i<n;i++)     row.innerHTML += '<div class="slot open" title="ว่าง — จองได้เลย">📅</div>';
+    }
+    const cap = document.querySelector('.slots-caption');
+    if(cap) cap.innerHTML = 'จองแล้ว '+(15-n)+' คิว &nbsp;&middot;&nbsp; ว่างอยู่ <strong style="color:var(--gold)">'+n+' คิวสุดท้าย</strong>';
+    // Update sticky bar text
+    const sMsg = document.querySelector('.sticky-msg');
+    if(sMsg) sMsg.innerHTML = '&#128293; เหลือ <strong>'+n+' คิวสุดท้าย</strong> &mdash; โปรสัปดาห์นี้';
+    // Update urgency heading span
+    const urgSpan = document.querySelector('#urgency h2 span');
+    if(urgSpan) urgSpan.textContent = n+' คิวสุดท้าย';
+  }
+
+  renderSlots(slots);
+
+  // Decrease randomly every 8-18 minutes
+  function scheduleDecrease(){
+    const delay = (8 + Math.random()*10) * 60 * 1000;
+    setTimeout(()=>{
+      if(slots > MIN){
+        slots--;
+        localStorage.setItem(KEY, slots);
+        renderSlots(slots);
+      }
+      scheduleDecrease();
+    }, delay);
+  }
+  scheduleDecrease();
+})();
+
+/* ── SOCIAL PROOF POP-UP — 25 names, Fisher-Yates shuffle ── */
+const popup  = document.getElementById('sp-popup');
+const spMsg  = document.getElementById('sp-msg');
+const spTime = document.getElementById('sp-time');
+
+const _allNotifs = [
+  {name:'สมหญิง',  loc:'ลาดพร้าว',   action:'กำลังดูหน้านี้อยู่ด้วยตอนนี้'},
+  {name:'ธนพล',    loc:'บางนา',       action:'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้'},
+  {name:'พรทิพย์', loc:'จตุจักร',     action:'กำลังดูหน้านี้อยู่ด้วยตอนนี้'},
+  {name:'อนุชา',   loc:'พระโขนง',     action:'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้'},
+  {name:'วารุณี',  loc:'ลาดกระบัง',   action:'กำลังดูแพ็คเกจ Standard อยู่'},
+  {name:'สุรศักดิ์',loc:'มีนบุรี',    action:'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้'},
+  {name:'กานดา',   loc:'บางแค',       action:'กำลังดูหน้านี้อยู่ด้วยตอนนี้'},
+  {name:'ธีรวัฒน์',loc:'ดินแดง',      action:'เพิ่งกดจองแพ็คเกจ Premium ไป'},
+  {name:'นภาพร',   loc:'สาทร',        action:'กำลังดูแพ็คเกจ Premium อยู่'},
+  {name:'ประภาส',  loc:'รามคำแหง',    action:'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้'},
+  {name:'มณีรัตน์',loc:'ห้วยขวาง',    action:'กำลังดูหน้านี้อยู่ด้วยตอนนี้'},
+  {name:'รัชนี',   loc:'ลาดกระบัง',   action:'เพิ่งจองแพ็คเกจ Standard ไป'},
+  {name:'วีระ',    loc:'บางรัก',      action:'กำลังดูแพ็คเกจ Basic อยู่'},
+  {name:'ศิริพร',  loc:'สะพานสูง',    action:'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้'},
+  {name:'สมชาย',   loc:'คลองสาน',     action:'กำลังดูหน้านี้อยู่ด้วยตอนนี้'},
+  {name:'หทัยทิพย์',loc:'ประเวศ',     action:'เพิ่งกดจองแพ็คเกจ Standard ไป'},
+  {name:'อภิชาติ', loc:'ลาดพร้าว',    action:'กำลังดูแพ็คเกจ Premium อยู่'},
+  {name:'กิตติพงษ์',loc:'บึงกุ่ม',   action:'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้'},
+  {name:'ชนิดา',   loc:'ธนบุรี',      action:'กำลังดูหน้านี้อยู่ด้วยตอนนี้'},
+  {name:'ณัฐวุฒิ', loc:'ราษฎร์บูรณะ', action:'เพิ่งจองแพ็คเกจ Basic ไป'},
+  {name:'ทิพย์วรรณ',loc:'ดอนเมือง',  action:'กำลังดูแพ็คเกจ Standard อยู่'},
+  {name:'บุญมี',   loc:'หลักสี่',     action:'เพิ่งจองคิวล้างแอร์ไปเมื่อกี้'},
+  {name:'ปาริชาต', loc:'บางเขน',      action:'กำลังดูหน้านี้อยู่ด้วยตอนนี้'},
+  {name:'ไพโรจน์', loc:'ตลิ่งชัน',    action:'เพิ่งกดจองแพ็คเกจ Premium ไป'},
+  {name:'ยุพา',    loc:'บางพลัด',     action:'กำลังดูแพ็คเกจ Basic อยู่'},
+];
+
+// Fisher-Yates shuffle
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+const _times = ['เมื่อกี้','1 นาทีที่แล้ว','2 นาทีที่แล้ว','3 นาทีที่แล้ว','5 นาทีที่แล้ว','7 นาทีที่แล้ว','10 นาทีที่แล้ว'];
+let _queue = shuffle(_allNotifs);
+let _qIdx = 0;
+
+function showNotification(){
+  if(_qIdx >= _queue.length){ _queue = shuffle(_allNotifs); _qIdx = 0; }
+  const n = _queue[_qIdx++];
+  const t = _times[Math.floor(Math.random()*_times.length)];
+  spMsg.innerHTML = '<strong>'+n.name+' จาก '+n.loc+'</strong><br>'+n.action;
+  spTime.textContent = t;
+  popup.classList.add('show');
+  setTimeout(()=>popup.classList.remove('show'), 4500);
+}
+
+// Randomize interval 15-22s for natural feel
+function scheduleNotif(){
+  const delay = (15 + Math.random()*7) * 1000;
+  setTimeout(()=>{ showNotification(); scheduleNotif(); }, delay);
+}
+setTimeout(()=>{ showNotification(); scheduleNotif(); }, 6000);
+</script>
+</body>
+</html>
