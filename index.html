@@ -1,67 +1,100 @@
 <!DOCTYPE html>
 <html lang="th" dir="ltr">
 <head>
-  <!-- ═══════════════════════════════════════════════════════
-       META & CHARSET
-  ════════════════════════════════════════════════════════ -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- Primary SEO -->
-  <title>AirClean Premium — บริการล้างแอร์มาตรฐานระดับโรงแรม กรุงเทพฯ</title>
-  <meta name="description" content="บริการล้างแอร์ Deep Clean กรุงเทพฯ โดยช่างที่ผ่านตรวจประวัติ น้ำยาฆ่าเชื้อ Medical Grade รับประกัน 30 วัน ฟรีค่าประเมิน จ่ายเมื่องานเสร็จ ตอบใน 5 นาที">
-  <meta name="keywords"    content="ล้างแอร์,ล้างแอร์กรุงเทพ,ช่างล้างแอร์,AirClean Premium,บริการล้างแอร์">
-  <meta name="robots"     content="index, follow">
-  <meta name="author"     content="AirClean Premium">
-  <link rel="canonical"   href="https://atenticai.github.io/statichtml/">
+  <!-- ═══════════════════════════════════════
+       SEO — Primary Meta
+  ════════════════════════════════════════ -->
+  <title>ล้างแอร์บ้าน Premium กรุงเทพฯ | AirClean — ช่างมืออาชีพ รับประกัน 30 วัน</title>
+  <meta name="description" content="บริการล้างแอร์บ้านและคอนโด กรุงเทพฯ มาตรฐาน Premium โดยช่างผ่านตรวจประวัติ น้ำยาฆ่าเชื้อ Medical Grade รับประกันงาน 30 วัน ลด 30% ทุกแพ็คเกจ จองฟรีไม่มีค่าจอง">
+  <meta name="keywords" content="ล้างแอร์บ้าน,ล้างแอร์กรุงเทพ,ล้างแอร์ราคาถูก,ล้างแอร์คอนโด,บริการล้างแอร์,AirClean Premium,ช่างล้างแอร์มืออาชีพ">
+  <meta name="author" content="AirClean Premium">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f4c43c">
+  <link rel="canonical" href="https://atenticai.github.io/statichtml/">
 
-  <!-- Open Graph / Facebook -->
+  <!-- ═══════════════════════════════════════
+       SEO — Open Graph (Facebook / Line)
+  ════════════════════════════════════════ -->
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://atenticai.github.io/statichtml/">
-  <meta property="og:title"       content="AirClean Premium — บริการล้างแอร์มาตรฐานระดับโรงแรม">
-  <meta property="og:description" content="ล้างแอร์ Deep Clean กรุงเทพฯ ช่างผ่านตรวจประวัติ รับประกัน 30 วัน ฟรีค่าประเมิน">
-  <meta property="og:image"       content="images/Great-Employee.webp">
+  <meta property="og:title"       content="ล้างแอร์บ้าน Premium กรุงเทพฯ | AirClean">
+  <meta property="og:description" content="ช่างผ่านตรวจประวัติ น้ำยา Medical Grade รับประกัน 30 วัน ลด 30% ทุกแพ็คเกจ เหลือ 7 คิวสุดท้าย!">
+  <meta property="og:image"       content="https://atenticai.github.io/statichtml/images/Air-cleaner-services.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height"content="630">
+  <meta property="og:locale"      content="th_TH">
+  <meta property="og:site_name"   content="AirClean Premium">
 
-  <!-- Twitter Card -->
+  <!-- ═══════════════════════════════════════
+       SEO — Twitter Card
+  ════════════════════════════════════════ -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="AirClean Premium — บริการล้างแอร์มาตรฐานระดับโรงแรม">
-  <meta name="twitter:description" content="ล้างแอร์ Deep Clean กรุงเทพฯ ช่างผ่านตรวจประวัติ รับประกัน 30 วัน">
-  <meta name="twitter:image"       content="images/Great-Employee.webp">
+  <meta name="twitter:title"       content="ล้างแอร์บ้าน Premium กรุงเทพฯ | AirClean">
+  <meta name="twitter:description" content="ช่างผ่านตรวจประวัติ น้ำยา Medical Grade รับประกัน 30 วัน">
+  <meta name="twitter:image"       content="https://atenticai.github.io/statichtml/images/Air-cleaner-services.webp">
 
-  <!-- Theme colour (PWA / mobile browser chrome) -->
-  <meta name="theme-color" content="#1a1008">
+  <!-- ═══════════════════════════════════════
+       PERFORMANCE — DNS Prefetch & Preconnect
+       (เฉพาะ origin ที่จำเป็นจริงๆ)
+  ════════════════════════════════════════ -->
+  <link rel="preconnect"    href="https://fonts.googleapis.com">
+  <link rel="preconnect"    href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch"  href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch"  href="https://fonts.gstatic.com">
 
-  <!-- ═══════════════════════════════════════════════════════
-       STRUCTURED DATA  (LocalBusiness JSON-LD)
-  ════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════
+       PERFORMANCE — Preload Critical Resources
+  ════════════════════════════════════════ -->
+  <!-- Hero BG image — LCP critical, preload ทันที -->
+  <link rel="preload" as="image" href="images/Air-cleaner-services.webp" fetchpriority="high">
+  <!-- Main CSS preload then apply -->
+  <link rel="preload" as="style" href="css/style.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+
+  <!-- ═══════════════════════════════════════
+       FONTS — Google Fonts (async, non-blocking)
+  ════════════════════════════════════════ -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@700;900&family=Noto+Sans+Thai:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@700;900&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- ═══════════════════════════════════════
+       CRITICAL CSS — inline to prevent FOUC
+  ════════════════════════════════════════ -->
+  <style>
+    :root{--gold:#f4c43c;--gold-light:#ffe22e;--gold-pale:#fff9df;--gold-dim:rgba(244,196,60,.12);--gold-mid:rgba(244,196,60,.35);--ink:#1a1008;--ink2:#2a200a;--warm:#f7f2e8;--warm2:#ede8dc;--muted:#6b5e45;--muted2:#8a7860;--red:#c0392b;--green:#1a6b3a;--white:#fff;--serif:'Noto Serif Thai',serif;--sans:'Noto Sans Thai',sans-serif;--radius:4px;--radius-lg:12px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--sans),sans-serif;background:var(--warm);color:var(--ink);overflow-x:hidden;padding-bottom:56px;-webkit-font-smoothing:antialiased}
+    #hero{background:#1a1008 url('images/Air-cleaner-services.webp') center/cover no-repeat;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:88px 28px 72px;position:relative;color:#fff}
+    #hero::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,16,8,.72) 0%,rgba(26,16,8,.5) 60%,rgba(26,16,8,.3) 100%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:700px;width:100%}
+    .reveal,.reveal-l,.reveal-r{opacity:0;transform:translateY(24px)}
+    .reveal.in,.reveal-l.in,.reveal-r.in{opacity:1;transform:none}
+    #notice{background:var(--ink);color:var(--gold);text-align:center;padding:10px 16px;font-size:13px;font-weight:600}
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "AirClean Premium",
-    "description": "บริการล้างแอร์มาตรฐานระดับโรงแรม กรุงเทพมหานคร",
-    "url": "https://atenticai.github.io/statichtml/",
-    "telephone": "02-000-0000",
-    "email": "contact@aircleannpremium.com",
+    "description": "บริการล้างแอร์บ้านและคอนโด กรุงเทพฯ มาตรฐาน Premium ช่างผ่านตรวจประวัติ น้ำยาฆ่าเชื้อ Medical Grade รับประกันงาน 30 วัน",
+    "url": "https://atenticai.github.io/statichtml",
+    "telephone": "+6620000000",
     "priceRange": "฿399–฿1,099",
-    "currenciesAccepted": "THB",
-    "paymentAccepted": "Cash, Bank Transfer, Credit Card",
-    "areaServed": {
-      "@type": "City",
-      "name": "กรุงเทพมหานคร"
-    },
+    "image": "https://atenticai.github.io/statichtml/images/Air-cleaner-services.webp",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "กรุงเทพมหานคร",
       "addressCountry": "TH"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "4200",
-      "bestRating": "5",
-      "worstRating": "1"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 13.7563,
+      "longitude": 100.5018
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -69,785 +102,852 @@
       "opens": "08:00",
       "closes": "20:00"
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "4200",
+      "bestRating": "5"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "แพ็คเกจล้างแอร์",
+      "name": "บริการล้างแอร์",
       "itemListElement": [
-        { "@type": "Offer", "name": "Basic",    "price": "399",   "priceCurrency": "THB" },
-        { "@type": "Offer", "name": "Standard", "price": "649",   "priceCurrency": "THB" },
-        { "@type": "Offer", "name": "Premium",  "price": "1099",  "priceCurrency": "THB" }
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Basic — ล้างแอร์ทั่วไป" },
+          "price": "399",
+          "priceCurrency": "THB"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Standard — ล้างแอร์ Deep Clean" },
+          "price": "649",
+          "priceCurrency": "THB"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Premium — ล้างแอร์ครบระบบ" },
+          "price": "1099",
+          "priceCurrency": "THB"
+        }
       ]
-    }
+    },
+    "sameAs": [
+      "https://lin.ee/aircleaner"
+    ]
   }
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════
-       PERFORMANCE: DNS-PREFETCH / PRECONNECT
-  ════════════════════════════════════════════════════════ -->
-  <link rel="preconnect"  href="https://fonts.googleapis.com">
-  <link rel="preconnect"  href="https://fonts.gstatic.com" crossorigin>
+  <!-- ═══════════════════════════════════════
+       STRUCTURED DATA — FAQPage (JSON-LD)
+  ════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "ช่างถูกกว่า ล้างแบบเดียวกันไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ไม่เหมือนกันครับ ช่างราคาถูกมักล้างแค่ฟิลเตอร์และพ่นน้ำ ไม่ได้แตะคอยล์เย็นและถาดน้ำซึ่งเป็นจุดสะสมราที่แท้จริง ราคาถูกกว่า ฿100–200 แต่คุณยังเสียค่าไฟเพิ่ม ฿120/เดือนต่อไปอีก ไม่คุ้มเลยครับ"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "น้ำจะหกเลอะบ้านไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ไม่ครับ ช่างปูผ้าคลุมพื้นและเฟอร์นิเจอร์ก่อนทุกครั้ง และใช้ถุงรองน้ำที่ต่อตรงกับเครื่อง น้ำไหลลงถังโดยตรง ไม่กระเด็นแม้แต่หยดเดียว"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ควรล้างทุกกี่เดือน?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ใช้งานปกติวันละ 6–8 ชั่วโมง แนะนำทุก 6 เดือนครับ มีสัตว์เลี้ยงหรือใช้งานหนักควรทุก 3–4 เดือน"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ชำระเงินได้ช่องทางไหน?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "รับเงินสด โอนผ่านธนาคาร PromptPay และบัตรเครดิต/เดบิต ชำระหลังงานเสร็จเท่านั้น ไม่มีเก็บเงินล่วงหน้าครับ"
+        }
+      }
+    ]
+  }
+  </script>
 
-  <!-- ═══════════════════════════════════════════════════════
-       PERFORMANCE: PRELOAD LCP IMAGE  (hero background)
-       ─ fetchpriority="high" tells browser this is the LCP
-  ════════════════════════════════════════════════════════ -->
-  <link rel="preload"
-        as="image"
-        href="images/Air-cleaner-services.webp"
-        fetchpriority="high">
+  <!-- ═══════════════════════════════════════
+       CACHE CONTROL — Apache / Nginx hint via meta
+       (จริงๆ ต้องตั้งใน server config แต่ใส่ไว้เป็น reference)
+  ════════════════════════════════════════ -->
+  <!--
+    RECOMMENDED SERVER CACHE HEADERS (.htaccess / nginx):
+    CSS/JS  → Cache-Control: public, max-age=31536000, immutable
+    Images  → Cache-Control: public, max-age=2592000
+    HTML    → Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  -->
 
-  <!-- ═══════════════════════════════════════════════════════
-       FONTS  — non-blocking  (eliminates render-blocking)
-       Only weights actually used: 700, 900 Serif  /  400, 600, 700 Sans
-  ════════════════════════════════════════════════════════ -->
-  <link rel="preload"
-        as="style"
-        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@700;900&family=Noto+Sans+Thai:wght@400;600;700&display=swap"
-        onload="this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@700;900&family=Noto+Sans+Thai:wght@400;600;700&display=swap">
-  </noscript>
-
-  <!-- ═══════════════════════════════════════════════════════
-       STYLESHEET  (external — cache-friendly)
-  ════════════════════════════════════════════════════════ -->
-  <link rel="stylesheet" href="css/style.css">
-
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a1008'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23f4c43c'%3E%E2%9D%84%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='30' fill='%231a1008'/%3E%3Ctext x='90' y='130' font-size='110' text-anchor='middle' fill='%23f4c43c'%3E%E2%9D%84%EF%B8%8F%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════════════════
-       NOTICE BAR
-  ════════════════════════════════════════════════════════ -->
-  <div id="notice" role="banner" aria-label="โปรโมชั่นพิเศษ">
-    🔥 โปรพิเศษสัปดาห์นี้ — ลด 30% ทุกแพ็คเกจ
-    <span aria-hidden="true">|</span>
-    เหลือ 7 คิวสุดท้าย
-    <span aria-hidden="true">|</span>
-    ตอบกลับภายใน 5 นาที
-  </div>
+<!-- ═══════════════════════════════════════
+     NOTICE BAR
+════════════════════════════════════════ -->
+<div id="notice" role="region" aria-label="โปรโมชั่นพิเศษ">
+  🔥 โปรพิเศษสัปดาห์นี้ — ลด 30% ทุกแพ็คเกจ
+  <span aria-hidden="true">|</span>
+  เหลือ 7 คิวสุดท้าย
+  <span aria-hidden="true">|</span>
+  ตอบกลับภายใน 5 นาที
+</div>
 
-  <!-- ═══════════════════════════════════════════════════════
-       HERO
-  ════════════════════════════════════════════════════════ -->
-  <section id="hero" aria-label="Hero">
-    <div class="hero-inner">
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<main id="main-content">
+<section id="hero" aria-label="บริการล้างแอร์ Premium">
+  <div class="hero-inner">
 
-      <div class="hero-kicker" aria-hidden="true">
-        <div class="kicker-dot"></div>
-        <span class="kicker-text">Premium Air Cleaning Service · กรุงเทพฯ</span>
-      </div>
-
-      <h1 class="hero-h1">
-        แอร์ของคุณทำงานหนักมาก<br>
-        <em>มันสมควรได้รับการดูแล</em>
-      </h1>
-
-      <p class="hero-sub">
-        เหมือนที่คุณดูแลตัวเอง — แอร์ก็ต้องการด้วย<br>
-        ล้างแอร์ปีละครั้ง <strong>ประหยัดค่าไฟ ฿800–1,200</strong> และยืดอายุเครื่องได้อีก 3–5 ปี<br>
-        บริการโดยช่างที่ <strong>คุณไว้ใจได้จริง</strong>
-      </p>
-
-      <div class="hero-stats" role="list">
-        <div class="hstat" role="listitem"><span class="hstat-n">4,200+</span><span class="hstat-l">ลูกค้าพึงพอใจ</span></div>
-        <div class="hstat" role="listitem"><span class="hstat-n">4.9★</span><span class="hstat-l">Google Review</span></div>
-        <div class="hstat" role="listitem"><span class="hstat-n">30 วัน</span><span class="hstat-l">รับประกันงาน</span></div>
-        <div class="hstat" role="listitem"><span class="hstat-n">ฟรี</span><span class="hstat-l">ค่าประเมิน</span></div>
-      </div>
-
-      <div class="hero-cta">
-        <a href="#booking-form" class="btn-gold">📅 จองคิวฟรี — ไม่มีค่าจอง</a>
-        <a href="#finalcta"     class="btn-outline">💬 แอดไลน์ก่อน</a>
-      </div>
-
-      <div class="hero-trust" aria-label="การรับประกัน">
-        <div class="htrust-item">ฟรีค่าประเมิน</div>
-        <div class="htrust-item">จ่ายเมื่องานเสร็จ</div>
-        <div class="htrust-item">ยกเลิกได้ฟรีก่อน 24 ชม.</div>
-        <div class="htrust-item">ช่างตรวจประวัติแล้ว</div>
-      </div>
-
+    <div class="hero-kicker">
+      <div class="kicker-dot" aria-hidden="true"></div>
+      <span class="kicker-text">Premium Air Cleaning Service · กรุงเทพฯ</span>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       REALITY CHECK
-  ════════════════════════════════════════════════════════ -->
-  <section id="reality" class="section" aria-labelledby="reality-heading">
-    <div class="wrap">
+    <h1 class="hero-h1">
+      แอร์ของคุณทำงานหนักมาก<br>
+      <em>มันสมควรได้รับการดูแล</em>
+    </h1>
 
-      <div class="reality-intro reveal">
-        <div class="eyebrow">เรื่องที่อยากบอก</div>
-        <h2 id="reality-heading">คุณรู้ไหมว่า<br>แอร์ที่ไม่ล้างทำอะไรกับบ้านคุณบ้าง</h2>
-        <div class="gold-rule" aria-hidden="true"></div>
-        <p>ไม่ใช่เรื่องน่ากลัว แต่มันเป็นเรื่องที่รู้แล้วจะรู้สึกว่า "ควรทำตั้งนานแล้ว"</p>
-      </div>
-
-      <div class="reality-grid">
-        <article class="reality-card reveal d1">
-          <div class="rc-num" aria-hidden="true">01</div>
-          <span class="rc-icon" aria-hidden="true">🌡️</span>
-          <h3 class="rc-title">ค่าไฟแพงโดยไม่รู้ตัว</h3>
-          <p class="rc-desc">แอร์ที่ฝุ่นอุดตันคอยล์ต้องทำงานหนักกว่าปกติ 25–35% ทุกเดือนคุณจ่ายค่าไฟเพิ่มโดยไม่ได้ความเย็นเพิ่มขึ้นเลย</p>
-          <div class="rc-sting">เฉลี่ย ฿100–120 บาท/เครื่อง/เดือน ที่สูญไปเงียบๆ</div>
-        </article>
-        <article class="reality-card reveal d2">
-          <div class="rc-num" aria-hidden="true">02</div>
-          <span class="rc-icon" aria-hidden="true">🌫️</span>
-          <h3 class="rc-title">อากาศในบ้านไม่สะอาดอย่างที่คิด</h3>
-          <p class="rc-desc">เชื้อราและแบคทีเรียสะสมในคอยล์เย็นและถาดน้ำ ทุกครั้งที่เปิดแอร์มันฟุ้งกระจายทั่วห้อง เด็กเล็กและผู้สูงอายุรับเข้าปอดทุกวัน</p>
-          <div class="rc-sting">พื้นที่สะสมเชื้อราในแอร์มากกว่าห้องน้ำถึง 3 เท่า</div>
-        </article>
-        <article class="reality-card reveal d3">
-          <div class="rc-num" aria-hidden="true">03</div>
-          <span class="rc-icon" aria-hidden="true">🔧</span>
-          <h3 class="rc-title">เครื่องอายุสั้นลงทุกวัน</h3>
-          <p class="rc-desc">คอมเพรสเซอร์ที่ทำงานหนักเกินจะสึกหรอเร็วขึ้น แอร์ที่ไม่ล้างเลย 2 ปีมีโอกาสเสียหายรุนแรงสูงกว่าแอร์ที่ดูแลสม่ำเสมอถึง 4 เท่า</p>
-          <div class="rc-sting">ค่าซ่อมใหญ่ ฿3,000–15,000 เทียบกับล้างปีละ ฿649</div>
-        </article>
-        <article class="reality-card reveal d4">
-          <div class="rc-num" aria-hidden="true">04</div>
-          <span class="rc-icon" aria-hidden="true">😤</span>
-          <h3 class="rc-title">ช่างที่เจอมาไม่ตรงปก</h3>
-          <p class="rc-desc">มาสาย ทำงานรวบรัด น้ำหกเลอะบ้าน แล้วก็หายไป คุณก็แค่หาช่างใหม่วนไป แต่ผลลัพธ์ก็ยังเหมือนเดิม ถึงเวลาที่ควรเจอช่างที่ไว้ใจได้จริงๆ</p>
-          <div class="rc-sting">นั่นคือสาเหตุที่เราตรวจประวัติช่างทุกคนก่อนรับเข้าทีม</div>
-        </article>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       COST CALCULATOR
-  ════════════════════════════════════════════════════════ -->
-  <section id="cost" class="section section-dark" aria-labelledby="cost-heading">
-    <div class="wrap">
-      <div class="cost-inner">
-
-        <div class="cost-text reveal-l">
-          <div class="eyebrow" style="color:var(--gold-light)">คำนวณให้ดูตรงๆ</div>
-          <h2 id="cost-heading">คุณกำลัง<br>เสียเงินไปเท่าไหร่<br><em style="color:var(--gold)">ทุกเดือน?</em></h2>
-          <div class="gold-rule" style="margin:18px 0" aria-hidden="true"></div>
-          <p>ปรับตัวเลขแล้วดูว่าแอร์ที่ไม่ล้างของคุณดูดเงินออกไปเท่าไหรต่อปี</p>
-          <p><strong>เพราะเราเชื่อว่าถ้าคุณเห็นตัวเลขจริงๆ คุณจะตัดสินใจเองได้</strong></p>
-        </div>
-
-        <div class="calc-widget reveal-r">
-          <div class="calc-label-row">
-            <label for="ac-slider">จำนวนเครื่องแอร์</label>
-            <span id="ac-val" aria-live="polite">2 เครื่อง</span>
-          </div>
-          <input type="range" class="calc-slider" id="ac-slider"
-                 min="1" max="6" value="2"
-                 style="--pct:16.67%"
-                 aria-label="จำนวนเครื่องแอร์">
-
-          <div class="calc-label-row">
-            <label for="hr-slider">ชั่วโมงใช้งานต่อวัน</label>
-            <span id="hr-val" aria-live="polite">8 ชั่วโมง</span>
-          </div>
-          <input type="range" class="calc-slider" id="hr-slider"
-                 min="4" max="18" value="8"
-                 style="--pct:28.57%"
-                 aria-label="ชั่วโมงใช้งานต่อวัน">
-
-          <div class="calc-result">
-            <div>
-              <div class="cr-label">ค่าไฟที่สูญเปล่าต่อปี</div>
-              <div style="font-size:12px;color:rgba(247,242,232,.3);margin-top:2px">(เพราะแอร์สกปรก)</div>
-            </div>
-            <div class="cr-num" id="waste-result" aria-live="polite">฿2,928</div>
-          </div>
-
-          <div class="calc-vs">
-            <div class="cv-item bad">
-              <div class="cv-label">ไม่ล้าง เสียค่าไฟ</div>
-              <div class="cv-num" id="cv-bad">฿2,928</div>
-              <div class="cv-sub">ต่อปี</div>
-            </div>
-            <div class="cv-item good">
-              <div class="cv-label">ล้างแอร์ ประหยัดได้</div>
-              <div class="cv-num" id="cv-save">฿2,928</div>
-              <div class="cv-sub">ราคาล้างแค่ ฿649/เครื่อง</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       SOLUTION / CREDENTIAL
-  ════════════════════════════════════════════════════════ -->
-  <section id="solution" class="section section-warm" aria-labelledby="solution-heading">
-    <div class="wrap">
-      <div class="sol-grid">
-
-        <div class="sol-text reveal-l">
-          <div class="eyebrow">สิ่งที่คุณจะได้รับ</div>
-          <h2 id="solution-heading">เราไม่แค่<br>"ล้างแอร์"<br>เราดูแลบ้านคุณ</h2>
-          <div class="gold-rule" style="margin:18px 0" aria-hidden="true"></div>
-          <p>ช่างทั่วไปมาฉีดน้ำ เช็ดผ้า แล้วก็ไป<br>
-          เราใช้ <strong>ระบบ Deep Clean แรงดันสูง</strong> ล้างเจาะลึกถึงคอยล์เย็นและถาดน้ำ — จุดที่ช่างอื่นไม่แตะ</p>
-          <p>เพราะเราเชื่อว่าลูกค้าที่พอใจจริงๆ ไม่ต้องการโฆษณา — <strong>ลูกค้ากว่า 60% ของเราคือลูกค้าเก่าที่กลับมาเอง</strong></p>
-          <a href="#booking-form" class="btn-gold" style="margin-top:24px">📅 จองคิวฟรีเลย</a>
-        </div>
-
-        <div class="cred-list reveal-r">
-          <div class="cred-item"><div class="cred-icon" aria-hidden="true">🧪</div><div class="cred-body"><h4>น้ำยาฆ่าเชื้อ Medical Grade</h4><p>มาตรฐานเดียวกับโรงพยาบาล ฆ่าเชื้อรา แบคทีเรีย 99.9% ปลอดภัยต่อเด็กและสัตว์เลี้ยง</p></div></div>
-          <div class="cred-item"><div class="cred-icon" aria-hidden="true">🛡️</div><div class="cred-body"><h4>ช่างผ่านตรวจประวัติอาชญากรรม</h4><p>แจ้งชื่อ รูป และหมายเลขบัตรประชาชนก่อนเข้าบ้านเสมอ ทีมงานมีประกันภัยความรับผิดต่อบุคคลที่สาม</p></div></div>
-          <div class="cred-item"><div class="cred-icon" aria-hidden="true">⏱️</div><div class="cred-body"><h4>ตรงเวลา ±15 นาที รับประกัน</h4><p>มาช้ากว่านี้รับส่วนลด ฿100 อัตโนมัติ ไม่ต้องร้องเรียน ไม่ต้องต่อรอง</p></div></div>
-          <div class="cred-item"><div class="cred-icon" aria-hidden="true">📸</div><div class="cred-body"><h4>ถ่ายรูป Before/After ทุกครั้ง</h4><p>โปร่งใส 100% คุณเห็นผลงานก่อนจ่ายเงิน มีหลักฐานทุกขั้นตอน</p></div></div>
-          <div class="cred-item"><div class="cred-icon" aria-hidden="true">🔒</div><div class="cred-body"><h4>รับประกันงาน 30 วันเต็ม</h4><p>ไม่พอใจ แก้ฟรี หรือคืนเงิน 100% ไม่มีข้อแม้ ไม่มีคำถาม</p></div></div>
-        </div>
-
-        <div class="tech-img-wrap reveal-r">
-          <img
-            src="images/Great-Employee.webp"
-            alt="ช่าง AirClean Premium แต่งตัวสุภาพ มืออาชีพ พร้อมให้บริการ"
-            loading="lazy"
-            width="800"
-            height="600"
-            decoding="async"
-          >
-          <div class="tech-img-badge">&#10003; ช่างผ่านตรวจประวัติแล้ว</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       BEFORE / AFTER
-  ════════════════════════════════════════════════════════ -->
-  <section id="ba" class="section section-warm2" aria-labelledby="ba-heading">
-    <div class="wrap">
-
-      <div class="reveal" style="text-align:center;margin-bottom:0">
-        <div class="eyebrow">ผลลัพธ์ที่เห็นได้ชัด</div>
-        <h2 id="ba-heading" style="font-family:var(--serif);font-size:clamp(26px,3.5vw,42px);font-weight:900;color:var(--ink);line-height:1.25">
-          ก่อน <span style="color:var(--muted2)">—</span> หลัง<br>ความต่างที่คุณสัมผัสได้ทันที
-        </h2>
-        <div class="gold-rule" aria-hidden="true"></div>
-      </div>
-
-      <div class="ba-wrap">
-        <div class="ba-table reveal d1">
-
-          <div class="ba-col before">
-            <img
-              src="images/before-clean.webp"
-              alt="คอยล์แอร์สกปรก มีฝุ่นและคราบดำสะสม ก่อนล้าง"
-              class="ba-img"
-              loading="lazy"
-              width="600"
-              height="200"
-              decoding="async"
-            >
-            <div class="ba-col-head"><span aria-hidden="true">✕</span> ก่อนล้าง Premium</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>คราบดำ เชื้อรา สะสมในคอยล์เย็น</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>ความเย็นลดลง 30–40% จากเดิม</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>ค่าไฟแพงขึ้น 25–35% ทุกเดือน</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>กลิ่นอับ ฟุ้งทุกครั้งที่เปิด</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>อายุเครื่องสั้นลง เสี่ยงซ่อมใหญ่</div>
-          </div>
-
-          <div class="ba-col after">
-            <img
-              src="images/after-clean.webp"
-              alt="แอร์สะอาด เหมือนใหม่ หลังล้างด้วย AirClean Premium"
-              class="ba-img"
-              loading="lazy"
-              width="600"
-              height="200"
-              decoding="async"
-            >
-            <div class="ba-col-head"><span aria-hidden="true">✓</span> หลังล้าง Premium</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>สะอาดสดใส เหมือนเครื่องใหม่</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>เย็นเต็ม 100% ทันที</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>ค่าไฟลดทันทีเดือนถัดไป</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>อากาศสดชื่น ฆ่าเชื้อ 99.9%</div>
-            <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>ยืดอายุแอร์ได้อีก 3–5 ปี</div>
-          </div>
-
-        </div>
-
-        <div class="ba-footer reveal d2">
-          <div class="baf-text">
-            ล้างแอร์ 1 ครั้ง <strong>คุ้มค่ากว่าไม่ล้างมาก</strong><br>
-            <span style="font-size:13px;color:var(--muted)">เพราะค่าล้าง ฿649 &lt; ค่าไฟที่เสียเพิ่มทั้งปี</span>
-          </div>
-          <div class="baf-num">ROI 200%+</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       HIGHLIGHTS
-  ════════════════════════════════════════════════════════ -->
-  <section id="hl" class="section section-dark" aria-labelledby="hl-heading">
-    <div class="wrap">
-
-      <div class="hl-intro reveal">
-        <div class="eyebrow" style="color:var(--gold-light)">ทำไมต้องเลือกเรา</div>
-        <h2 id="hl-heading" style="color:var(--warm)">3 สิ่งที่ทำให้ลูกค้า<br>กลับมาซ้ำทุกปี</h2>
-        <div class="gold-rule" aria-hidden="true"></div>
-      </div>
-
-      <div class="hl-grid">
-        <article class="hl-card reveal d1">
-          <span class="hl-icon" aria-hidden="true">🧪</span>
-          <h3 class="hl-title">น้ำยาฆ่าเชื้อมาตรฐานโรงพยาบาล</h3>
-          <p class="hl-desc">ไม่ใช่น้ำยาถูกๆ จากตลาด — ใช้ Disinfectant ระดับ Medical Grade รับรองโดย WHO ฆ่าเชื้อรา แบคทีเรีย และไวรัส 99.9% ปลอดภัยต่อทุกคนในบ้าน</p>
-          <div class="hl-badge">WHO Approved Formula</div>
-        </article>
-        <article class="hl-card reveal d2">
-          <span class="hl-icon" aria-hidden="true">🛡️</span>
-          <h3 class="hl-title">ช่างผ่านตรวจประวัติ มีประกันภัย</h3>
-          <p class="hl-desc">ช่างทุกคนผ่านการตรวจสอบประวัติอาชญากรรมจาก กรมการปกครอง มีบัตรพนักงาน และทีมงานทุกคนอยู่ภายใต้ประกันภัยความรับผิดต่อบุคคลที่สาม วางใจได้ 100%</p>
-          <div class="hl-badge">ตรวจประวัติโดย กรมการปกครอง</div>
-        </article>
-        <article class="hl-card reveal d3">
-          <span class="hl-icon" aria-hidden="true">⏰</span>
-          <h3 class="hl-title">ตรงต่อเวลา ไม่มีข้อแม้</h3>
-          <p class="hl-desc">ถ้าช่างมาช้าเกิน 15 นาที คุณรับส่วนลด ฿100 อัตโนมัติ ไม่ต้องร้องเรียน ไม่ต้องต่อรอง เราทำแบบนี้เพราะรู้ว่าเวลาของคุณมีค่า On-time Rate ของเรา 97.3%</p>
-          <div class="hl-badge">On-time Rate 97.3%</div>
-        </article>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       TRUST / REVIEWS
-  ════════════════════════════════════════════════════════ -->
-  <section id="trust" class="section section-warm" aria-labelledby="trust-heading">
-    <div class="wrap">
-
-      <div class="trust-intro reveal">
-        <div class="eyebrow">เสียงจากลูกค้า</div>
-        <h2 id="trust-heading">4,200+ ครอบครัว<br>เลือกเราซ้ำทุกปี</h2>
-        <div class="gold-rule" aria-hidden="true"></div>
-      </div>
-
-      <div class="reviews">
-        <article class="rcard reveal d1">
-          <div class="stars" aria-label="5 ดาว">★★★★★</div>
-          <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
-          <p class="rtext">"ก่อนหน้านี้ค่าไฟบ้านเดือนละ 4,800 บาท หลังล้างแอร์ครบทุกตัว เดือนถัดมาเหลือแค่ 3,700 บาท ลดไปเกือบพันเลย คุ้มมากๆ ครับ ไม่น่าเชื่อว่าแค่ล้างแอร์จะต่างได้ขนาดนี้"</p>
-          <div class="reviewer"><div class="avatar" aria-hidden="true">ว</div><div><div class="rname">วิชัย ร.</div><div class="rloc">พระโขนง · แอร์ 4 เครื่อง</div></div></div>
-        </article>
-        <article class="rcard reveal d2">
-          <div class="stars" aria-label="5 ดาว">★★★★★</div>
-          <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
-          <p class="rtext">"ลูกสาวแพ้อากาศมาตลอด พอล้างแอร์แล้วอาการดีขึ้นชัดเจนมากค่ะ ช่างมาตรงเวลา แต่งตัวดีมาก ถ่ายรูปให้ดูทุกขั้นตอนก่อนจ่ายเงิน ประทับใจจริงๆ"</p>
-          <div class="reviewer"><div class="avatar" aria-hidden="true">ส</div><div><div class="rname">สุนิสา ว.</div><div class="rloc">ลาดพร้าว · แอร์ 2 เครื่อง</div></div></div>
-        </article>
-        <article class="rcard reveal d3">
-          <div class="stars" aria-label="5 ดาว">★★★★★</div>
-          <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
-          <p class="rtext">"เคยใช้ช่างถูกๆ มาก่อน แล้วน้ำหกเลอะทั่วบ้าน ครั้งนี้ปูผ้าก่อนทุกอย่าง สะอาดมาก จ่ายแพงกว่า แต่สบายใจกว่า และคุ้มกว่ามากเลยครับ"</p>
-          <div class="reviewer"><div class="avatar dark" aria-hidden="true">ป</div><div><div class="rname">ปริยา ม.</div><div class="rloc">จตุจักร · แอร์ 3 เครื่อง</div></div></div>
-        </article>
-        <article class="rcard reveal d1">
-          <div class="stars" aria-label="5 ดาว">★★★★★</div>
-          <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
-          <p class="rtext">"ห่วงมากก่อนโทรจอง กลัวช่างจะเข้าบ้านแล้วทำของหาย พอเห็นช่างแสดงบัตรก่อนเข้าบ้าน มีประกันภัยจริง ใจเย็นลงทันที ผลงานก็ดีมาก แอร์เย็นกว่าเดิมชัดเจนค่ะ"</p>
-          <div class="reviewer"><div class="avatar" aria-hidden="true">ก</div><div><div class="rname">กานดา ป.</div><div class="rloc">บางแค · แอร์ 2 เครื่อง</div></div></div>
-        </article>
-        <article class="rcard reveal d2">
-          <div class="stars" aria-label="5 ดาว">★★★★★</div>
-          <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
-          <p class="rtext">"จองออนไลน์ง่ายมาก ไม่ถึง 2 นาที ช่างโทรยืนยันภายใน 10 นาที มาตรงเวลาเปะ ทำงานเรียบร้อย เก็บของเองก่อนกลับ ไม่ต้องพูดซ้ำเลยครับ ประทับใจตั้งแต่ต้นจนจบ"</p>
-          <div class="reviewer"><div class="avatar" aria-hidden="true">ธ</div><div><div class="rname">ธีรวัฒน์ จ.</div><div class="rloc">ดินแดง · แอร์ 3 เครื่อง</div></div></div>
-        </article>
-        <article class="rcard reveal d3">
-          <div class="stars" aria-label="5 ดาว">★★★★★</div>
-          <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
-          <p class="rtext">"ทำคอนโดชั้น 28 ช่างไม่บ่นเลยสักคำ อุปกรณ์ครบ น้ำยาหอมมากค่ะ ไม่ฉุนจมูกเหมือนที่อื่น ตอนนี้จองคิวปีละ 2 ครั้งประจำ บอกเพื่อนในตึกไปหลายคนแล้ว"</p>
-          <div class="reviewer"><div class="avatar" aria-hidden="true">น</div><div><div class="rname">นภาพร ส.</div><div class="rloc">สาทร · แอร์ 1 เครื่อง</div></div></div>
-        </article>
-      </div>
-
-      <div class="reviews-more reveal" role="button" tabindex="0">ดูรีวิวจากลูกค้าจริงทั้งหมด 4,200+ รีวิว &rarr;</div>
-
-      <div class="trust-seals reveal d2" role="list">
-        <div class="seal" role="listitem"><span aria-hidden="true">🏢</span> จดทะเบียนบริษัทถูกต้อง</div>
-        <div class="seal" role="listitem"><span aria-hidden="true">📜</span> ใบอนุญาตประกอบธุรกิจ</div>
-        <div class="seal" role="listitem"><span aria-hidden="true">🛡️</span> ประกันภัยช่างทุกคน</div>
-        <div class="seal" role="listitem"><span aria-hidden="true">⭐</span> Google Review 4.9/5</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       PROCESS
-  ════════════════════════════════════════════════════════ -->
-  <section id="process" class="section section-warm2" aria-labelledby="process-heading">
-    <div class="wrap">
-
-      <div class="reveal" style="text-align:center">
-        <div class="eyebrow">ง่ายมาก</div>
-        <h2 id="process-heading" style="font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--ink);line-height:1.25">
-          จองใน 2 นาที<br>ช่างมาถึงบ้าน
-        </h2>
-        <div class="gold-rule" aria-hidden="true"></div>
-      </div>
-
-      <div class="process-inner">
-        <article class="pstep reveal d1">
-          <div class="pstep-head">
-            <div class="pnum" aria-label="ขั้นตอนที่ 1">1</div>
-            <span class="pstep-icon" aria-hidden="true">📱</span>
-          </div>
-          <div class="pbody">
-            <h3>จองออนไลน์หรือโทรหาเรา</h3>
-            <p>บอกจำนวนเครื่อง ที่อยู่ และวันเวลาที่สะดวก เราตอบยืนยันภายใน 5 นาที ไม่มีค่าจองล่วงหน้า ยกเลิกได้ฟรีก่อน 24 ชั่วโมง ไม่มีข้อแม้</p>
-            <div class="pstep-detail-row">
-              <span class="pstep-detail-chip">ชื่อ + เบอร์</span>
-              <span class="pstep-detail-chip">วันที่สะดวก</span>
-              <span class="pstep-detail-chip">จำนวนเครื่อง</span>
-            </div>
-            <span class="ptag">⚡ ยืนยันภายใน 5 นาที</span>
-          </div>
-        </article>
-        <article class="pstep reveal d2">
-          <div class="pstep-head">
-            <div class="pnum" aria-label="ขั้นตอนที่ 2">2</div>
-            <span class="pstep-icon" aria-hidden="true">🧑‍🔧</span>
-          </div>
-          <div class="pbody">
-            <h3>ช่างมาตรงเวลา ทำงานมืออาชีพ</h3>
-            <p>ช่างแสดงบัตรประจำตัวก่อนเข้าบ้าน ปูผ้าคลุมพื้นและเฟอร์นิเจอร์ ล้างด้วยระบบแรงดันสูง + น้ำยาฆ่าเชื้อ ถ่ายรูป Before/After ให้ดูทุกครั้ง</p>
-            <div class="pstep-detail-row">
-              <span class="pstep-detail-chip">🪪 แสดงบัตร</span>
-              <span class="pstep-detail-chip">🧴 น้ำยา Medical</span>
-              <span class="pstep-detail-chip">📸 Before/After</span>
-            </div>
-            <span class="ptag">🛡️ แสดงบัตรก่อนเข้าบ้านเสมอ</span>
-          </div>
-        </article>
-        <article class="pstep reveal d3">
-          <div class="pstep-head">
-            <div class="pnum" aria-label="ขั้นตอนที่ 3">3</div>
-            <span class="pstep-icon" aria-hidden="true">✅</span>
-          </div>
-          <div class="pbody">
-            <h3>ตรวจสอบ รับประกัน แล้วค่อยจ่าย</h3>
-            <p>ทดสอบให้แอร์เย็นก่อนเสมอ มอบใบรับประกัน 30 วัน ชำระเงินสด/โอน หลังงานเสร็จ ไม่มีค่าใช้จ่ายซ่อนเร้นแม้แต่บาทเดียว</p>
-            <div class="pstep-detail-row">
-              <span class="pstep-detail-chip">❄️ ทดสอบความเย็น</span>
-              <span class="pstep-detail-chip">📄 ใบรับประกัน 30 วัน</span>
-              <span class="pstep-detail-chip">💳 จ่ายหลังงานเสร็จ</span>
-            </div>
-            <span class="ptag">💰 จ่ายเมื่องานเสร็จเท่านั้น</span>
-          </div>
-        </article>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       PRICING
-  ════════════════════════════════════════════════════════ -->
-  <section id="pricing" class="section section-dark" aria-labelledby="pricing-heading">
-    <div class="wrap">
-
-      <div class="pricing-intro reveal">
-        <div class="eyebrow" style="color:var(--gold-light)">ราคาตรงไปตรงมา</div>
-        <h2 id="pricing-heading">เลือกแพ็คเกจที่เหมาะกับคุณ</h2>
-        <p>ราคาที่เห็นคือราคาที่จ่าย — ไม่มีบวกเพิ่มหน้างาน ไม่มีค่าใช้จ่ายซ่อนเร้น</p>
-      </div>
-
-      <div class="plans reveal d1">
-        <article class="plan">
-          <h3 class="plan-name">Basic</h3>
-          <p class="plan-sub">ล้างแอร์ทั่วไป เหมาะสำหรับดูแลประจำ</p>
-          <div class="plan-orig">ราคาปกติ ฿599</div>
-          <div class="plan-price">฿399<span class="plan-unit">/เครื่อง</span></div>
-          <div class="plan-save">ประหยัด 33%</div>
-          <ul class="plan-feats">
-            <li><span class="pcheck" aria-hidden="true">✓</span> ล้างแรงดันสูง</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> ทำความสะอาดฟิลเตอร์</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> เช็ดตัวเครื่องในนอก</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> รับประกัน 30 วัน</li>
-          </ul>
-          <a href="#booking-form" class="btn-plan">เลือกแพ็คนี้</a>
-        </article>
-
-        <article class="plan best">
-          <div class="plan-badge">⭐ แนะนำ</div>
-          <h3 class="plan-name">Standard</h3>
-          <p class="plan-sub">ครบทุกอย่าง เหมาะสำหรับบ้านทั่วไป</p>
-          <div class="plan-orig">ราคาปกติ ฿899</div>
-          <div class="plan-price">฿649<span class="plan-unit">/เครื่อง</span></div>
-          <div class="plan-save">ประหยัด 28% · ขายดีสุด</div>
-          <ul class="plan-feats">
-            <li><span class="pcheck" aria-hidden="true">✓</span> ทุกอย่างใน Basic</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> น้ำยาฆ่าเชื้อ Medical Grade</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> ล้างคอยล์เย็นเจาะลึก</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> ถ่ายรูป Before/After</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> รายงานส่ง Line</li>
-          </ul>
-          <a href="#booking-form" class="btn-plan best">จองแพ็คนี้เลย</a>
-        </article>
-
-        <article class="plan">
-          <h3 class="plan-name">Premium</h3>
-          <p class="plan-sub">สำหรับคอนโดหรูและบ้านระดับ Hi-end</p>
-          <div class="plan-orig">ราคาปกติ ฿1,499</div>
-          <div class="plan-price">฿1,099<span class="plan-unit">/เครื่อง</span></div>
-          <div class="plan-save">ประหยัด 27%</div>
-          <ul class="plan-feats">
-            <li><span class="pcheck" aria-hidden="true">✓</span> ทุกอย่างใน Standard</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> ล้างยูนิตนอก (Outdoor)</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> ตรวจวัดค่าความเย็น</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> เติมน้ำยา (กรณีต่ำ)</li>
-            <li><span class="pcheck" aria-hidden="true">✓</span> รายงาน PDF ส่ง Line</li>
-          </ul>
-          <a href="#booking-form" class="btn-plan">เลือกแพ็คนี้</a>
-        </article>
-      </div>
-
-      <p class="pricing-note reveal">* ราคาสำหรับแอร์ไม่เกิน 24,000 BTU &bull; นอกเขตกรุงเทพฯ มีค่าเดินทางเพิ่มเติม &bull; ราคาโปรสิ้นสุดเมื่อคิวเต็ม</p>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       URGENCY
-  ════════════════════════════════════════════════════════ -->
-  <section id="urgency" aria-labelledby="urgency-heading">
-    <div class="urgency-wrap wrap reveal">
-      <div class="eyebrow" style="color:rgba(244,196,60,.7);justify-content:center">อย่าปล่อยให้ผ่านไป</div>
-      <h2 id="urgency-heading">คิวว่าง <span>7 คิวสุดท้าย</span><br>สัปดาห์นี้</h2>
-      <p class="urgency-sub">
-        หน้าร้อน คือช่วงที่ทุกคนนึกถึงแอร์พร้อมกัน<br>
-        ถ้าคุณอ่านข้อนี้อยู่ แปลว่ายังมีโอกาส<br>
-        <strong style="color:var(--warm)">ลงทะเบียนตอนนี้ = ล็อคราคาโปรไว้ก่อน</strong>
-      </p>
-
-      <div class="slots-row" id="slots-row" role="list" aria-label="สถานะคิว">
-        <div class="slot taken" title="จองแล้ว" role="listitem"></div>
-        <div class="slot taken" title="จองแล้ว" role="listitem"></div>
-        <div class="slot taken" title="จองแล้ว" role="listitem"></div>
-        <div class="slot taken" title="จองแล้ว" role="listitem"></div>
-        <div class="slot taken" title="จองแล้ว" role="listitem"></div>
-        <div class="slot taken" title="จองแล้ว" role="listitem"></div>
-        <div class="slot taken" title="จองแล้ว" role="listitem"></div>
-        <div class="slot taken" title="จองแล้ว" role="listitem"></div>
-        <div class="slot open"  title="ว่าง — จองได้เลย" role="listitem">📅</div>
-        <div class="slot open"  title="ว่าง — จองได้เลย" role="listitem">📅</div>
-        <div class="slot open"  title="ว่าง — จองได้เลย" role="listitem">📅</div>
-        <div class="slot open"  title="ว่าง — จองได้เลย" role="listitem">📅</div>
-        <div class="slot open"  title="ว่าง — จองได้เลย" role="listitem">📅</div>
-        <div class="slot open"  title="ว่าง — จองได้เลย" role="listitem">📅</div>
-        <div class="slot open"  title="ว่าง — จองได้เลย" role="listitem">📅</div>
-      </div>
-      <div class="slots-caption" id="slots-caption" aria-live="polite">
-        จองแล้ว 8 คิว &nbsp;&middot;&nbsp; ว่างอยู่ <strong style="color:var(--gold)">7 คิวสุดท้าย</strong>
-      </div>
-
-      <div class="cd-row" aria-label="เวลานับถอยหลัง">
-        <div class="cd-box"><span class="cd-num" id="cdH">04</span><div class="cd-lbl">ชั่วโมง</div></div>
-        <div class="cd-sep" aria-hidden="true">:</div>
-        <div class="cd-box"><span class="cd-num" id="cdM">23</span><div class="cd-lbl">นาที</div></div>
-        <div class="cd-sep" aria-hidden="true">:</div>
-        <div class="cd-box"><span class="cd-num" id="cdS">59</span><div class="cd-lbl">วินาที</div></div>
-      </div>
-
-      <a href="#booking-form" class="btn-gold" style="font-size:18px;padding:18px 52px">⚡ จองคิวก่อนเต็ม</a>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       RISK REVERSAL
-  ════════════════════════════════════════════════════════ -->
-  <section id="risk" class="section section-warm" aria-labelledby="risk-heading">
-    <div class="wrap">
-      <div class="reveal" style="text-align:center">
-        <div class="eyebrow">ความมั่นใจของเรา</div>
-        <h2 id="risk-heading" style="font-family:var(--serif);font-size:clamp(24px,3vw,38px);font-weight:900;color:var(--ink);line-height:1.25;margin-bottom:8px">ไม่พอใจ คืนเงินทันที<br>ไม่มีคำถาม</h2>
-        <div class="gold-rule" aria-hidden="true"></div>
-      </div>
-      <div class="risk-inner">
-        <p style="font-size:17px;font-weight:600;color:var(--ink);margin-bottom:12px">🛡️ รับประกันงาน 30 วันเต็ม</p>
-        <p>ถ้าล้างแล้วแอร์ยังไม่เย็นขึ้น กลิ่นยังไม่หาย หรืองานไม่ได้มาตรฐาน — เราจะกลับมาแก้ให้ฟรี หรือ<strong>คืนเงิน 100%</strong> โดยไม่มีเงื่อนไข ไม่ต้องต่อรอง ไม่ต้องส่งหลักฐาน แค่โทรบอกเรา</p>
-        <div class="risk-pills" style="margin-top:24px">
-          <div class="rpill"><span class="rpill-icon" aria-hidden="true">✅</span> คืนเงิน 100% หากไม่พอใจ</div>
-          <div class="rpill"><span class="rpill-icon" aria-hidden="true">🔄</span> แก้งานฟรีภายใน 30 วัน</div>
-          <div class="rpill"><span class="rpill-icon" aria-hidden="true">📞</span> ซัพพอร์ตทุกวัน 8:00–20:00</div>
-          <div class="rpill"><span class="rpill-icon" aria-hidden="true">📸</span> หลักฐาน Before/After ทุกครั้ง</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       FAQ
-  ════════════════════════════════════════════════════════ -->
-  <section id="faq" class="section section-warm2" aria-labelledby="faq-heading">
-    <div class="wrap">
-      <div class="reveal" style="text-align:center">
-        <div class="eyebrow">ข้อสงสัย</div>
-        <h2 id="faq-heading" style="font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--ink);line-height:1.25">ตอบตรงๆ ไม่อ้อม</h2>
-        <div class="gold-rule" aria-hidden="true"></div>
-      </div>
-      <div class="faq-inner">
-        <div class="fitem reveal d1">
-          <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ช่างถูกกว่า ล้างแบบเดียวกันไหม? <span class="farrow" aria-hidden="true">▼</span></button>
-          <div class="fans" role="region">ไม่เหมือนกันครับ ช่างราคาถูกมักล้างแค่ฟิลเตอร์และพ่นน้ำ ไม่ได้แตะคอยล์เย็นและถาดน้ำซึ่งเป็นจุดสะสมราที่แท้จริง ราคาถูกกว่า ฿100–200 แต่คุณยังเสียค่าไฟเพิ่ม ฿120/เดือนต่อไปอีก ไม่คุ้มเลยครับ</div>
-        </div>
-        <div class="fitem reveal d2">
-          <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">น้ำจะหกเลอะบ้านไหม? <span class="farrow" aria-hidden="true">▼</span></button>
-          <div class="fans" role="region">ไม่ครับ ช่างปูผ้าคลุมพื้นและเฟอร์นิเจอร์ก่อนทุกครั้ง และใช้ถุงรองน้ำที่ต่อตรงกับเครื่อง น้ำไหลลงถังโดยตรง ไม่กระเด็นแม้แต่หยดเดียว</div>
-        </div>
-        <div class="fitem reveal d3">
-          <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ต้องอยู่บ้านตอนช่างทำงานไหม? <span class="farrow" aria-hidden="true">▼</span></button>
-          <div class="fans" role="region">แนะนำให้มีผู้ใหญ่อยู่เพื่อตรวจรับงานครับ แต่ถ้าไม่สะดวก แจ้งล่วงหน้าได้ เราส่งรูป Before/After และรายงานผ่าน Line ให้ทุกครั้ง</div>
-        </div>
-        <div class="fitem reveal d4">
-          <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ควรล้างทุกกี่เดือน? <span class="farrow" aria-hidden="true">▼</span></button>
-          <div class="fans" role="region">ใช้งานปกติวันละ 6–8 ชั่วโมง แนะนำทุก 6 เดือนครับ มีสัตว์เลี้ยงหรือใช้งานหนักควรทุก 3–4 เดือน สำหรับลูกค้าที่จองล่วงหน้าเราให้ส่วนลดพิเศษ</div>
-        </div>
-        <div class="fitem reveal d5">
-          <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ถ้าแอร์ยังไม่เย็นหลังล้าง ทำอย่างไร? <span class="farrow" aria-hidden="true">▼</span></button>
-          <div class="fans" role="region">โทรแจ้งเราทันทีครับ ถ้าอยู่ในระยะรับประกัน 30 วัน ช่างจะกลับมาตรวจฟรี ถ้าเกิดจากงานของเรา แก้ฟรี ถ้าเกิดจากสาเหตุอื่น เราแจ้งก่อนทุกครั้ง ไม่เริ่มงานโดยไม่บอกราคา</div>
-        </div>
-        <div class="fitem reveal d6">
-          <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ชำระเงินได้ช่องทางไหน? <span class="farrow" aria-hidden="true">▼</span></button>
-          <div class="fans" role="region">รับเงินสด โอนผ่านธนาคาร PromptPay และบัตรเครดิต/เดบิต ชำระหลังงานเสร็จเท่านั้น ไม่มีเก็บเงินล่วงหน้าครับ</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       FINAL CTA
-  ════════════════════════════════════════════════════════ -->
-  <section id="finalcta" class="section-dark" aria-labelledby="cta-heading">
-    <div class="wrap" style="position:relative;z-index:1">
-
-      <div class="cta-intro reveal">
-        <div class="eyebrow" style="color:var(--gold-light);justify-content:center">จองเลยตอนนี้</div>
-        <h2 id="cta-heading">หยุดเสียค่าไฟทิ้ง<br>กรอกข้อมูลนี้ใช้เวลา <em style="color:var(--gold)">30 วินาที</em></h2>
-        <div class="gold-rule" aria-hidden="true"></div>
-        <p>ไม่มีค่าจอง · ยกเลิกได้ฟรี · ทีมงานตอบใน 5 นาที</p>
-      </div>
-
-      <div class="fcard reveal d1" id="booking-form">
-        <div class="fcard-title">🗓️ จองคิวล้างแอร์ฟรี — ไม่มีค่าจองล่วงหน้า</div>
-
-        <div class="fgroup">
-          <label for="f-name">ชื่อ</label>
-          <input type="text"  id="f-name" name="name"  autocomplete="name" class="f-input" placeholder="เช่น สมชาย ใจดี" required>
-        </div>
-        <div class="fgroup">
-          <label for="f-tel">เบอร์โทรศัพท์</label>
-          <input type="tel"   id="f-tel"  name="tel"   autocomplete="tel"  class="f-input" placeholder="0XX-XXX-XXXX" required>
-        </div>
-        <div class="fgroup">
-          <label for="f-qty">จำนวนเครื่องแอร์</label>
-          <select id="f-qty" name="qty" required>
-            <option value="">เลือกจำนวน</option>
-            <option value="1">1 เครื่อง</option>
-            <option value="2">2 เครื่อง</option>
-            <option value="3">3 เครื่อง</option>
-            <option value="4+">4+ เครื่อง</option>
-          </select>
-        </div>
-        <div class="fgroup">
-          <label for="f-date">วันที่สะดวก</label>
-          <input type="date" id="f-date" name="date">
-        </div>
-
-        <div id="form-err" class="field-error" role="alert"></div>
-
-        <button type="button" class="btn-submit-gold" onclick="submitForm(this)">
-          ⚡ ยืนยันจองคิวฟรี — ราคาโปรสัปดาห์นี้
-        </button>
-
-        <p class="fnote">ข้อมูลของคุณปลอดภัย 100% · ไม่มีค่าใช้จ่ายจนกว่างานจะเสร็จ</p>
-
-        <div class="ssl-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#8a7d60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-          </svg>
-          SSL Encrypted · ปลอดภัยระดับธนาคาร
-        </div>
-      </div>
-
-      <div class="alt-contact reveal d2">
-        <p>หรือติดต่อเราโดยตรง</p>
-        <div class="alt-btns">
-          <a href="https://line.me/R/ti/p/@aircleaner" class="btn-outline" rel="noopener noreferrer">💬 Line: @aircleaner</a>
-          <a href="tel:020000000" class="btn-ghost-dark">📞 02-000-0000</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="fbrand">❄️ AirClean Premium</div>
-    <p class="finfo">
-      บริษัท แอร์คลีน พรีเมียม จำกัด · เลขทะเบียน 010XXXXXXXXX<br>
-      กรุงเทพมหานคร · โทร <a href="tel:020000000" style="color:inherit">02-000-0000</a> · Line @aircleaner
+    <p class="hero-sub">
+      เหมือนที่คุณดูแลตัวเอง — แอร์ก็ต้องการด้วย<br>
+      ล้างแอร์ปีละครั้ง <strong>ประหยัดค่าไฟ ฿800–1,200</strong> และยืดอายุเครื่องได้อีก 3–5 ปี<br>
+      บริการโดยช่างที่ <strong>คุณไว้ใจได้จริง</strong>
     </p>
-    <div class="flegs">
-      <span class="fleg">🏢 จดทะเบียนถูกต้อง</span>
-      <span class="fleg">&middot;</span>
-      <span class="fleg">🛡️ ประกันภัยช่าง</span>
-      <span class="fleg">&middot;</span>
-      <span class="fleg">📜 ใบอนุญาตประกอบธุรกิจ</span>
+
+    <div class="hero-stats" role="list" aria-label="สถิติบริการ">
+      <div class="hstat" role="listitem"><span class="hstat-n">4,200+</span><span class="hstat-l">ลูกค้าพึงพอใจ</span></div>
+      <div class="hstat" role="listitem"><span class="hstat-n">4.9★</span><span class="hstat-l">Google Review</span></div>
+      <div class="hstat" role="listitem"><span class="hstat-n">30 วัน</span><span class="hstat-l">รับประกันงาน</span></div>
+      <div class="hstat" role="listitem"><span class="hstat-n">ฟรี</span><span class="hstat-l">ค่าประเมิน</span></div>
     </div>
-    <p class="fcopy">&copy; 2025 AirClean Premium. All rights reserved.</p>
-  </footer>
 
-  <!-- ═══════════════════════════════════════════════════════
-       STICKY BAR
-  ════════════════════════════════════════════════════════ -->
-  <div id="sticky" role="complementary" aria-label="จองด่วน">
-    <span class="sticky-msg">🔥 เหลือ <strong>7 คิวสุดท้าย</strong> — โปรสัปดาห์นี้</span>
-    <a href="#booking-form" class="btn-gold">📅 จองเลย</a>
-    <a href="tel:020000000" class="btn-ghost-dark">📞 โทร</a>
+    <div class="hero-cta">
+      <a href="#booking-form" class="btn-gold">📅 จองคิวฟรี — ไม่มีค่าจอง</a>
+      <a href="#finalcta" class="btn-outline">💬 แอดไลน์ก่อน</a>
+    </div>
+
+    <div class="hero-trust" aria-label="การรับประกัน">
+      <div class="htrust-item">ฟรีค่าประเมิน</div>
+      <div class="htrust-item">จ่ายเมื่องานเสร็จ</div>
+      <div class="htrust-item">ยกเลิกได้ฟรีก่อน 24 ชม.</div>
+      <div class="htrust-item">ช่างตรวจประวัติแล้ว</div>
+    </div>
+
   </div>
+</section>
 
-  <!-- BACK TO TOP -->
-  <button id="back-top" aria-label="กลับขึ้นด้านบน">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <polyline points="18 15 12 9 6 15"/>
-    </svg>
-  </button>
+<!-- ═══════════════════════════════════════
+     REALITY CHECK
+════════════════════════════════════════ -->
+<section id="reality" class="section" aria-labelledby="reality-title">
+  <div class="wrap">
+    <div class="reality-intro reveal">
+      <div class="eyebrow" aria-hidden="true">เรื่องที่อยากบอก</div>
+      <h2 id="reality-title">คุณรู้ไหมว่า<br>แอร์ที่ไม่ล้างทำอะไรกับบ้านคุณบ้าง</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+      <p>ไม่ใช่เรื่องน่ากลัว แต่มันเป็นเรื่องที่รู้แล้วจะรู้สึกว่า "ควรทำตั้งนานแล้ว"</p>
+    </div>
 
-  <!-- SOCIAL PROOF POPUP -->
-  <div id="sp-popup" role="status" aria-live="polite" aria-atomic="true">
-    <div class="sp-inner">
-      <div class="sp-icon" aria-hidden="true">👀</div>
-      <div>
-        <div class="sp-text" id="sp-msg">
-          <strong>สมหญิง จาก ลาดพร้าว</strong><br>กำลังดูหน้านี้อยู่ด้วยตอนนี้
-        </div>
-        <div class="sp-time" id="sp-time">เมื่อกี้</div>
+    <div class="reality-grid">
+      <div class="reality-card reveal d1">
+        <div class="rc-num" aria-hidden="true">01</div>
+        <span class="rc-icon" role="img" aria-label="เทอร์โมมิเตอร์">🌡️</span>
+        <h3 class="rc-title">ค่าไฟแพงโดยไม่รู้ตัว</h3>
+        <p class="rc-desc">แอร์ที่ฝุ่นอุดตันคอยล์ต้องทำงานหนักกว่าปกติ 25–35% ทุกเดือนคุณจ่ายค่าไฟเพิ่มโดยไม่ได้ความเย็นเพิ่มขึ้นเลย</p>
+        <div class="rc-sting">เฉลี่ย ฿100–120 บาท/เครื่อง/เดือน ที่สูญไปเงียบๆ</div>
+      </div>
+      <div class="reality-card reveal d2">
+        <div class="rc-num" aria-hidden="true">02</div>
+        <span class="rc-icon" role="img" aria-label="ควัน">🌫️</span>
+        <h3 class="rc-title">อากาศในบ้านไม่สะอาดอย่างที่คิด</h3>
+        <p class="rc-desc">เชื้อราและแบคทีเรียสะสมในคอยล์เย็นและถาดน้ำ ทุกครั้งที่เปิดแอร์มันฟุ้งกระจายทั่วห้อง เด็กเล็กและผู้สูงอายุรับเข้าปอดทุกวัน</p>
+        <div class="rc-sting">พื้นที่สะสมเชื้อราในแอร์มากกว่าห้องน้ำถึง 3 เท่า</div>
+      </div>
+      <div class="reality-card reveal d3">
+        <div class="rc-num" aria-hidden="true">03</div>
+        <span class="rc-icon" role="img" aria-label="เครื่องมือ">🔧</span>
+        <h3 class="rc-title">เครื่องอายุสั้นลงทุกวัน</h3>
+        <p class="rc-desc">คอมเพรสเซอร์ที่ทำงานหนักเกินจะสึกหรอเร็วขึ้น แอร์ที่ไม่ล้างเลย 2 ปีมีโอกาสเสียหายรุนแรงสูงกว่าแอร์ที่ดูแลสม่ำเสมอถึง 4 เท่า</p>
+        <div class="rc-sting">ค่าซ่อมใหญ่ ฿3,000–15,000 เทียบกับล้างปีละ ฿649</div>
+      </div>
+      <div class="reality-card reveal d4">
+        <div class="rc-num" aria-hidden="true">04</div>
+        <span class="rc-icon" role="img" aria-label="ไม่พอใจ">😤</span>
+        <h3 class="rc-title">ช่างที่เจอมาไม่ตรงปก</h3>
+        <p class="rc-desc">มาสาย ทำงานรวบรัด น้ำหกเลอะบ้าน แล้วก็หายไป คุณก็แค่หาช่างใหม่วนไป แต่ผลลัพธ์ก็ยังเหมือนเดิม ถึงเวลาที่ควรเจอช่างที่ไว้ใจได้จริงๆ</p>
+        <div class="rc-sting">นั่นคือสาเหตุที่เราตรวจประวัติช่างทุกคนก่อนรับเข้าทีม</div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════════════════
-       JAVASCRIPT  (deferred — ไม่บล็อก render)
-  ════════════════════════════════════════════════════════ -->
-  <script src="js/main.js" defer></script>
+<!-- ═══════════════════════════════════════
+     COST CALCULATOR
+════════════════════════════════════════ -->
+<section id="cost" class="section section-dark" aria-labelledby="cost-title">
+  <div class="wrap">
+    <div class="cost-inner">
+      <div class="cost-text reveal-l">
+        <div class="eyebrow" style="color:var(--gold-light)" aria-hidden="true">คำนวณให้ดูตรงๆ</div>
+        <h2 id="cost-title">คุณกำลัง<br>เสียเงินไปเท่าไหร่<br><em style="color:var(--gold)">ทุกเดือน?</em></h2>
+        <div class="gold-rule" style="margin:18px 0" aria-hidden="true"></div>
+        <p>ปรับตัวเลขแล้วดูว่าแอร์ที่ไม่ล้างของคุณดูดเงินออกไปเท่าไหร่ต่อปี</p>
+        <p><strong>เพราะเราเชื่อว่าถ้าคุณเห็นตัวเลขจริงๆ คุณจะตัดสินใจเองได้</strong></p>
+      </div>
+
+      <div class="calc-widget reveal-r" role="region" aria-label="เครื่องคำนวณค่าไฟ">
+        <div class="calc-label-row">
+          <label for="ac-slider">จำนวนเครื่องแอร์</label>
+          <span id="ac-val" aria-live="polite">2 เครื่อง</span>
+        </div>
+        <input type="range" class="calc-slider" id="ac-slider" min="1" max="6" value="2" style="--pct:16.67%" aria-label="จำนวนเครื่องแอร์">
+
+        <div class="calc-label-row">
+          <label for="hr-slider">ชั่วโมงใช้งานต่อวัน</label>
+          <span id="hr-val" aria-live="polite">8 ชั่วโมง</span>
+        </div>
+        <input type="range" class="calc-slider" id="hr-slider" min="4" max="18" value="8" style="--pct:28.57%" aria-label="ชั่วโมงใช้งานต่อวัน">
+
+        <div class="calc-result">
+          <div>
+            <div class="cr-label">ค่าไฟที่สูญเปล่าต่อปี</div>
+            <div style="font-size:12px;color:rgba(247,242,232,0.3);margin-top:2px">(เพราะแอร์สกปรก)</div>
+          </div>
+          <div class="cr-num" id="waste-result" aria-live="polite">฿2,928</div>
+        </div>
+
+        <div class="calc-vs">
+          <div class="cv-item bad">
+            <div class="cv-label">ไม่ล้าง เสียค่าไฟ</div>
+            <div class="cv-num" id="cv-bad" aria-live="polite">฿2,928</div>
+            <div class="cv-sub">ต่อปี</div>
+          </div>
+          <div class="cv-item good">
+            <div class="cv-label">ล้างแอร์ ประหยัดได้</div>
+            <div class="cv-num" id="cv-save" aria-live="polite">฿2,928</div>
+            <div class="cv-sub">ราคาล้างแค่ ฿649/เครื่อง</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SOLUTION / CREDENTIAL
+════════════════════════════════════════ -->
+<section id="solution" class="section section-warm" aria-labelledby="solution-title">
+  <div class="wrap">
+    <div class="sol-grid">
+
+      <div class="sol-text reveal-l">
+        <div class="eyebrow" aria-hidden="true">สิ่งที่คุณจะได้รับ</div>
+        <h2 id="solution-title">เราไม่แค่<br>"ล้างแอร์"<br>เราดูแลบ้านคุณ</h2>
+        <div class="gold-rule" style="margin:18px 0" aria-hidden="true"></div>
+        <p>ช่างทั่วไปมาฉีดน้ำ เช็ดผ้า แล้วก็ไป<br>
+        เราใช้ <strong>ระบบ Deep Clean แรงดันสูง</strong> ล้างเจาะลึกถึงคอยล์เย็นและถาดน้ำ — จุดที่ช่างอื่นไม่แตะ</p>
+        <p>เพราะเราเชื่อว่าลูกค้าที่พอใจจริงๆ ไม่ต้องการโฆษณา — <strong>ลูกค้ากว่า 60% ของเราคือลูกค้าเก่าที่กลับมาเอง</strong></p>
+        <a href="#booking-form" class="btn-gold" style="margin-top:24px;display:inline-flex">📅 จองคิวฟรีเลย</a>
+      </div>
+
+      <div class="cred-list reveal-r">
+        <div class="cred-item">
+          <div class="cred-icon" role="img" aria-label="น้ำยาฆ่าเชื้อ">🧪</div>
+          <div class="cred-body">
+            <h3>น้ำยาฆ่าเชื้อ Medical Grade</h3>
+            <p>มาตรฐานเดียวกับโรงพยาบาล ฆ่าเชื้อรา แบคทีเรีย 99.9% ปลอดภัยต่อเด็กและสัตว์เลี้ยง</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon" role="img" aria-label="โล่ป้องกัน">🛡️</div>
+          <div class="cred-body">
+            <h3>ช่างผ่านตรวจประวัติอาชญากรรม</h3>
+            <p>แจ้งชื่อ รูป และหมายเลขบัตรประชาชนก่อนเข้าบ้านเสมอ ทีมงานมีประกันภัยความรับผิดต่อบุคคลที่สาม</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon" role="img" aria-label="นาฬิกา">⏱️</div>
+          <div class="cred-body">
+            <h3>ตรงเวลา ±15 นาที รับประกัน</h3>
+            <p>มาช้ากว่านี้รับส่วนลด ฿100 อัตโนมัติ ไม่ต้องร้องเรียน ไม่ต้องต่อรอง</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon" role="img" aria-label="กล้องถ่ายรูป">📸</div>
+          <div class="cred-body">
+            <h3>ถ่ายรูป Before/After ทุกครั้ง</h3>
+            <p>โปร่งใส 100% คุณเห็นผลงานก่อนจ่ายเงิน มีหลักฐานทุกขั้นตอน</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon" role="img" aria-label="กุญแจล็อก">🔒</div>
+          <div class="cred-body">
+            <h3>รับประกันงาน 30 วันเต็ม</h3>
+            <p>ไม่พอใจ แก้ฟรี หรือคืนเงิน 100% ไม่มีข้อแม้ ไม่มีคำถาม</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-img-wrap reveal-r">
+        <img
+          src="images/Great-Employee.webp"
+          alt="ช่าง AirClean Premium แต่งตัวสุภาพ พร้อมให้บริการ มีบัตรประจำตัวพนักงาน"
+          width="800" height="1067"
+          loading="eager"
+          decoding="async"
+        >
+        <div class="tech-img-badge">&#10003; ช่างผ่านตรวจประวัติแล้ว</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BEFORE / AFTER
+════════════════════════════════════════ -->
+<section id="ba" class="section section-warm2" aria-labelledby="ba-title">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:0">
+      <div class="eyebrow" aria-hidden="true">ผลลัพธ์ที่เห็นได้ชัด</div>
+      <h2 id="ba-title" style="font-family:var(--serif);font-size:clamp(26px,3.5vw,42px);font-weight:900;color:var(--ink);line-height:1.25">
+        ก่อน <span style="color:var(--muted2)">—</span> หลัง<br>ความต่างที่คุณสัมผัสได้ทันที
+      </h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+    </div>
+    <div class="ba-wrap">
+      <div class="ba-table reveal d1">
+        <div class="ba-col before">
+          <img
+            src="images/before-clean.webp"
+            alt="คอยล์แอร์สกปรก มีฝุ่นและคราบดำสะสมก่อนล้าง"
+            class="ba-img" loading="lazy" decoding="async" width="600" height="200"
+          >
+          <div class="ba-col-head">
+            <span aria-hidden="true">✕</span> ก่อนล้าง Premium
+          </div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>คราบดำ เชื้อรา สะสมในคอยล์เย็น</div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>ความเย็นลดลง 30–40% จากเดิม</div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>ค่าไฟแพงขึ้น 25–35% ทุกเดือน</div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>กลิ่นอับ ฟุ้งทุกครั้งที่เปิด</div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>อายุเครื่องสั้นลง เสี่ยงซ่อมใหญ่</div>
+        </div>
+        <div class="ba-col after">
+          <img
+            src="images/after-clean.webp"
+            alt="แอร์สะอาดสดใสหลังล้างด้วย AirClean Premium Deep Clean"
+            class="ba-img" loading="lazy" decoding="async" width="600" height="200"
+          >
+          <div class="ba-col-head">
+            <span aria-hidden="true">✓</span> หลังล้าง Premium
+          </div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>สะอาดสดใส เหมือนเครื่องใหม่</div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>เย็นเต็ม 100% ทันที</div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>ค่าไฟลดทันทีเดือนถัดไป</div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>อากาศสดชื่น ฆ่าเชื้อ 99.9%</div>
+          <div class="ba-row"><div class="ba-dot" aria-hidden="true"></div>ยืดอายุแอร์ได้อีก 3–5 ปี</div>
+        </div>
+      </div>
+      <div class="ba-footer reveal d2">
+        <div class="baf-text">
+          ล้างแอร์ 1 ครั้ง <strong>คุ้มค่ากว่าไม่ล้างมาก</strong><br>
+          <span style="font-size:13px;color:var(--muted)">เพราะค่าล้าง ฿649 &lt; ค่าไฟที่เสียเพิ่มทั้งปี</span>
+        </div>
+        <div class="baf-num">ROI 200%+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HIGHLIGHTS
+════════════════════════════════════════ -->
+<section id="hl" class="section section-dark" aria-labelledby="hl-title">
+  <div class="wrap">
+    <div class="hl-intro reveal">
+      <div class="eyebrow" style="color:var(--gold-light)" aria-hidden="true">ทำไมต้องเลือกเรา</div>
+      <h2 id="hl-title" style="color:var(--warm)">3 สิ่งที่ทำให้ลูกค้า<br>กลับมาซ้ำทุกปี</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+    </div>
+    <div class="hl-grid">
+      <div class="hl-card reveal d1">
+        <span class="hl-icon" role="img" aria-label="น้ำยาฆ่าเชื้อ">🧪</span>
+        <h3 class="hl-title">น้ำยาฆ่าเชื้อมาตรฐานโรงพยาบาล</h3>
+        <p class="hl-desc">ไม่ใช่น้ำยาถูกๆ จากตลาด — ใช้ Disinfectant ระดับ Medical Grade รับรองโดย WHO ฆ่าเชื้อรา แบคทีเรีย และไวรัส 99.9% ปลอดภัยต่อทุกคนในบ้าน</p>
+        <div class="hl-badge">WHO Approved Formula</div>
+      </div>
+      <div class="hl-card reveal d2">
+        <span class="hl-icon" role="img" aria-label="โล่ป้องกัน">🛡️</span>
+        <h3 class="hl-title">ช่างผ่านตรวจประวัติ มีประกันภัย</h3>
+        <p class="hl-desc">ช่างทุกคนผ่านการตรวจสอบประวัติอาชญากรรมจากกรมการปกครอง มีบัตรพนักงาน และทีมงานทุกคนอยู่ภายใต้ประกันภัยความรับผิดต่อบุคคลที่สาม วางใจได้ 100%</p>
+        <div class="hl-badge">ตรวจประวัติโดย กรมการปกครอง</div>
+      </div>
+      <div class="hl-card reveal d3">
+        <span class="hl-icon" role="img" aria-label="นาฬิกาปลุก">⏰</span>
+        <h3 class="hl-title">ตรงต่อเวลา ไม่มีข้อแม้</h3>
+        <p class="hl-desc">ถ้าช่างมาช้าเกิน 15 นาที คุณรับส่วนลด ฿100 อัตโนมัติ ไม่ต้องร้องเรียน ไม่ต้องต่อรอง เราทำแบบนี้เพราะรู้ว่าเวลาของคุณมีค่า On-time Rate ของเรา 97.3%</p>
+        <div class="hl-badge">On-time Rate 97.3%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TRUST / REVIEWS
+════════════════════════════════════════ -->
+<section id="trust" class="section section-warm" aria-labelledby="trust-title">
+  <div class="wrap">
+    <div class="trust-intro reveal">
+      <div class="eyebrow" aria-hidden="true">เสียงจากลูกค้า</div>
+      <h2 id="trust-title">4,200+ ครอบครัว<br>เลือกเราซ้ำทุกปี</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+    </div>
+    <div class="reviews" role="list" aria-label="รีวิวจากลูกค้า">
+      <article class="rcard reveal d1" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="stars" aria-label="5 ดาว">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext" itemprop="reviewBody">"ก่อนหน้านี้ค่าไฟบ้านเดือนละ 4,800 บาท หลังล้างแอร์ครบทุกตัว เดือนถัดมาเหลือแค่ 3,700 บาท ลดไปเกือบพันเลย คุ้มมากๆ ครับ"</p>
+        <div class="reviewer" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <div class="avatar" aria-hidden="true">ว</div>
+          <div><div class="rname" itemprop="name">วิชัย ร.</div><div class="rloc">พระโขนง · แอร์ 4 เครื่อง</div></div>
+        </div>
+      </article>
+      <article class="rcard reveal d2" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="stars" aria-label="5 ดาว">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext" itemprop="reviewBody">"ลูกสาวแพ้อากาศมาตลอด พอล้างแอร์แล้วอาการดีขึ้นชัดเจนมากค่ะ ช่างมาตรงเวลา แต่งตัวดีมาก ถ่ายรูปให้ดูทุกขั้นตอนก่อนจ่ายเงิน ประทับใจจริงๆ"</p>
+        <div class="reviewer" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <div class="avatar" aria-hidden="true">ส</div>
+          <div><div class="rname" itemprop="name">สุนิสา ว.</div><div class="rloc">ลาดพร้าว · แอร์ 2 เครื่อง</div></div>
+        </div>
+      </article>
+      <article class="rcard reveal d3" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="stars" aria-label="5 ดาว">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext" itemprop="reviewBody">"เคยใช้ช่างถูกๆ มาก่อน แล้วน้ำหกเลอะทั่วบ้าน ครั้งนี้ปูผ้าก่อนทุกอย่าง สะอาดมาก จ่ายแพงกว่า แต่สบายใจกว่า และคุ้มกว่ามากเลยครับ"</p>
+        <div class="reviewer" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <div class="avatar dark" aria-hidden="true">ป</div>
+          <div><div class="rname" itemprop="name">ปริยา ม.</div><div class="rloc">จตุจักร · แอร์ 3 เครื่อง</div></div>
+        </div>
+      </article>
+      <article class="rcard reveal d1" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="stars" aria-label="5 ดาว">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext" itemprop="reviewBody">"ห่วงมากก่อนโทรจอง กลัวช่างจะเข้าบ้านแล้วทำของหาย พอเห็นช่างแสดงบัตรก่อนเข้าบ้าน มีประกันภัยจริง ใจเย็นลงทันที ผลงานก็ดีมาก แอร์เย็นกว่าเดิมชัดเจนค่ะ"</p>
+        <div class="reviewer" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <div class="avatar" aria-hidden="true">ก</div>
+          <div><div class="rname" itemprop="name">กานดา ป.</div><div class="rloc">บางแค · แอร์ 2 เครื่อง</div></div>
+        </div>
+      </article>
+      <article class="rcard reveal d2" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="stars" aria-label="5 ดาว">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext" itemprop="reviewBody">"จองออนไลน์ง่ายมาก ไม่ถึง 2 นาที ช่างโทรยืนยันภายใน 10 นาที มาตรงเวลาเปะ ทำงานเรียบร้อย เก็บของเองก่อนกลับ ไม่ต้องพูดซ้ำเลยครับ"</p>
+        <div class="reviewer" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <div class="avatar" aria-hidden="true">ธ</div>
+          <div><div class="rname" itemprop="name">ธีรวัฒน์ จ.</div><div class="rloc">ดินแดง · แอร์ 3 เครื่อง</div></div>
+        </div>
+      </article>
+      <article class="rcard reveal d3" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="stars" aria-label="5 ดาว">★★★★★</div>
+        <div class="verified-badge">&#10003; ยืนยันการใช้บริการจริง</div>
+        <p class="rtext" itemprop="reviewBody">"ทำคอนโดชั้น 28 ช่างไม่บ่นเลยสักคำ อุปกรณ์ครบ น้ำยาหอมมากค่ะ ตอนนี้จองคิวปีละ 2 ครั้งประจำ บอกเพื่อนในตึกไปหลายคนแล้ว"</p>
+        <div class="reviewer" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <div class="avatar" aria-hidden="true">น</div>
+          <div><div class="rname" itemprop="name">นภาพร ส.</div><div class="rloc">สาทร · แอร์ 1 เครื่อง</div></div>
+        </div>
+      </article>
+    </div>
+    <div class="reviews-more reveal" role="button" tabindex="0" aria-label="ดูรีวิวทั้งหมด">ดูรีวิวจากลูกค้าจริงทั้งหมด 4,200+ รีวิว &rarr;</div>
+    <div class="trust-seals reveal d2" role="list" aria-label="ใบรับรองความน่าเชื่อถือ">
+      <div class="seal" role="listitem"><span aria-hidden="true">🏢</span> จดทะเบียนบริษัทถูกต้อง</div>
+      <div class="seal" role="listitem"><span aria-hidden="true">📜</span> ใบอนุญาตประกอบธุรกิจ</div>
+      <div class="seal" role="listitem"><span aria-hidden="true">🛡️</span> ประกันภัยช่างทุกคน</div>
+      <div class="seal" role="listitem"><span aria-hidden="true">⭐</span> Google Review 4.9/5</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PROCESS
+════════════════════════════════════════ -->
+<section id="process" class="section section-warm2" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <div class="eyebrow" aria-hidden="true">ง่ายมาก</div>
+      <h2 id="process-title" style="font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--ink);line-height:1.25">
+        จองใน 2 นาที<br>ช่างมาถึงบ้าน
+      </h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+    </div>
+    <div class="process-inner">
+      <div class="pstep reveal d1">
+        <div class="pstep-head">
+          <div class="pnum" aria-hidden="true">1</div>
+          <span class="pstep-icon" role="img" aria-label="โทรศัพท์">📱</span>
+        </div>
+        <div class="pbody">
+          <h3>จองออนไลน์หรือโทรหาเรา</h3>
+          <p>บอกจำนวนเครื่อง ที่อยู่ และวันเวลาที่สะดวก เราตอบยืนยันภายใน 5 นาที ไม่มีค่าจองล่วงหน้า ยกเลิกได้ฟรีก่อน 24 ชั่วโมง ไม่มีข้อแม้</p>
+          <div class="pstep-detail-row">
+            <span class="pstep-detail-chip">ชื่อ + เบอร์</span>
+            <span class="pstep-detail-chip">วันที่สะดวก</span>
+            <span class="pstep-detail-chip">จำนวนเครื่อง</span>
+          </div>
+          <span class="ptag">⚡ ยืนยันภายใน 5 นาที</span>
+        </div>
+      </div>
+      <div class="pstep reveal d2">
+        <div class="pstep-head">
+          <div class="pnum" aria-hidden="true">2</div>
+          <span class="pstep-icon" role="img" aria-label="ช่าง">🧑‍🔧</span>
+        </div>
+        <div class="pbody">
+          <h3>ช่างมาตรงเวลา ทำงานมืออาชีพ</h3>
+          <p>ช่างแสดงบัตรประจำตัวก่อนเข้าบ้าน ปูผ้าคลุมพื้นและเฟอร์นิเจอร์ ล้างด้วยระบบแรงดันสูง + น้ำยาฆ่าเชื้อ ถ่ายรูป Before/After ให้ดูทุกครั้ง</p>
+          <div class="pstep-detail-row">
+            <span class="pstep-detail-chip">🪪 แสดงบัตร</span>
+            <span class="pstep-detail-chip">🧴 น้ำยา Medical</span>
+            <span class="pstep-detail-chip">📸 Before/After</span>
+          </div>
+          <span class="ptag">🛡️ แสดงบัตรก่อนเข้าบ้านเสมอ</span>
+        </div>
+      </div>
+      <div class="pstep reveal d3">
+        <div class="pstep-head">
+          <div class="pnum" aria-hidden="true">3</div>
+          <span class="pstep-icon" role="img" aria-label="สำเร็จ">✅</span>
+        </div>
+        <div class="pbody">
+          <h3>ตรวจสอบ รับประกัน แล้วค่อยจ่าย</h3>
+          <p>ทดสอบให้แอร์เย็นก่อนเสมอ มอบใบรับประกัน 30 วัน ชำระเงินสด/โอน หลังงานเสร็จ ไม่มีค่าใช้จ่ายซ่อนเร้นแม้แต่บาทเดียว</p>
+          <div class="pstep-detail-row">
+            <span class="pstep-detail-chip">❄️ ทดสอบความเย็น</span>
+            <span class="pstep-detail-chip">📄 ใบรับประกัน 30 วัน</span>
+            <span class="pstep-detail-chip">💳 จ่ายหลังงานเสร็จ</span>
+          </div>
+          <span class="ptag">💰 จ่ายเมื่องานเสร็จเท่านั้น</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PRICING
+════════════════════════════════════════ -->
+<section id="pricing" class="section section-dark" aria-labelledby="pricing-title">
+  <div class="wrap">
+    <div class="pricing-intro reveal">
+      <div class="eyebrow" style="color:var(--gold-light)" aria-hidden="true">ราคาตรงไปตรงมา</div>
+      <h2 id="pricing-title">เลือกแพ็คเกจที่เหมาะกับคุณ</h2>
+      <p>ราคาที่เห็นคือราคาที่จ่าย — ไม่มีบวกเพิ่มหน้างาน ไม่มีค่าใช้จ่ายซ่อนเร้น</p>
+    </div>
+    <div class="plans reveal d1">
+      <div class="plan">
+        <h3 class="plan-name">Basic</h3>
+        <p class="plan-sub">ล้างแอร์ทั่วไป เหมาะสำหรับดูแลประจำ</p>
+        <div class="plan-orig">ราคาปกติ ฿599</div>
+        <div class="plan-price">฿399<span class="plan-unit">/เครื่อง</span></div>
+        <div class="plan-save">ประหยัด 33%</div>
+        <ul class="plan-feats">
+          <li><span class="pcheck" aria-hidden="true">✓</span> ล้างแรงดันสูง</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> ทำความสะอาดฟิลเตอร์</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> เช็ดตัวเครื่องในนอก</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> รับประกัน 30 วัน</li>
+        </ul>
+        <a href="#booking-form" class="btn-plan">เลือกแพ็คนี้</a>
+      </div>
+
+      <div class="plan best">
+        <div class="plan-badge">⭐ แนะนำ</div>
+        <h3 class="plan-name">Standard</h3>
+        <p class="plan-sub">ครบทุกอย่าง เหมาะสำหรับบ้านทั่วไป</p>
+        <div class="plan-orig">ราคาปกติ ฿899</div>
+        <div class="plan-price">฿649<span class="plan-unit">/เครื่อง</span></div>
+        <div class="plan-save">ประหยัด 28% · ขายดีสุด</div>
+        <ul class="plan-feats">
+          <li><span class="pcheck" aria-hidden="true">✓</span> ทุกอย่างใน Basic</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> น้ำยาฆ่าเชื้อ Medical Grade</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> ล้างคอยล์เย็นเจาะลึก</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> ถ่ายรูป Before/After</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> รายงานส่ง Line</li>
+        </ul>
+        <a href="#booking-form" class="btn-plan best">จองแพ็คนี้เลย</a>
+      </div>
+
+      <div class="plan">
+        <h3 class="plan-name">Premium</h3>
+        <p class="plan-sub">สำหรับคอนโดหรูและบ้านระดับ Hi-end</p>
+        <div class="plan-orig">ราคาปกติ ฿1,499</div>
+        <div class="plan-price">฿1,099<span class="plan-unit">/เครื่อง</span></div>
+        <div class="plan-save">ประหยัด 27%</div>
+        <ul class="plan-feats">
+          <li><span class="pcheck" aria-hidden="true">✓</span> ทุกอย่างใน Standard</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> ล้างยูนิตนอก (Outdoor)</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> ตรวจวัดค่าความเย็น</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> เติมน้ำยา (กรณีต่ำ)</li>
+          <li><span class="pcheck" aria-hidden="true">✓</span> รายงาน PDF ส่ง Line</li>
+        </ul>
+        <a href="#booking-form" class="btn-plan">เลือกแพ็คนี้</a>
+      </div>
+    </div>
+    <p class="pricing-note reveal">* ราคาสำหรับแอร์ไม่เกิน 24,000 BTU &bull; นอกเขตกรุงเทพฯ มีค่าเดินทางเพิ่มเติม &bull; ราคาโปรสิ้นสุดเมื่อคิวเต็ม</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     URGENCY
+════════════════════════════════════════ -->
+<section id="urgency" aria-labelledby="urgency-title">
+  <div class="urgency-wrap wrap reveal">
+    <div class="eyebrow" style="color:rgba(244,196,60,0.7);justify-content:center" aria-hidden="true">อย่าปล่อยให้ผ่านไป</div>
+    <h2 id="urgency-title">คิวว่าง <span>7 คิวสุดท้าย</span><br>สัปดาห์นี้</h2>
+    <p class="urgency-sub">
+      หน้าร้อน คือช่วงที่ทุกคนนึกถึงแอร์พร้อมกัน<br>
+      ถ้าคุณอ่านข้อนี้อยู่ แปลว่ายังมีโอกาส<br>
+      <strong>ลงทะเบียนตอนนี้ = ล็อคราคาโปรไว้ก่อน</strong>
+    </p>
+
+    <div class="slots-row" aria-label="สถานะคิว" role="img">
+      <div class="slot taken" title="จองแล้ว"></div><div class="slot taken" title="จองแล้ว"></div>
+      <div class="slot taken" title="จองแล้ว"></div><div class="slot taken" title="จองแล้ว"></div>
+      <div class="slot taken" title="จองแล้ว"></div><div class="slot taken" title="จองแล้ว"></div>
+      <div class="slot taken" title="จองแล้ว"></div><div class="slot taken" title="จองแล้ว"></div>
+      <div class="slot open" title="ว่าง — จองได้เลย">📅</div><div class="slot open" title="ว่าง — จองได้เลย">📅</div>
+      <div class="slot open" title="ว่าง — จองได้เลย">📅</div><div class="slot open" title="ว่าง — จองได้เลย">📅</div>
+      <div class="slot open" title="ว่าง — จองได้เลย">📅</div><div class="slot open" title="ว่าง — จองได้เลย">📅</div>
+      <div class="slot open" title="ว่าง — จองได้เลย">📅</div>
+    </div>
+    <div class="slots-caption">จองแล้ว 8 คิว &nbsp;&middot;&nbsp; ว่างอยู่ <strong style="color:var(--gold)">7 คิวสุดท้าย</strong></div>
+
+    <div class="cd-row" aria-label="นับถอยหลังโปรโมชั่น" role="timer">
+      <div class="cd-box">
+        <span class="cd-num" id="cdH">04</span>
+        <div class="cd-lbl">ชั่วโมง</div>
+      </div>
+      <div class="cd-sep" aria-hidden="true">:</div>
+      <div class="cd-box">
+        <span class="cd-num" id="cdM">23</span>
+        <div class="cd-lbl">นาที</div>
+      </div>
+      <div class="cd-sep" aria-hidden="true">:</div>
+      <div class="cd-box">
+        <span class="cd-num" id="cdS">59</span>
+        <div class="cd-lbl">วินาที</div>
+      </div>
+    </div>
+
+    <a href="#booking-form" class="btn-gold" style="font-size:18px;padding:18px 52px">
+      ⚡ จองคิวก่อนเต็ม
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     RISK REVERSAL
+════════════════════════════════════════ -->
+<section id="risk" class="section section-warm" aria-labelledby="risk-title">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <div class="eyebrow" aria-hidden="true">ความมั่นใจของเรา</div>
+      <h2 id="risk-title" style="font-family:var(--serif);font-size:clamp(24px,3vw,38px);font-weight:900;color:var(--ink);line-height:1.25;margin-bottom:8px">ไม่พอใจ คืนเงินทันที<br>ไม่มีคำถาม</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+    </div>
+    <div class="risk-inner">
+      <p style="font-size:17px;font-weight:600;color:var(--ink);margin-bottom:12px">🛡️ รับประกันงาน 30 วันเต็ม</p>
+      <p>ถ้าล้างแล้วแอร์ยังไม่เย็นขึ้น กลิ่นยังไม่หาย หรืองานไม่ได้มาตรฐาน — เราจะกลับมาแก้ให้ฟรี หรือ<strong>คืนเงิน 100%</strong> โดยไม่มีเงื่อนไข ไม่ต้องต่อรอง ไม่ต้องส่งหลักฐาน แค่โทรบอกเรา</p>
+      <div class="risk-pills" style="margin-top:24px">
+        <div class="rpill"><span class="rpill-icon" aria-hidden="true">✅</span> คืนเงิน 100% หากไม่พอใจ</div>
+        <div class="rpill"><span class="rpill-icon" aria-hidden="true">🔄</span> แก้งานฟรีภายใน 30 วัน</div>
+        <div class="rpill"><span class="rpill-icon" aria-hidden="true">📞</span> ซัพพอร์ตทุกวัน 8:00–20:00</div>
+        <div class="rpill"><span class="rpill-icon" aria-hidden="true">📸</span> หลักฐาน Before/After ทุกครั้ง</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section id="faq" class="section section-warm2" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <div class="eyebrow" aria-hidden="true">ข้อสงสัย</div>
+      <h2 id="faq-title" style="font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--ink);line-height:1.25">ตอบตรงๆ ไม่อ้อม</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+    </div>
+    <div class="faq-inner">
+      <div class="fitem reveal d1">
+        <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ช่างถูกกว่า ล้างแบบเดียวกันไหม? <span class="farrow" aria-hidden="true">▼</span></button>
+        <div class="fans" role="region">ไม่เหมือนกันครับ ช่างราคาถูกมักล้างแค่ฟิลเตอร์และพ่นน้ำ ไม่ได้แตะคอยล์เย็นและถาดน้ำซึ่งเป็นจุดสะสมราที่แท้จริง ราคาถูกกว่า ฿100–200 แต่คุณยังเสียค่าไฟเพิ่ม ฿120/เดือนต่อไปอีก ไม่คุ้มเลยครับ</div>
+      </div>
+      <div class="fitem reveal d2">
+        <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">น้ำจะหกเลอะบ้านไหม? <span class="farrow" aria-hidden="true">▼</span></button>
+        <div class="fans" role="region">ไม่ครับ ช่างปูผ้าคลุมพื้นและเฟอร์นิเจอร์ก่อนทุกครั้ง และใช้ถุงรองน้ำที่ต่อตรงกับเครื่อง น้ำไหลลงถังโดยตรง ไม่กระเด็นแม้แต่หยดเดียว</div>
+      </div>
+      <div class="fitem reveal d3">
+        <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ต้องอยู่บ้านตอนช่างทำงานไหม? <span class="farrow" aria-hidden="true">▼</span></button>
+        <div class="fans" role="region">แนะนำให้มีผู้ใหญ่อยู่เพื่อตรวจรับงานครับ แต่ถ้าไม่สะดวก แจ้งล่วงหน้าได้ เราส่งรูป Before/After และรายงานผ่าน Line ให้ทุกครั้ง</div>
+      </div>
+      <div class="fitem reveal d4">
+        <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ควรล้างทุกกี่เดือน? <span class="farrow" aria-hidden="true">▼</span></button>
+        <div class="fans" role="region">ใช้งานปกติวันละ 6–8 ชั่วโมง แนะนำทุก 6 เดือนครับ มีสัตว์เลี้ยงหรือใช้งานหนักควรทุก 3–4 เดือน สำหรับลูกค้าที่จองล่วงหน้าเราให้ส่วนลดพิเศษ</div>
+      </div>
+      <div class="fitem reveal d5">
+        <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ถ้าแอร์ยังไม่เย็นหลังล้าง ทำอย่างไร? <span class="farrow" aria-hidden="true">▼</span></button>
+        <div class="fans" role="region">โทรแจ้งเราทันทีครับ ถ้าอยู่ในระยะรับประกัน 30 วัน ช่างจะกลับมาตรวจฟรี ถ้าเกิดจากงานของเรา แก้ฟรี ถ้าเกิดจากสาเหตุอื่น เราแจ้งก่อนทุกครั้ง ไม่เริ่มงานโดยไม่บอกราคา</div>
+      </div>
+      <div class="fitem reveal d6">
+        <button class="fbtn" onclick="toggleF(this)" aria-expanded="false">ชำระเงินได้ช่องทางไหน? <span class="farrow" aria-hidden="true">▼</span></button>
+        <div class="fans" role="region">รับเงินสด โอนผ่านธนาคาร PromptPay และบัตรเครดิต/เดบิต ชำระหลังงานเสร็จเท่านั้น ไม่มีเก็บเงินล่วงหน้าครับ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FINAL CTA / BOOKING FORM
+════════════════════════════════════════ -->
+<section id="finalcta" class="section section-dark" aria-labelledby="cta-title">
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="cta-intro reveal">
+      <div class="eyebrow" style="color:var(--gold-light);justify-content:center" aria-hidden="true">จองเลยตอนนี้</div>
+      <h2 id="cta-title">หยุดเสียค่าไฟทิ้ง<br>กรอกข้อมูลนี้ใช้เวลา <em style="color:var(--gold)">30 วินาที</em></h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+      <p>ไม่มีค่าจอง &middot; ยกเลิกได้ฟรี &middot; ทีมงานตอบใน 5 นาที</p>
+    </div>
+
+    <div class="fcard reveal d1" id="booking-form" role="form" aria-labelledby="form-heading">
+      <div class="fcard-title" id="form-heading">🗓️ จองคิวล้างแอร์ฟรี — ไม่มีค่าจองล่วงหน้า</div>
+      <div class="fgroup">
+        <label for="f-name">ชื่อ</label>
+        <input type="text" id="f-name" name="name" autocomplete="name" class="f-input" placeholder="เช่น สมชาย ใจดี" required>
+      </div>
+      <div class="fgroup">
+        <label for="f-tel">เบอร์โทรศัพท์</label>
+        <input type="tel" id="f-tel" name="tel" autocomplete="tel" class="f-input" placeholder="0XX-XXX-XXXX" required>
+      </div>
+      <div class="fgroup">
+        <label for="f-qty">จำนวนเครื่องแอร์</label>
+        <select id="f-qty" name="qty" required>
+          <option value="">เลือกจำนวน</option>
+          <option value="1">1 เครื่อง</option>
+          <option value="2">2 เครื่อง</option>
+          <option value="3">3 เครื่อง</option>
+          <option value="4+">4+ เครื่อง</option>
+        </select>
+      </div>
+      <div class="fgroup">
+        <label for="f-date">วันที่สะดวก</label>
+        <input type="date" id="f-date" name="date" autocomplete="off">
+      </div>
+      <div id="form-err" class="field-error" role="alert" aria-live="assertive" style="text-align:center;font-size:12px;margin-bottom:8px"></div>
+      <button class="btn-submit-gold" onclick="submitForm(this)" type="button" aria-label="ยืนยันจองคิวฟรี">
+        ⚡ ยืนยันจองคิวฟรี — ราคาโปรสัปดาห์นี้
+      </button>
+      <div class="fnote">ข้อมูลของคุณปลอดภัย 100% &middot; ไม่มีค่าใช้จ่ายจนกว่างานจะเสร็จ</div>
+      <div class="ssl-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8a7d60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        SSL Encrypted &middot; ปลอดภัยระดับธนาคาร
+      </div>
+    </div>
+
+    <div class="alt-contact reveal d2">
+      <p>หรือติดต่อเราโดยตรง</p>
+      <div class="alt-btns">
+        <a href="https://lin.ee/aircleaner" class="btn-outline" rel="noopener noreferrer" aria-label="แอดไลน์ @aircleaner">💬 Line: @aircleaner</a>
+        <a href="tel:+6620000000" class="btn-ghost-dark" aria-label="โทร 02-000-0000">📞 02-000-0000</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+</main>
+<footer id="footer">
+  <div class="fbrand">❄️ AirClean Premium</div>
+  <address class="finfo" style="font-style:normal">
+    บริษัท แอร์คลีน พรีเมียม จำกัด &middot; เลขทะเบียน 010XXXXXXXXX<br>
+    กรุงเทพมหานคร &middot; โทร <a href="tel:+6620000000" style="color:inherit">02-000-0000</a> &middot; Line @aircleaner
+  </address>
+  <div class="flegs">
+    <span class="fleg">🏢 จดทะเบียนถูกต้อง</span>
+    <span class="fleg">&middot;</span>
+    <span class="fleg">🛡️ ประกันภัยช่าง</span>
+    <span class="fleg">&middot;</span>
+    <span class="fleg">📜 ใบอนุญาตประกอบธุรกิจ</span>
+  </div>
+  <p class="fcopy">&copy; 2025 AirClean Premium. All rights reserved.</p>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     STICKY BAR
+════════════════════════════════════════ -->
+<div id="sticky" role="complementary" aria-label="แถบจองด่วน">
+  <span class="sticky-msg">🔥 เหลือ <strong>7 คิวสุดท้าย</strong> — โปรสัปดาห์นี้</span>
+  <a href="#booking-form" class="btn-gold" style="padding:10px 24px;font-size:14px;animation:none" aria-label="จองคิวเลย">📅 จองเลย</a>
+  <a href="tel:+6620000000" class="btn-ghost-dark" style="padding:10px 20px;font-size:13px" aria-label="โทรหาเรา">📞 โทร</a>
+</div>
+
+<!-- BACK TO TOP -->
+<button id="back-top" aria-label="กลับขึ้นด้านบน" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- SOCIAL PROOF POPUP -->
+<div id="sp-popup" role="status" aria-live="polite" aria-label="กิจกรรมของผู้ใช้อื่น">
+  <div class="sp-inner">
+    <div class="sp-icon" aria-hidden="true">👀</div>
+    <div>
+      <div class="sp-text" id="sp-msg"><strong>สมหญิง จาก ลาดพร้าว</strong><br>กำลังดูหน้านี้อยู่ด้วยตอนนี้</div>
+      <div class="sp-time" id="sp-time">เมื่อกี้</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PDPA CONSENT BANNER
+════════════════════════════════════════ -->
+<div id="consent-banner" role="dialog" aria-labelledby="consent-title" aria-modal="true" aria-live="polite">
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p id="consent-title"><strong>🍪 เว็บไซต์นี้ใช้คุกกี้</strong></p>
+      <p>เราใช้คุกกี้เพื่อพัฒนาประสบการณ์การใช้งาน และวิเคราะห์การใช้งานเว็บไซต์ตาม <a href="#footer" class="consent-link">นโยบายความเป็นส่วนตัว</a></p>
+    </div>
+    <div class="consent-btns">
+      <button id="consent-accept" class="consent-btn-accept" aria-label="ยอมรับคุกกี้ทั้งหมด">ยอมรับทั้งหมด</button>
+      <button id="consent-reject" class="consent-btn-reject" aria-label="ยอมรับเฉพาะที่จำเป็น">เฉพาะที่จำเป็น</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT — deferred, non-blocking
+════════════════════════════════════════ -->
+<script src="js/main.js" defer></script>
 
 </body>
 </html>
